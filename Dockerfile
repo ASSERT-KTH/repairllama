@@ -9,8 +9,7 @@ RUN apt-get update
 RUN apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update
-# TODO: change to java 8 and recompile flacoco
-RUN apt-get install git subversion openjdk-11-jdk curl unzip build-essential cpanminus python3.10 python3.10-distutils -y
+RUN apt-get install git subversion openjdk-8-jdk curl unzip build-essential cpanminus python3.10 python3.10-distutils -y
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 
 # Copy files

@@ -3,6 +3,9 @@ import subprocess
 import json
 import sys
 import torch
+import difflib
+import uuid
+import traceback
 
 from pathlib import Path
 from typing import Optional, List
@@ -10,12 +13,14 @@ from java_tools.java_lang import load_origin_code_node
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-def generate_patch(statement: dict, dir_java_src: str, prompt: str) -> Optional[List[str]]:
+def generate_patch(
+    statement: dict, dir_java_src: str, prompt: str
+) -> Optional[List[str]]:
     # Step 1: load the model
     model = AutoModelForCausalLM.from_pretrained(
         "RepairLLaMa-Lora-7B-MegaDiff",
-        device_map="auto",
-#        load_in_8bit=True
+        # device_map="auto",
+        # load_in_8bit=True
         )
     tokenizer = AutoTokenizer.from_pretrained("RepairLLaMa-Lora-7B-MegaDiff")
 
@@ -35,19 +40,37 @@ def generate_patch(statement: dict, dir_java_src: str, prompt: str) -> Optional[
                 eos_token_id=tokenizer.eos_token_id,
             )
     except:
+        traceback.print_stack()
         print("The code sequence is too long, {}.".format(inputs_len))
         return None
 
     output_ids = outputs[:, inputs_len:]
-    output_diff = tokenizer.batch_decode(output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+    outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
 
-    # Step 3: replace the buggy code
-    print(output_diff[0])
+    # Step 3: Compute the patch
+    source_file = Path(
+        dir_java_src, statement["className"].replace(".", "/") + ".java"
+    ).absolute()
+    with open(source_file, "r", encoding="ISO-8859-1") as file:
+        buggy_code = file.readlines()
 
-    # Step 4: return the patch
+    diffs = []
+    for output in outputs:
+        fixed_code = buggy_code.copy()
+        fixed_code[statement["lineNumber"] - 1] = f"{output}"
 
+        diff = "".join(
+            difflib.unified_diff(
+                buggy_code,
+                fixed_code,
+                fromfile=str(source_file),
+                tofile=str(source_file),
+            )
+        )
 
-    return output_diff[0]
+        diffs.append(diff)
+
+    return diffs
 
 
 def find_code(file_path: str, line_numbers: List[int]) -> str:
@@ -63,7 +86,8 @@ def find_code(file_path: str, line_numbers: List[int]) -> str:
 
 
 def generate_prompt(
-    statement: dict, dir_java_src: str,
+    statement: dict,
+    dir_java_src: str,
 ) -> Optional[str]:
     # Step 1: Compute the source file path
     source_file = Path(dir_java_src, statement["className"].replace(".", "/") + ".java")
@@ -131,7 +155,7 @@ def run_flacoco(
     return flacoco_results
 
 
-def main(dir_java_src, dir_test_src, dir_java_bin, dir_test_bin):
+def main(dir_java_src, dir_test_src, dir_java_bin, dir_test_bin, patch_directory):
     # Step 1: Run Fault Localization with flacoco
     flacoco_results = run_flacoco(
         dir_java_src, dir_test_src, dir_java_bin, dir_test_bin
@@ -146,17 +170,24 @@ def main(dir_java_src, dir_test_src, dir_java_bin, dir_test_bin):
     suspicious_statements = flacoco_results[:5]
 
     # Step 3: Generate a patch for each suspicious statement
+    patches = []
     for statement in suspicious_statements:
-        prompt = generate_prompt(
-            statement, dir_java_src
-        )
-        
+        prompt = generate_prompt(statement, dir_java_src)
+
         if prompt is None:
             continue
 
-        patch = generate_patch(
-            statement, dir_java_src, prompt
-        )
+        new_patches = generate_patch(statement, dir_java_src, prompt)
+        if new_patches is None:
+            continue
+        else:
+            patches.extend(new_patches)
+
+    # Step 4: Place the diffs in the correct directory
+    for i, patch in enumerate(patches):
+        Path(patch_directory).mkdir(parents=True, exist_ok=True)
+        with open(Path(patch_directory, f"{i}.patch"), "x") as f:
+            f.write(patch)
 
 
 if __name__ == "__main__":
