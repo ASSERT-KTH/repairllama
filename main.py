@@ -1,0 +1,163 @@
+import fire
+import subprocess
+import json
+import sys
+import torch
+
+from pathlib import Path
+from typing import Optional, List
+from java_tools.java_lang import load_origin_code_node
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
+def generate_patch(statement: dict, dir_java_src: str, prompt: str) -> Optional[List[str]]:
+    # Step 1: load the model
+    model = AutoModelForCausalLM.from_pretrained(
+        "RepairLLaMa-Lora-7B-MegaDiff",
+        device_map="auto",
+#        load_in_8bit=True
+        )
+    tokenizer = AutoTokenizer.from_pretrained("RepairLLaMa-Lora-7B-MegaDiff")
+
+    # Step 2: generate the output
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    inputs = tokenizer(prompt, return_tensors="pt")
+    inputs_len = inputs["input_ids"].shape[1]
+    input_ids = inputs["input_ids"].to(device)
+    try:
+        with torch.no_grad():
+            outputs = model.generate(
+                input_ids=input_ids,
+                max_new_tokens=512,
+                n_beams=1,
+                num_return_sequences=1,
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id,
+            )
+    except:
+        print("The code sequence is too long, {}.".format(inputs_len))
+        return None
+
+    output_ids = outputs[:, inputs_len:]
+    output_diff = tokenizer.batch_decode(output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+
+    # Step 3: replace the buggy code
+    print(output_diff[0])
+
+    # Step 4: return the patch
+
+
+    return output_diff[0]
+
+
+def find_code(file_path: str, line_numbers: List[int]) -> str:
+    """
+    Finds the code corresponding to the given line numbers in the given file.
+    """
+    code = ""
+    with open(file_path, "r", encoding="ISO-8859-1") as file:
+        for idx, line in enumerate(file.readlines()):
+            if idx + 1 in line_numbers:
+                code += line
+    return code
+
+
+def generate_prompt(
+    statement: dict, dir_java_src: str,
+) -> Optional[str]:
+    # Step 1: Compute the source file path
+    source_file = Path(dir_java_src, statement["className"].replace(".", "/") + ".java")
+
+    # Step 2: Find the function where the statement is located
+    allowed_node_types = ["MethodDeclaration", "ConstructorDeclaration"]
+    buggy_method = load_origin_code_node(
+        source_file,
+        [statement["lineNumber"]],
+        allowed_node_types,
+    )[0]
+
+    # Step 3: Get the buggy code with line numbers
+    # If the ast nodes are not of the correct type, then we have a whole-function removal/addition
+    buggy_code = (
+        find_code(
+            source_file,
+            [i for i in range(buggy_method.start_pos, buggy_method.end_pos + 1)],
+        )
+        if buggy_method is not None
+        else ""
+    ).strip()
+
+    if buggy_code == "":
+        return None
+
+    # Step 4: Iterate over the buggy code to generate the prompt
+    prompt = ""
+    buggy_code = buggy_code.splitlines(keepends=True)
+    for i, line in enumerate(range(buggy_method.start_pos, buggy_method.end_pos + 1)):
+        if line == statement["lineNumber"]:
+            prompt += f"// buggy lines start:\n"
+            prompt += buggy_code[i]
+            prompt += f"// buggy lines end\n"
+        else:
+            prompt += buggy_code[i]
+
+    return prompt
+
+
+def run_flacoco(
+    dir_java_src, dir_test_src, dir_java_bin, dir_test_bin
+) -> Optional[List[dict]]:
+    """
+    Runs flacoco and returns the fault localization report.
+    """
+    command = (
+        f"java -jar flacoco.jar "
+        + f"--binJavaDir {dir_java_bin} "
+        + f"--binTestDir {dir_test_bin} "
+        + f"--srcJavaDir {dir_java_src} "
+        + f"--srcTestDir {dir_test_src} "
+        + f"--format JSON "
+        + f"--output "
+    )
+    run = subprocess.run(command, shell=True)
+
+    if run.returncode != 0:
+        return None
+
+    # Extract flacoco results (flacoco_results.json)
+    with open("flacoco_results.json", "r") as f:
+        flacoco_results = json.load(f)
+
+    return flacoco_results
+
+
+def main(dir_java_src, dir_test_src, dir_java_bin, dir_test_bin):
+    # Step 1: Run Fault Localization with flacoco
+    flacoco_results = run_flacoco(
+        dir_java_src, dir_test_src, dir_java_bin, dir_test_bin
+    )
+
+    if flacoco_results is None:
+        print("Error running flacoco")
+        return -1
+
+    # Step 2: Select the top K most suspicious statements
+    K = 5
+    suspicious_statements = flacoco_results[:5]
+
+    # Step 3: Generate a patch for each suspicious statement
+    for statement in suspicious_statements:
+        prompt = generate_prompt(
+            statement, dir_java_src
+        )
+        
+        if prompt is None:
+            continue
+
+        patch = generate_patch(
+            statement, dir_java_src, prompt
+        )
+
+
+if __name__ == "__main__":
+    sys.exit(fire.Fire(main))
