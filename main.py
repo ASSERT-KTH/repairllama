@@ -20,23 +20,23 @@ def generate_patch(
     # Step 1: load the model
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = AutoModelForCausalLM.from_pretrained(
-            "CodeLlama-7b-hf",
-            torch_dtype=torch.float16,
-#            device_map="auto",
-            load_in_8bit=True,
-            quantization_config=BitsAndBytesConfig(
-                load_in_8bit=True,
-                llm_int8_threshold=6.0
-            ),
-        )
+        "CodeLlama-7b-hf",
+        torch_dtype=torch.float16,
+        #            device_map="auto",
+        load_in_8bit=True,
+        quantization_config=BitsAndBytesConfig(
+            load_in_8bit=True, llm_int8_threshold=6.0
+        ),
+    )
 
     model = PeftModel.from_pretrained(
-            model,
-            "RepairLLaMa-Lora-7B-MegaDiff",
-            torch_dtype=torch.float16,
-        )
+        model,
+        "RepairLLaMa-Lora-7B-MegaDiff",
+        torch_dtype=torch.float16,
+    )
     tokenizer = AutoTokenizer.from_pretrained("RepairLLaMa-Lora-7B-MegaDiff")
-    model.config.pad_token = tokenizer.pad_token = tokenizer.unk_token
+    tokenizer.pad_token = tokenizer.eos_token
+    model.pad_token = tokenizer.eos_token
     model.to(device)
 
     # Step 2: generate the output
@@ -59,7 +59,10 @@ def generate_patch(
         return None
 
     output_ids = outputs[:, inputs_len:]
-    outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+    outputs = tokenizer.batch_decode(
+        output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False
+    )
+    outputs = [output.split("</s>")[0] for output in outputs]
 
     # Step 3: Compute the patch
     source_file = Path(
@@ -139,6 +142,8 @@ def generate_prompt(
         else:
             prompt += buggy_code[i]
 
+    prompt += "// fixed lines:\n"
+
     return prompt
 
 
@@ -200,7 +205,7 @@ def main(dir_java_src, dir_test_src, dir_java_bin, dir_test_bin, patch_directory
     # Step 4: Place the diffs in the correct directory
     for i, patch in enumerate(patches):
         Path(patch_directory).mkdir(parents=True, exist_ok=True)
-        with open(Path(patch_directory, f"{i}.patch"), "x") as f:
+        with open(Path(patch_directory, f"{i}.patch"), "w") as f:
             f.write(patch)
 
 
