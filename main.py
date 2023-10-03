@@ -11,7 +11,6 @@ from pathlib import Path
 from typing import Optional, List
 from java_tools.java_lang import load_origin_code_node
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-from peft import PeftModel
 
 
 def generate_patch(
@@ -20,24 +19,17 @@ def generate_patch(
     # Step 1: load the model
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = AutoModelForCausalLM.from_pretrained(
-        "CodeLlama-7b-hf",
+        "RepairLLaMa-Lora-7B-MegaDiff",
         torch_dtype=torch.float16,
-        #            device_map="auto",
-        load_in_8bit=True,
+        device_map="auto",
         quantization_config=BitsAndBytesConfig(
             load_in_8bit=True, llm_int8_threshold=6.0
         ),
     )
 
-    model = PeftModel.from_pretrained(
-        model,
-        "RepairLLaMa-Lora-7B-MegaDiff",
-        torch_dtype=torch.float16,
-    )
     tokenizer = AutoTokenizer.from_pretrained("RepairLLaMa-Lora-7B-MegaDiff")
     tokenizer.pad_token = tokenizer.eos_token
     model.pad_token = tokenizer.eos_token
-    model.to(device)
 
     # Step 2: generate the output
     inputs = tokenizer(prompt, return_tensors="pt")
@@ -80,8 +72,8 @@ def generate_patch(
             difflib.unified_diff(
                 buggy_code,
                 fixed_code,
-                fromfile=str(source_file),
-                tofile=str(source_file),
+                fromfile=str(source_file.relative_to(dir_java_src)),
+                tofile=str(source_file.relative_to(dir_java_src)),
             )
         )
 
