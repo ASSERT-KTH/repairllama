@@ -10,7 +10,7 @@ RUN apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update
 RUN apt-get install git subversion openjdk-8-jdk curl unzip build-essential cpanminus python3.10 python3.10-distutils -y
-RUN apt-get install nvidia-driver-535 nvidia-dkms-535 -y
+RUN apt-get install nvidia-driver-525 nvidia-dkms-525 -y
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 
 # Copy files
