@@ -15,7 +15,7 @@ RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 
 # Copy files
 WORKDIR /experiment/
-COPY RepairLLaMa-Lora-7B-MegaDiff/ /experiment/RepairLLaMa-Lora-7B-MegaDiff/
+COPY ../RepairLLaMA-Optimal-IOR /experiment/RepairLLaMa-Lora-7B-MegaDiff/
 COPY CodeLlama-7b-hf/ /experiment/CodeLlama-7b-hf/
 COPY flacoco.jar ./
 COPY requirements.txt ./
