@@ -1,0 +1,9 @@
+--- 
++++ 
+@@ -1,4 +1,4 @@
+     protected BasePeriod(long duration) {
+-        this(duration, null, null);
+-        // bug [3264409]
++       this.duration = duration;
++        this.startTime = System.currentTimeMillis();
+     }

@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,6 +1,12 @@
+     private static void handleRawtext(Token.StartTag startTag, HtmlTreeBuilder tb) {
++// buggy code
++//        tb.insert(startTag);
++//        tb.tokeniser.transition(TokeniserState.Rawtext);
++//        tb.markInsertionMode();
++//        tb.transition(Text);
++       tb.tokeniser.transition(TokeniserState.Rawtext);
+         tb.insert(startTag);
+-        tb.tokeniser.transition(TokeniserState.Rawtext);
+         tb.markInsertionMode();
+         tb.transition(Text);
++
+     }

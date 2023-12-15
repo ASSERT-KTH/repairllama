@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,9 +1,14 @@
+     public static boolean check(String s) {
+         int val = 0;
+         for(int i = 0; i < s.length(); i++) {
+-            if(s.charAt(i) == '(') val--;
+-            else val++;
++// buggy code
++//            if(s.charAt(i) == '(') val--;
++//            else val++;
++//            if(s.charAt(i) == ')') val++;
++            if(s.charAt(i) == '(') val++;
++            else val--;
++
+             if(val < 0) return false;
+         }
+         return val == 0;
+     }

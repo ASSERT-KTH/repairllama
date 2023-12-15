@@ -1,0 +1,4 @@
+  static boolean isSimpleNumber(String s) {
+    int len = s.length();
+<FILL_ME>
+  }

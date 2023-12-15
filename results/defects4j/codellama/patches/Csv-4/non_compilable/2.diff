@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,3 +1,7 @@
+     public Map<String, Integer> getHeaderMap() {
+-        return new LinkedHashMap<String, Integer>(this.headerMap);
++       Map<String, Integer> map = new HashMap<String, Integer>();
++        for (int i = 0; i < headers.length; i++) {
++            map.put(headers[i], i);
++        }
++        return map;
+     }

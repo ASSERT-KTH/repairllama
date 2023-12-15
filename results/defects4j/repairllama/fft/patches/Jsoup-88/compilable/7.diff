@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,3 +1,6 @@
+     public String getValue() {
+-        return val;
++// buggy code
++//        return val;
++       return (val == null ? "" : val);
++
+     }

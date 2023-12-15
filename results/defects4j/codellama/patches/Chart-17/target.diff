@@ -1,0 +1,9 @@
+--- 
++++ 
+@@ -1,4 +1,5 @@
+     public Object clone() throws CloneNotSupportedException {
+-        Object clone = createCopy(0, getItemCount() - 1);
++        TimeSeries clone = (TimeSeries) super.clone();
++        clone.data = (List) ObjectUtilities.deepClone(this.data);
+         return clone;
+     }

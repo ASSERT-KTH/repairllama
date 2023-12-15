@@ -1,0 +1,5 @@
+    public DefaultPrettyPrinter createInstance() {
+// buggy code
+<FILL_ME>
+        return new DefaultPrettyPrinter(this);
+    }

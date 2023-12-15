@@ -1,0 +1,12 @@
+    public static int[] largest_smallest_integers(int[] lst) {
+<FILL_ME>
+            } else if(lst[i] > 0) {
+                positive = true;
+                min_positive = Math.min(min_positive, lst[i]);
+            }
+        }
+        if(!negative) max_negative = 0;
+        if(!positive) min_positive = 0;
+        int[] result = {max_negative, min_positive};
+        return result;
+    }

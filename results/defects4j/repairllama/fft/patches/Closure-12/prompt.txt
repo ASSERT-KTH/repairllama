@@ -1,0 +1,5 @@
+  private boolean hasExceptionHandler(Node cfgNode) {
+// buggy code
+<FILL_ME>
+    return false;
+  }

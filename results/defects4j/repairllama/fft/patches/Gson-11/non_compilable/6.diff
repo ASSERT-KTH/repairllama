@@ -1,0 +1,59 @@
+--- 
++++ 
+@@ -1,12 +1,56 @@
+     public Number read(JsonReader in) throws IOException {
+       JsonToken jsonToken = in.peek();
+       switch (jsonToken) {
+       case NULL:
+         in.nextNull();
+         return null;
+       case NUMBER:
++// buggy code
++       in.skipValue();
++        return null;
++// end buggy code
++      case STRING:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case BOOLEAN:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case BEGIN_ARRAY:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case BEGIN_OBJECT:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case END_DOCUMENT:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case NAME:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case END_ARRAY:
++// buggy code
++        in.skipValue();
++        return null;
++// end buggy code
++      case END_OBJECT:
++// buggy code
++        in.skipValue();
++        return null;
++
+         return new LazilyParsedNumber(in.nextString());
+       default:
+         throw new JsonSyntaxException("Expecting number, got: " + jsonToken);
+       }
+     }

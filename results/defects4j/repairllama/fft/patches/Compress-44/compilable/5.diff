@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,7 +1,9 @@
+     public ChecksumCalculatingInputStream(final Checksum checksum, final InputStream in) {
+-
+-
++// buggy code
++       if (checksum == null || in == null) {
++            throw new NullPointerException();
++        }
+ 
+         this.checksum = checksum;
+         this.in = in;
+     }

@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,7 +1,12 @@
+     public Fraction reduce() {
++// buggy code
++       if (denominator == 0) {
++            throw new IllegalArgumentException("Denominator cannot be 0");
++        }
++
+         int gcd = greatestCommonDivisor(Math.abs(numerator), denominator);
+         if (gcd == 1) {
+             return this;
+         }
+         return Fraction.getFraction(numerator / gcd, denominator / gcd);
+     }

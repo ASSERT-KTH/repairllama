@@ -1,0 +1,4 @@
+    protected double getInitialDomain(double p) {
+<FILL_ME>
+        return ret;
+    }

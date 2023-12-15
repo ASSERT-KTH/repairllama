@@ -1,0 +1,5 @@
+    public boolean hasSameMethod(Invocation candidate) {        
+        Method m1 = invocation.getMethod();
+        Method m2 = candidate.getMethod();
+<FILL_ME>
+    }

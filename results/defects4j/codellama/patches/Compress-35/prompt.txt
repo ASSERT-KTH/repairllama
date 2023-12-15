@@ -1,0 +1,9 @@
+    public static boolean verifyCheckSum(byte[] header) {
+<FILL_ME>
+                b = ' ';
+            }
+            unsignedSum += 0xff & b;
+            signedSum += b;
+        }
+        return storedSum == unsignedSum || storedSum == signedSum;
+    }

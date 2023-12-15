@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,3 +1,6 @@
+     public void addValue(Object v) {
+-            addValue((Comparable<?>) v);            
++// buggy code
++//            addValue((Comparable<?>) v);            
++           super.addValue(v);
++
+     }

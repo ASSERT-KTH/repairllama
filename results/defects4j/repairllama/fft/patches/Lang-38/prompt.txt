@@ -1,0 +1,9 @@
+    public StringBuffer format(Calendar calendar, StringBuffer buf) {
+        if (mTimeZoneForced) {
+// buggy code
+<FILL_ME>
+            calendar = (Calendar) calendar.clone();
+            calendar.setTimeZone(mTimeZone);
+        }
+        return applyRules(calendar, buf);
+    }

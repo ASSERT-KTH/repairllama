@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,7 +1,7 @@
+     public void describeTo(Description description) {
+         description.appendText("same(");
+         appendQuoting(description);
+-        description.appendText(wanted.toString());
++       description.appendText(")");
+         appendQuoting(description);
+         description.appendText(")");
+     }

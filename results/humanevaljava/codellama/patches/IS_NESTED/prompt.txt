@@ -1,0 +1,14 @@
+    public static boolean is_nested(String brackets) {
+        ArrayList<Integer> opening_brackets = new ArrayList<>();
+        ArrayList<Integer> closing_brackets = new ArrayList<>();
+        for(int i = 0; i < brackets.length(); i++) {
+            if(brackets.charAt(i) == '[') opening_brackets.add(i);
+            else closing_brackets.add(i);
+        }
+<FILL_ME>
+                i++;
+                cnt++;
+            }
+        }
+        return cnt >= 2;
+    }

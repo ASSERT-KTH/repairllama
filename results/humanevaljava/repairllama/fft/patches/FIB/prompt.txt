@@ -1,0 +1,5 @@
+    public static int fib(int n) {
+// buggy code
+<FILL_ME>
+        return fib(n - 1) + fib(n - 2);
+    }

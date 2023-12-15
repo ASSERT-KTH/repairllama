@@ -1,0 +1,3 @@
+    public String getValue() {
+<FILL_ME>
+    }

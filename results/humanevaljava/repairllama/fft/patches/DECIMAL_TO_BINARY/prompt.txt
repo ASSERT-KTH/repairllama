@@ -1,0 +1,6 @@
+    public static String decimal_to_binary(int decimal) {
+// buggy code
+//        String result = Integer.toHexString(decimal);
+<FILL_ME>
+        return "db" + result + "db";
+    }

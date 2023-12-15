@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,4 +1,7 @@
+     protected BasePeriod(long duration) {
+-        this(duration, null, null);
+-        // bug [3264409]
++       this.duration = duration;
+     }
++
++    public long getDuration() {
++        return duration;
++    }

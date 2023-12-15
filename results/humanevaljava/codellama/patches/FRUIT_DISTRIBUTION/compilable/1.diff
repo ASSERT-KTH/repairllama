@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,9 +1,7 @@
+     public static int fruit_distribution(String s, int n) {
+         int result = n;
+-
+         for (String str : s.split(" ")) {
+-            int cnt = Integer.parseInt(str);
+-            result -= cnt;
++           result = Math.min(result, str.length());
+         }
+         return result;
+     }

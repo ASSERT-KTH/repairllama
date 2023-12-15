@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,7 +1,7 @@
+     protected double getInitialDomain(double p) {
+-        double ret;
+-        double d = getDenominatorDegreesOfFreedom();
+-            // use mean
+-            ret = d / (d - 2.0);
++       double ret = 0.0;
++        for (int i = 0; i < domain.length; i++) {
++            ret += domain[i];
++        }
+         return ret;
+     }

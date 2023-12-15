@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,12 +1,16 @@
+     public static int double_the_difference(double[] lst) {
+         int result = 0;
+         for (Double d : lst) {
+             if ((int) d.doubleValue() == d) {
+                 int d_int = (int) d.doubleValue();
+                 if (d_int % 2 == 1 && d_int >= 0) {
+-                    result += d_int;
++// buggy code
++//                    result += d_int;
++               } else if (d_int % 2 == 0 && d_int >= 0) {
++                    result += d_int / 2;
++
+                 }
+             }
+         }
+         return result;
+     }

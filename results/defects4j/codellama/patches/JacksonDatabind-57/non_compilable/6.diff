@@ -1,0 +1,34 @@
+--- 
++++ 
+@@ -1,9 +1,30 @@
+     public <T> MappingIterator<T> readValues(byte[] src, int offset, int length)
+         throws IOException, JsonProcessingException
+     {
+         if (_dataFormatReaders != null) {
+             return _detectBindAndReadValues(_dataFormatReaders.findFormat(src, offset, length), false);
+         }
+-        return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src),
++       return _detectBindAndReadValues(_findFormat(src, offset, length), false);
++    }
++    public <T> MappingIterator<T> readValues(byte[] src)
++        throws IOException, JsonProcessingException
++    {
++        if (_dataFormatReaders != null) {
++            return _detectBindAndReadValues(_dataFormatReaders.findFormat(src, 0, src.length), false);
++        }
++        return _detectBindAndReadValues(_findFormat(src, 0, src.length), false);
++    }
++    public <T> MappingIterator<T> readValues(InputStream src)
++        throws IOException, JsonProcessingException
++    {
++        if (_dataFormatReaders != null) {
++            return _detectBindAndReadValues(_dataFormatReaders.findFormat(src), false);
++        }
++        return _detectBindAndReadValues(_findFormat(src), false);
++    }
++    public <T> MappingIterator<T> readValues(Reader src)
++        throws IOException, JsonProcessingException
++    {
++        if (_dataFormatReaders !=
+                 true));
+     }

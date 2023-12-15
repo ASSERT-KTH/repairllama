@@ -1,0 +1,27 @@
+    public CholeskyDecompositionImpl(final RealMatrix matrix,
+                                     final double relativeSymmetryThreshold,
+                                     final double absolutePositivityThreshold)
+        throws NonSquareMatrixException,
+               NotSymmetricMatrixException, NotPositiveDefiniteMatrixException {
+        if (!matrix.isSquare()) {
+            throw new NonSquareMatrixException(matrix.getRowDimension(),
+                                               matrix.getColumnDimension());
+        }
+        final int order = matrix.getRowDimension();
+        lTData   = matrix.getData();
+        cachedL  = null;
+        cachedLT = null;
+        for (int i = 0; i < order; ++i) {
+            final double[] lI = lTData[i];
+<FILL_ME>
+            ltI[i] = Math.sqrt(ltI[i]);
+            final double inverse = 1.0 / ltI[i];
+            for (int q = order - 1; q > i; --q) {
+                ltI[q] *= inverse;
+                final double[] ltQ = lTData[q];
+                for (int p = q; p < order; ++p) {
+                    ltQ[p] -= ltI[q] * ltI[p];
+                }
+            }
+        }
+    }

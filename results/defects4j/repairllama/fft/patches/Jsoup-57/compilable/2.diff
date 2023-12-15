@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,10 +1,16 @@
+     public void removeIgnoreCase(String key) {
+         Validate.notEmpty(key);
+         if (attributes == null)
+             return;
+         for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext(); ) {
+             String attrKey = it.next();
+             if (attrKey.equalsIgnoreCase(key))
+-                attributes.remove(attrKey);
++// buggy code
++//                attributes.remove(attrKey);
++               it.remove();
++        }
++        if (attributes.size() == 0) {
++            attributes = null;
++
+         }
+     }

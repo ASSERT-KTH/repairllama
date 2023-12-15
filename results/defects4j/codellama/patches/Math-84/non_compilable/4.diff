@@ -1,0 +1,61 @@
+--- 
++++ 
+@@ -1,39 +1,24 @@
+     protected void iterateSimplex(final Comparator<RealPointValuePair> comparator)
+         throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+-
+-        while (true) {
+-
+-            incrementIterationsCounter();
+-
+-            // save the original vertex
+-            final RealPointValuePair[] original = simplex;
+-            final RealPointValuePair best = original[0];
+-
+-            // perform a reflection step
+-            final RealPointValuePair reflected = evaluateNewSimplex(original, 1.0, comparator);
+-            if (comparator.compare(reflected, best) < 0) {
+-
+-                // compute the expanded simplex
+-                final RealPointValuePair[] reflectedSimplex = simplex;
+-                final RealPointValuePair expanded = evaluateNewSimplex(original, khi, comparator);
+-                if (comparator.compare(reflected, expanded) <= 0) {
+-                    // accept the reflected simplex
+-                    simplex = reflectedSimplex;
++       for (int i = 0; i < simplex.length; i++) {
++            for (int j = 0; j < simplex.length; j++) {
++                if (i == j) {
++                    continue;
+                 }
+-
+-                return;
+-
+-            }
+-
+-            // compute the contracted simplex
+-            final RealPointValuePair contracted = evaluateNewSimplex(original, gamma, comparator);
+-            if (comparator.compare(contracted, best) < 0) {
+-                // accept the contracted simplex
+-
+-            // check convergence
+-                return;
+-            }
+-
++                for (int k = 0; k < simplex.length; k++) {
++                    if (i == k || j == k) {
++                        continue;
++                    }
++                    for (int l = 0; l < simplex.length; l++) {
++                        if (i == l || j == l || k == l) {
++                            continue;
++                        }
++                        for (int m = 0; m < simplex.length; m++) {
++                            if (i == m || j == m || k == m || l == m) {
++                                continue;
++                            }
++                            final RealPointValuePair[] newSimplex = new RealPointValuePair[simplex.length + 1];
++                            System.arraycopy(simplex, 0, newSimplex, 0, simplex.length);
++                            new
+         }
+-
+     }

@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,4 +1,20 @@
+     private RealMatrix squareRoot(RealMatrix m) {
+-            final EigenDecomposition dec = new EigenDecomposition(m);
+-            return dec.getSquareRoot();
++       if (m.getRowDimension() != m.getColumnDimension()) {
++            throw new IllegalArgumentException("Matrix must be square");
++        }
++        int n = m.getRowDimension();
++        RealMatrix result = new Array2DRowRealMatrix(n, n);
++        for (int i = 0; i < n; i++) {
++            result.setEntry(i, i, Math.sqrt(m.getEntry(i, i)));
++        }
++        for (int i = 0; i < n; i++) {
++            for (int j = i + 1; j < n; j++) {
++                result.setEntry(i, j, m.getEntry(i, j) / (2 * result.getEntry(i, i) * result.getEntry(j, j)));
++            }
++        }
++        for (int i = 0; i < n; i++) {
++            for (int j = i + 1; j < n; j++) {
++                result.setEntry(j, i, result.getEntry(i, j));
++            }
++       
+     }

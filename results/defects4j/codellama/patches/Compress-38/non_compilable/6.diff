@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -1,15 +1,17 @@
+     public boolean isDirectory() {
+         if (file != null) {
+             return file.isDirectory();
+         }
+-
+         if (linkFlag == LF_DIR) {
+             return true;
+         }
+-
+-        if (getName().endsWith("/")) {
++       return false;
++    }
++    
++    public boolean isFile() {
++        if (file != null) {
++            return file.isFile();
+             return true;
+         }
+-
+         return false;
+     }

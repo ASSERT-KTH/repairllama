@@ -1,0 +1,7 @@
+    public void close() throws IOException {
+        if (!this.closed) {
+<FILL_ME>
+            super.close();
+            this.closed = true;
+        }
+    }

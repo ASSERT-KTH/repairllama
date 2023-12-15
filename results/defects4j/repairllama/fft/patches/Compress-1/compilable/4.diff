@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,6 +1,9 @@
+     public void close() throws IOException {
+         if (!this.closed) {
++// buggy code
++           this.closed = true;
++
+             super.close();
+             this.closed = true;
+         }
+     }

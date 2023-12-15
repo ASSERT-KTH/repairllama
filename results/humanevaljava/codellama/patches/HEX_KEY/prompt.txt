@@ -1,0 +1,8 @@
+    public static int hex_key(String num) {
+        int result = 0;
+        for (char c : num.toCharArray()) {
+<FILL_ME>
+                result += 1;
+        }
+        return result;
+    }

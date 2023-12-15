@@ -1,0 +1,15 @@
+    public void captureArgumentsFrom(Invocation invocation) {
+        if (invocation.getMethod().isVarArgs()) {
+            int indexOfVararg = invocation.getRawArguments().length - 1;
+// buggy code
+//            throw new UnsupportedOperationException();
+<FILL_ME>
+        } else {
+            for (int position = 0; position < matchers.size(); position++) {
+                Matcher m = matchers.get(position);
+                if (m instanceof CapturesArguments) {
+                    ((CapturesArguments) m).captureFrom(invocation.getArgumentAt(position, Object.class));
+                }
+            }
+        }
+    }

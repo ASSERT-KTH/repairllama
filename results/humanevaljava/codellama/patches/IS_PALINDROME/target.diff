@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,7 +1,7 @@
+     public static boolean is_palindrome(String text) {
+         for (int i = 0; i < text.length(); i += 1){
+-            if (text.charAt(i) == text.charAt(text.length() - i))
+-                return true;
++            if (text.charAt(i) != text.charAt(text.length() - i - 1))
++                return false;
+         }
+-        return false;
++        return true;
+     }

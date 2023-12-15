@@ -1,0 +1,4 @@
+    public int compareTo(Fraction object) {
+<FILL_ME>
+        return (nOd < dOn) ? -1 : ((nOd > dOn) ? +1 : 0);
+    }

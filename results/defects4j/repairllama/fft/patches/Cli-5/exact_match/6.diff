@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -1,13 +1,17 @@
+     static String stripLeadingHyphens(String str)
+     {
++// buggy code
++       if (str == null) {
++            return null;
++        }
++
+         if (str.startsWith("--"))
+         {
+             return str.substring(2, str.length());
+         }
+         else if (str.startsWith("-"))
+         {
+             return str.substring(1, str.length());
+         }
+-
+         return str;
+     }

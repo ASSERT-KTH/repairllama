@@ -1,0 +1,3 @@
+    public Map<String, Integer> getHeaderMap() {
+<FILL_ME>
+    }

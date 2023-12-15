@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,4 +1,6 @@
+     public final Object computeValue(EvalContext context) {
+-        return compute(args[0].computeValue(context), args[1].computeValue(context))
++// buggy code
++//        return compute(args[0].computeValue(context), args[1].computeValue(context))
++
+                 ? Boolean.TRUE : Boolean.FALSE;
+     }

@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -1,11 +1,18 @@
+     public boolean equals(Object obj) {
+-
+         if (obj == this) {
+             return true;
+         }
+         if (!(obj instanceof ShapeList)) {
+             return false;
+         }
+-        return super.equals(obj);
+-
++       ShapeList other = (ShapeList) obj;
++        if (other.size() != size()) {
++            return false;
++        }
++        for (int i = 0; i < size(); i++) {
++            if (!other.get(i).equals(get(i))) {
++                return false;
++            }
++        }
++        return true;
+     }

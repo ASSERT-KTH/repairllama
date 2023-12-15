@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,3 +1,9 @@
+   private boolean hasExceptionHandler(Node cfgNode) {
++   for (Node n = cfgNode.getFirstChild(); n != null; n = n.getNext()) {
++      if (n.getType() == Token.CATCH) {
++        return true;
++      }
++    }
++
+     return false;
+   }

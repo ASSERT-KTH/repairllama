@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,5 +1,8 @@
+     public boolean hasAttr(String attributeKey) {
+         Validate.notNull(attributeKey);
++// buggy code
++       if (attributes == null)
++            return false;
+ 
+         return attributes.hasKey(attributeKey);
+     }

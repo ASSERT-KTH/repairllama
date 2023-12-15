@@ -1,0 +1,7 @@
+    public TokenBuffer deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException
+    {
+// buggy code
+//            copyCurrentStructure(jp);
+<FILL_ME>
+        return this;
+    }

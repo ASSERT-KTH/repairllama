@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,14 +1,20 @@
+     public static ArrayList<String> sorted_list_sum(ArrayList<String> lst) {
+         ArrayList<String> result = new ArrayList<String>();
+         for (String str : lst) {
+             if (str.length() % 2 == 1) continue;
+             result.add(str);
+         }
+-
+         Collections.sort(
+             result,
+-            (s1, s2) -> s1.length() - s2.length()
++// buggy code
++//            (s1, s2) -> s1.length() - s2.length()
++//            (s1, s2) -> Integer.compare(s1.length(), s2.length())
++            (s1, s2) -> Integer.compare(s2.length(), s1.length())
+         );
++        Collections.sort(
++            result,
++            (s1, s2) -> s1.compareTo(s2)
+ 
++        );
+         return result;
+     }

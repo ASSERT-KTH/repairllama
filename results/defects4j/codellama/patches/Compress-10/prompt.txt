@@ -1,0 +1,6 @@
+    private void resolveLocalFileHeaderData(Map<ZipArchiveEntry, NameAndComment>
+                                            entriesWithoutUTF8Flag)
+        throws IOException {
+<FILL_ME>
+        }
+    }

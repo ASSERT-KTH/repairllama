@@ -1,0 +1,18 @@
+--- 
++++ 
+@@ -1,9 +1,12 @@
+     public static int[] compare(int[] game, int[] guess) {
+         int[] result = new int[game.length];
++        for (int i = 0; i < game.length; i += 1) {
++// buggy code
++//            result[i] = Math.floorDiv(game[i], guess[i]);
++//            result[i] = Math.floorDiv(game[i], guess[i]);
++            result[i] = game[i] / guess[i];
++            result[i] = game[i] / guess[i];
+ 
+-        for (int i = 0; i < game.length; i += 1) {
+-            result[i] = Math.floorDiv(game[i], guess[i]);
+         }
+-
+         return result;
+     }

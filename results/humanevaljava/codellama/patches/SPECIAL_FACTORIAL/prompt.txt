@@ -1,0 +1,6 @@
+    public static long special_factorial(long n) {
+        long fact_i = 1, special_fact = 1;
+<FILL_ME>
+        }
+        return special_fact;
+    }

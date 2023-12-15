@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,10 +1,15 @@
+     public static int digit_sum(String s) {
+         int result = 0;
+         for (char c : s.toCharArray()) {
+-            if (c == ' ')
++// buggy code
++//            if (c == ' ')
++//                break;
++           if (Character.isWhitespace(c))
+                 break;
++// end buggy code
++
+             if ('A' <= c && c <= 'Z')
+                 result += (int) c;
+         }
+         return result;
+     }

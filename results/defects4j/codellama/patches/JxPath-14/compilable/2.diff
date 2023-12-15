@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,5 +1,8 @@
+     protected Object functionFloor(EvalContext context) {
+         assertArgCount(1);
+         double v = InfoSetUtil.doubleValue(getArg1().computeValue(context));
++       if (Double.isNaN(v)) {
++            return Double.NaN;
++        }
+         return new Double(Math.floor(v));
+     }

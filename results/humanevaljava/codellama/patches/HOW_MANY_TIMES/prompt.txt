@@ -1,0 +1,9 @@
+    public static int how_many_times(String string, String substring) {
+        int times = 0;
+<FILL_ME>
+            if (string.substring(i, i + substring.length()).equals(substring)){
+                times += 1;
+            }
+        }
+        return times;
+    }

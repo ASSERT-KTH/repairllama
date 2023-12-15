@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,6 +1,6 @@
+     private static void handleRawtext(Token.StartTag startTag, HtmlTreeBuilder tb) {
++       if (tb.inButtonScope("p")) {
++            tb.processEndTag("p");
++        }
+         tb.insert(startTag);
+-        tb.tokeniser.transition(TokeniserState.Rawtext);
+-        tb.markInsertionMode();
+-        tb.transition(Text);
+     }

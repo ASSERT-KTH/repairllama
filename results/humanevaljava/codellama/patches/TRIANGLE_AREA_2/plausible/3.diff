@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,11 +1,10 @@
+     public static double triangle_area_2(double a, double b, double c) {
+         if (a + b <= c || a + c <= b || b + c <= a)
+             return -1;
+-        
+         double s = (a + b + c) / 2.;
+-        double result = Math.pow(s, 0.5);
+-        
++       double result = Math.sqrt(s * (s - a) * (s - b) * (s - c));
++
+         BigDecimal bd = BigDecimal.valueOf(result);
+         bd = bd.setScale(2, RoundingMode.HALF_UP);
+         return bd.doubleValue();
+     }

@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -1,15 +1,14 @@
+     public static boolean monotonic(int[] l) {
+         int[] sorted = new int[l.length];
+         int[] reverse_sorted = new int[l.length];
++// buggy code
++//        sorted = l;
++       sorted = l.clone();
+ 
+-        sorted = l;
+-        
+         Arrays.sort(sorted);
+-        
+         for (int i = 0; i < l.length; i += 1)
+             reverse_sorted[i] = sorted[l.length - i - 1]; 
+-        
+         if (Arrays.equals(l, sorted) || Arrays.equals(l, reverse_sorted))
+             return true;
+         return false;
+     }

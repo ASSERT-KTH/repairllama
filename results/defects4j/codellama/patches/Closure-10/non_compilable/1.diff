@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,7 +1,7 @@
+   static boolean mayBeString(Node n, boolean recurse) {
+     if (recurse) {
+-      return allResultsMatch(n, MAY_BE_STRING_PREDICATE);
++     return mayBeStringHelper(n, recurse);
+     } else {
+       return mayBeStringHelper(n);
+     }
+   }

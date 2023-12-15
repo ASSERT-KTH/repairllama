@@ -1,0 +1,14 @@
+    public boolean isDirectory() {
+        if (file != null) {
+            return file.isDirectory();
+        }
+        if (linkFlag == LF_DIR) {
+            return true;
+        }
+// buggy code
+//        if (getName().endsWith("/")) {
+<FILL_ME>
+            return true;
+        }
+        return false;
+    }

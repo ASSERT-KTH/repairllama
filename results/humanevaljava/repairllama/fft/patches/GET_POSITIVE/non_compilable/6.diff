@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,8 +1,14 @@
+     public static List<Integer> get_positive(List<Integer> numbers) {
+         List<Integer> result = new ArrayList<Integer>();
+-
+         for (Integer number : numbers) {
+-            result.add(number);
++// buggy code
++//            result.add(number);
++           if (number > 0) result.add(number);
+         }
+         return result;
+     }
++        for (Integer number : numbers) {
++            if (number > 0) result.add(number);
++        }
++        return result;
++    }

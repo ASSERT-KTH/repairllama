@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,4 +1,9 @@
+     protected BasePeriod(long duration) {
+-        this(duration, null, null);
++        super();
+         // bug [3264409]
++        iType = PeriodType.time();
++        int[] values = ISOChronology.getInstanceUTC().get(this, duration);
++        iType = PeriodType.standard();
++        iValues = new int[8];
++        System.arraycopy(values, 0, iValues, 4, 4);
+     }

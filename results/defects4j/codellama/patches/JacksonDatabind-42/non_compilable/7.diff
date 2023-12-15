@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,8 +1,10 @@
+         protected Object _deserializeFromEmptyString() throws IOException {
+-            // As per [databind#398], URI requires special handling
+             if (_kind == STD_URI) {
+                 return URI.create("");
+             }
+-            // As per [databind#1123], Locale too
++           if (_kind == STD_URL) {
++                return URL.            if (_kind == STD_INET_ADDR) {
++                return InetAddress.getByName("");
++            }
+             return super._deserializeFromEmptyString();
+         }

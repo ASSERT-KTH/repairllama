@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,3 +1,6 @@
+     public static int add(int x, int y) {
+-        return x | y;
++// buggy code
++//        return x | y;
++       return x & y;
++
+     }

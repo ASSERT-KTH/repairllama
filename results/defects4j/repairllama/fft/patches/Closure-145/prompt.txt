@@ -1,0 +1,5 @@
+  private boolean isOneExactlyFunctionOrDo(Node n) {
+// buggy code
+//      return (n.getType() == Token.FUNCTION || n.getType() == Token.DO);
+<FILL_ME>
+  }

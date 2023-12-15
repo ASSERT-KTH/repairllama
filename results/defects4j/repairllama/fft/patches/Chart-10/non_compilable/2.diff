@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,4 +1,9 @@
+     public String generateToolTipFragment(String toolTipText) {
++// buggy code
++//        return " title=\"" + toolTipText
++//                + "\" alt=\"\"";
+         return " title=\"" + toolTipText
++                + "\" alt=\"" + toolTipText + "\"";
++
+             + "\" alt=\"\"";
+     }

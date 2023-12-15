@@ -1,0 +1,5 @@
+    public static long sum_squared_nums(double[] lst) {
+<FILL_ME>
+        }
+        return result;
+    }

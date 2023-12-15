@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,6 +1,7 @@
+     public void close() throws IOException {
+         if (!this.closed) {
++           this.outputStream.flush();
+             super.close();
+             this.closed = true;
+         }
+     }

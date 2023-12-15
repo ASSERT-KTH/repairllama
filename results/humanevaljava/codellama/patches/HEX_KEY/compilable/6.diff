@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -1,8 +1,13 @@
+     public static int hex_key(String num) {
+         int result = 0;
+         for (char c : num.toCharArray()) {
+-            if (c == '2' || c == '3' || c == '5' || c == '7')
++           if (c >= '0' && c <= '9')
++                result += (c - '0') * 16;
++            else if (c >= 'A' && c <= 'F')
++                result += (c - 'A' + 10) * 16;
++            else if (c >= 'a' && c <= 'f')
++                result += (c - 'a' + 10) * 16;
+                 result += 1;
+         }
+         return result;
+     }

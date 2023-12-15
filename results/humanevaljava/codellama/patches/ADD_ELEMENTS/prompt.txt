@@ -1,0 +1,8 @@
+    public static int add_elements(ArrayList<Integer> arr, int k) {
+        int result = 0;
+        for(int i = 0; i < k; i++) {
+<FILL_ME>
+            }
+        }
+        return result;
+    }

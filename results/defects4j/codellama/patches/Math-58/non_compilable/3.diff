@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,4 +1,7 @@
+     public double[] fit() {
+         final double[] guess = (new ParameterGuesser(getObservations())).guess();
+-        return fit(new Gaussian.Parametric(), guess);
++       final LevenbergMarquardtOptimizer optimizer = new LevenbergMarquardtOptimizer();
++        final LeastSquaresProblem problem = new LeastSquaresBuilder().start(guess).model(this).targets(getObservations()).build();
++        final LeastSquaresOptimizer.Optimum optimum = optimizer.optimize(problem);
++        return optimum.getPoint().toArray();
+     }

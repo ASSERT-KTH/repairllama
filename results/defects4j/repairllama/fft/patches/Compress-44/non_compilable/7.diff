@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,7 +1,7 @@
+     public ChecksumCalculatingInputStream(final Checksum checksum, final InputStream in) {
+-
+-
+-
++// buggy code
++       super(in);
++// correct code
+         this.checksum = checksum;
+         this.in = in;
+     }

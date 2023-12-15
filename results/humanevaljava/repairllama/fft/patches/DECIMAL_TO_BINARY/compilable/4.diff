@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,4 +1,10 @@
+     public static String decimal_to_binary(int decimal) {
+-        String result = Integer.toHexString(decimal);
++// buggy code
++//        String result = Integer.toHexString(decimal);
++       String result = Integer.toBinaryString(decimal);
++        while (result.length() < 4) {
++            result = "0" + result;
++        }
++
+         return "db" + result + "db";
+     }

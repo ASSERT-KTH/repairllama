@@ -1,0 +1,18 @@
+--- 
++++ 
+@@ -1,12 +1,11 @@
+     public static ArrayList<Tuple> get_row(ArrayList<ArrayList<Integer>> lst, int x) {
+         ArrayList<Tuple> result = new ArrayList<Tuple>();
+-
+         for (int i = 0; i < lst.size(); i += 1) {
+-            for (int j = lst.get(0).size() - 1; j >= 0; j -= 1){
+-                if (lst.get(i).get(i) == x){
+-                    result.add(new GET_ROW().new Tuple(i, i));
++           for (int j = 0; j < lst.get(0).size(); j += 1) {
++                if (lst.get(i).get(j) == x) {
++                    result.add(new Tuple(i, j));
+                 }
+             }
+         }
+         return result;
+     }

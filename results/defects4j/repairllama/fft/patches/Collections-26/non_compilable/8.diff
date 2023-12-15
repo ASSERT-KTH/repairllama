@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,4 +1,9 @@
+-    private Object readResolve() {
++// buggy code
++//    private Object readResolve() {
++   private Object readResolve() throws ObjectStreamException {
++        if (keys == null) {
++            keys = new Object[0];
++        }
+         calculateHashCode(keys);
+         return this;
+     }

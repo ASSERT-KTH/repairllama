@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,5 +1,9 @@
+     public void println() throws IOException {
+         final String recordSeparator = format.getRecordSeparator();
+-            out.append(recordSeparator);
++// buggy code
++//            out.append(recordSeparator);
++       out.append(recordSeparator);
++        out.flush();
++
+         newRecord = true;
+     }

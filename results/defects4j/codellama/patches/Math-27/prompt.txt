@@ -1,0 +1,3 @@
+    public double percentageValue() {
+<FILL_ME>
+    }

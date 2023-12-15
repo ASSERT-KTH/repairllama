@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,9 +1,12 @@
+     public static boolean check_if_last_char_is_a_letter(String txt) {
+         String[] parts = txt.split(" ");
+         String last = " ";
+-        last = parts[parts.length - 1];
+-        if(txt.charAt(txt.length() - 1) == ' ') last = " ";
+-        if(txt.length() == 1) last = " ";
+-        int last_char_pos = Character.toUpperCase(last.charAt(0)) - 'a';
+-        return (last.length() == 1) || (0 <= last_char_pos || last_char_pos <= 25);
++       if (parts.length > 0) {
++            last = parts[parts.length - 1];
++        }
++        if (last.length() > 0) {
++            return Character.isLetter(last.charAt(last.length() - 1));
++        } else {
++            return false;
++        }
+     }

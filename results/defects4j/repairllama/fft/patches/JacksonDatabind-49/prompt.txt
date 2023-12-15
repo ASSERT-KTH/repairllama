@@ -1,0 +1,6 @@
+    public Object generateId(Object forPojo) {
+// buggy code
+//            id = generator.generateId(forPojo);
+<FILL_ME>
+        return id;
+    }

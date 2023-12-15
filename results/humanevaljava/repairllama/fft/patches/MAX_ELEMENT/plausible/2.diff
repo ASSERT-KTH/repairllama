@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,9 +1,12 @@
+     public static int max_element(List<Integer> l) {
+-        int m = 0;
++// buggy code
++//        int m = 0;
++       int m = -1;
++
+         for (Integer e : l) {
+             if (e > m){
+                 m = e;
+             }
+         }
+         return m;
+     }

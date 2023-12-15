@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,8 +1,11 @@
+     public static String decode_shift(String string) {
+         StringBuilder sb = new StringBuilder();
+         for (char c : string.toCharArray()) {
+-            c = (char)((((int) c - 5 - (int)('a')) % 26) + (int)('a'));
++// buggy code
++//            c = (char)((((int) c - 5 - (int)('a')) % 26) + (int)('a'));
++           c = (char)(((((int) c - 5 - (int)('a')) % 26) + (int)('a')));
++
+             sb.append(c);
+         }
+         return sb.toString();
+     }

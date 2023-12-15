@@ -1,0 +1,17 @@
+    public static Object compare_one(Object a, Object b) {
+        double temp_a = 0, temp_b = 0;
+        if(a instanceof String) {
+            String temp_a_string = a.toString();
+            temp_a_string = temp_a_string.replace(',', '.');
+            temp_a = Double.parseDouble(temp_a_string);
+        }
+        if(b instanceof String) {
+            String temp_b_string = b.toString();
+            temp_b_string = temp_b_string.replace(',', '.');
+            temp_b = Double.parseDouble(temp_b_string);
+        }
+<FILL_ME>
+        if(temp_a == temp_b) return null;
+        if(temp_a > temp_b) return a;
+        else return b;
+    }

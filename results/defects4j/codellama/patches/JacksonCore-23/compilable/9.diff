@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,3 +1,8 @@
+     public DefaultPrettyPrinter createInstance() {
++       DefaultPrettyPrinter prettyPrinter = new DefaultPrettyPrinter(this);
++        return prettyPrinter;
++    }
++
++    public DefaultPrettyPrinter createInstance(DefaultPrettyPrinter instance) {
+         return new DefaultPrettyPrinter(this);
+     }

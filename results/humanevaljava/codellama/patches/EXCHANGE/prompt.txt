@@ -1,0 +1,12 @@
+    public static String exchange(ArrayList<Integer> lst1, ArrayList<Integer> lst2) {
+        int odd = 0, even = 0;
+<FILL_ME>
+        }
+        for(int i : lst2) {
+            if((i % 2) == 0) even++;
+        }
+        if(even >= odd) {
+            return "YES";
+        }
+        return "NO";
+    }

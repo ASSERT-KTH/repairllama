@@ -1,0 +1,3 @@
+    public static int[] eat(int number, int need, int remaining) {
+<FILL_ME>
+    }

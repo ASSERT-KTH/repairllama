@@ -1,0 +1,11 @@
+    public void captureArgumentsFrom(Invocation i) {
+        int k = 0;
+        for (Matcher m : matchers) {
+// buggy code
+//            if (m instanceof CapturesArguments) {
+<FILL_ME>
+                ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
+            }
+            k++;
+        }
+    }

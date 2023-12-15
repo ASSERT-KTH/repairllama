@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,8 +1,7 @@
+     public Document clean(Document dirtyDocument) {
+         Validate.notNull(dirtyDocument);
+-
+         Document clean = Document.createShell(dirtyDocument.baseUri());
++       clean.title(dirtyDocument.title());
+             copySafeNodes(dirtyDocument.body(), clean.body());
+-
+         return clean;
+     }

@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,6 +1,11 @@
+     public OpenMapRealMatrix(int rowDimension, int columnDimension) {
+         super(rowDimension, columnDimension);
++// buggy code
++//        this.rows = rowDimension;
++//        this.columns = columnDimension;
++//        this.entries = null;
++
+         this.rows = rowDimension;
+         this.columns = columnDimension;
+         this.entries = new OpenIntToDoubleHashMap(0.0);
+     }

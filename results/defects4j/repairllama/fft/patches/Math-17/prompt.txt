@@ -1,0 +1,5 @@
+    public Dfp multiply(final int x) {
+// buggy code
+//            return multiplyFast(x);
+<FILL_ME>
+    }

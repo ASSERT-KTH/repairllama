@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -1,13 +1,12 @@
+     public static List<Integer> parse_music(String music_string) {
+         HashMap<String, Integer> note_map = new HashMap<String, Integer>();
+         note_map.put("o", 4);
+         note_map.put("o|", 2);
+         note_map.put(".|", 1);
+-
+         List<Integer> result = new ArrayList<Integer>();
+-
++       note_map.put("|", 0);
+         for (String note : music_string.split(" ")){
+             result.add(note_map.get(note));
+         }
+         return result;
+     }

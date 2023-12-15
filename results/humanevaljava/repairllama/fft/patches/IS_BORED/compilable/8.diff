@@ -1,0 +1,18 @@
+--- 
++++ 
+@@ -1,9 +1,15 @@
+     public static int is_bored(String S) {
+         String[] sentences = S.split("\\.|\\?|!");
+         int result = 0;
+         for (String sentence : sentences) {
++// buggy code
++           if (sentence.length() >= 2 && sentence.subSequence(0, 2).equals("i "))
++                result += 1;
++        }
++        for (String sentence : sentences) {
++
+             if (sentence.length() >= 2 && sentence.subSequence(0, 2).equals("I "))
+                 result += 1;
+         }
+         return result;
+     }

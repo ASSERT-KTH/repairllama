@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,7 +1,15 @@
+     public static long sum_squared_nums(double[] lst) {
+-        int result = 0, i = 0;
++// buggy code
++//        int result = 0, i = 0;
++//        for(int j = 0; j < lst.length; j++) {
++//            result += (Math.floor((int) lst[i])) * (Math.ceil((int) lst[i]));
++//            i++;
++//        }
++//        return result;
++        int result = 0;
+         for(int j = 0; j < lst.length; j++) {
+-            result += (Math.floor((int) lst[i])) * (Math.ceil((int) lst[i]));
++            result += (Math.floor((int) lst[j])) * (Math.ceil((int) lst[j]));
++
+         }
+         return result;
+     }

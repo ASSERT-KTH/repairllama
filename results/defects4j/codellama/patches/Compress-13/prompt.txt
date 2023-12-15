@@ -1,0 +1,4 @@
+    protected void setName(String name) {
+<FILL_ME>
+        this.name = name;
+    }

@@ -1,0 +1,24 @@
+    public RectangularCholeskyDecomposition(RealMatrix matrix, double small)
+        throws NonPositiveDefiniteMatrixException {
+        final int order = matrix.getRowDimension();
+        final double[][] c = matrix.getData();
+        final double[][] b = new double[order][order];
+<FILL_ME>
+                    for (int j = r + 1; j < i; ++j) {
+                        final int ij = index[j];
+                        final double f = c[ii][ij] - e * b[j][r];
+                        c[ii][ij] = f;
+                        c[ij][ii] = f;
+                    }
+                }
+                loop = ++r < order;
+            }
+        }
+        rank = r;
+        root = MatrixUtils.createRealMatrix(order, r);
+        for (int i = 0; i < order; ++i) {
+            for (int j = 0; j < r; ++j) {
+                root.setEntry(index[i], j, b[i][j]);
+            }
+        }
+    }

@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,13 +1,16 @@
+     public static String parseName(byte[] buffer, final int offset, final int length) {
+         StringBuffer result = new StringBuffer(length);
+         int          end = offset + length;
++        for (int i = offset; i < end; ++i) {
++// buggy code
++//            if (buffer[i] == 0) {
++//                break;
++//            }
++//            result.append((char) buffer[i]);
++//        }
++        if (buffer[i] != 0) {
++            result.append((char) buffer[i]);
+ 
+-        for (int i = offset; i < end; ++i) {
+-            if (buffer[i] == 0) {
+-                break;
+-            }
+-            result.append((char) buffer[i]);
+         }
+-
+         return result.toString();
+     }

@@ -1,0 +1,8 @@
+    public static ArrayList<Integer> even_odd_palindrome(int n) {
+        int even_palindrome_count = 0, odd_palindrome_count = 0;
+        for(int i = 1; i <= n; i++) {
+<FILL_ME>
+        }
+        ArrayList<Integer> result = new ArrayList<>(Arrays.asList(even_palindrome_count, odd_palindrome_count));
+        return result;
+    }

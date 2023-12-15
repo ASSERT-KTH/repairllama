@@ -1,0 +1,9 @@
+    public static boolean is_prime(int n){
+        if (n < 2)
+            return false;
+<FILL_ME>
+            if (n % k == 0)
+                return false;
+        }
+        return true;
+    }

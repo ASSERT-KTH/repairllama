@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,8 +1,8 @@
+     public static List<Integer> filter_integers(List<Object> values) {
+         List<Integer> result = new ArrayList<Integer>();
+-
+         for (Object value : values){
+-            result.add((Integer) value);
++           if (value instanceof Integer)
++                result.add((Integer) value);
+         }
+         return result;
+     }

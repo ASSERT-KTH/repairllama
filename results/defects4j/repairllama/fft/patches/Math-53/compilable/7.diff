@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,6 +1,11 @@
+     public Complex add(Complex rhs)
+         throws NullArgumentException {
+         MathUtils.checkNotNull(rhs);
++// buggy code
++       if (this == null) {
++            return rhs;
++        }
++
+         return createComplex(real + rhs.getReal(),
+             imaginary + rhs.getImaginary());
+     }

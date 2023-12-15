@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,6 +1,10 @@
+     boolean matchesLetter() {
+         if (isEmpty())
+             return false;
+         char c = input[pos];
+-        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
++       if (c >= 'a' && c <= 'z') {
++            pos++;
++            return true;
++        }
++        return false;
+     }

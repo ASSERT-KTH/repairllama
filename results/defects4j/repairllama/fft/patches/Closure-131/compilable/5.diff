@@ -1,0 +1,36 @@
+--- 
++++ 
+@@ -1,17 +1,29 @@
+     public static boolean isJSIdentifier(String s) {
+       int length = s.length();
+-
+       if (length == 0 ||
+-          !Character.isJavaIdentifierStart(s.charAt(0))) {
++// buggy code
++//          !Character.isJavaIdentifierStart(s.charAt(0))) {
++//        return false;
++//      }
++//      for (int i = 1; i < length; i++) {
++//        if (
++//            !Character.isJavaIdentifierPart(s.charAt(i))) {
++//          return false;
++//        }
++//      }
++          !Character.isUnicodeIdentifierStart(s.charAt(0))) {
+         return false;
+       }
+-
+       for (int i = 1; i < length; i++) {
+         if (
++// buggy code
++//            !Character.isJavaIdentifierPart(s.charAt(i))) {
++//          return false;
++//        }
++
+             !Character.isJavaIdentifierPart(s.charAt(i))) {
+           return false;
+         }
+       }
+-
+       return true;
+     }

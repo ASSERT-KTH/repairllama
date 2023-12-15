@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -1,15 +1,18 @@
+   private boolean isSafeReplacement(Node node, Node replacement) {
+-    // No checks are needed for simple names.
+     if (node.isName()) {
+       return true;
+     }
+     Preconditions.checkArgument(node.isGetProp());
++// buggy code
++//      node = node.getFirstChild();
++   Node firstChild = node.getFirstChild();
++    if (firstChild != null) {
++      node = firstChild;
++    }
+ 
+-      node = node.getFirstChild();
+     if (node.isName()
+         && isNameAssignedTo(node.getString(), replacement)) {
+       return false;
+     }
+-
+     return true;
+   }

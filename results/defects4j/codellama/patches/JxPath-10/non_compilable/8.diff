@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,4 +1,12 @@
+     public final Object computeValue(EvalContext context) {
+-        return compute(args[0].computeValue(context), args[1].computeValue(context))
++       Object[] args = context.getArgs();
++        for (int i = 0; i < args.length; i++) {
++            if (args[i] == null) {
++                return Boolean.FALSE;
++            }
++        }
++        return args.length > 0 ? Boolean.TRUE : Boolean.FALSE;
++    }
++
+                 ? Boolean.TRUE : Boolean.FALSE;
+     }

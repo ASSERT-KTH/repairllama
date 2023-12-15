@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,12 +1,19 @@
+     public static boolean correct_bracketing(String brackets) {
+         int depth = 0;
+         for (char b : brackets.toCharArray()) {
+             if (b == '<')
+                 depth += 1;
+             else
+                 depth -= 1;
+-            if (depth >= 0)
+-                return true;
++// buggy code
++//            if (depth >= 0)
++//                return true;
++//        }
++//        return false;
++           if (depth < 0) {
++                return false;
++            }
+         }
+-        return false;
++        return depth == 0;
++
+     }

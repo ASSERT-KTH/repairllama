@@ -1,0 +1,11 @@
+    private boolean _hasCustomHandlers(JavaType t) {
+        if (t.isContainerType()) {
+            JavaType ct = t.getContentType();
+            if (ct != null) {
+// buggy code
+//                return (ct.getValueHandler() != null) || (ct.getTypeHandler() != null);
+<FILL_ME>
+            }
+        }
+        return false;
+    }

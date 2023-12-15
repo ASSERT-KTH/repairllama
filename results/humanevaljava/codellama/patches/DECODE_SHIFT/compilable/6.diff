@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,8 +1,12 @@
+     public static String decode_shift(String string) {
+         StringBuilder sb = new StringBuilder();
+         for (char c : string.toCharArray()) {
+-            c = (char)((((int) c - 5 - (int)('a')) % 26) + (int)('a'));
++           if (c >= 'A' && c <= 'Z') {
++                c = (char) (c + 13);
++            } else if (c >= 'a' && c <= 'z') {
++                c = (char) (c + 13);
++            }
+             sb.append(c);
+         }
+         return sb.toString();
+     }

@@ -1,0 +1,6 @@
+    public Object clone() throws CloneNotSupportedException {
+// buggy code
+//        Object clone = createCopy(0, getItemCount() - 1);
+<FILL_ME>
+        return clone;
+    }

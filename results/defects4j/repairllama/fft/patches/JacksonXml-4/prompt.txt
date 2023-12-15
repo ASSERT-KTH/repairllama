@@ -1,0 +1,9 @@
+    protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+    {
+// buggy code
+//        if (jgen instanceof ToXmlGenerator) {
+//            _initWithRootName((ToXmlGenerator) jgen, ROOT_NAME_FOR_NULL);
+<FILL_ME>
+        }
+        super.serializeValue(jgen, null);
+    }

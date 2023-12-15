@@ -1,0 +1,6 @@
+    public static boolean any_int(double x, double y, double z) {
+<FILL_ME>
+                return true;
+        }
+        return false;
+    }

@@ -1,0 +1,7 @@
+    public static List<Integer> get_positive(List<Integer> numbers) {
+        List<Integer> result = new ArrayList<Integer>();
+        for (Integer number : numbers) {
+<FILL_ME>
+        }
+        return result;
+    }

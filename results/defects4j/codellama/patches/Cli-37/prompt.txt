@@ -1,0 +1,4 @@
+    private boolean isShortOption(String token)
+    {
+<FILL_ME>
+    }

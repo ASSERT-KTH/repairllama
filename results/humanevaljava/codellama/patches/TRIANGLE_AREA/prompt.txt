@@ -1,0 +1,3 @@
+    public static double triangle_area(double a, double h) {
+<FILL_ME>
+    }

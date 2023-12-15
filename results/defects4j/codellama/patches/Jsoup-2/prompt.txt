@@ -1,0 +1,42 @@
+    private void parseStartTag() {
+        tq.consume("<");
+        String tagName = tq.consumeWord();
+        if (tagName.length() == 0) { 
+            tq.addFirst("&lt;");
+            parseTextNode();
+            return;
+        }
+        Attributes attributes = new Attributes();
+        while (!tq.matchesAny("<", "/>", ">") && !tq.isEmpty()) {
+            Attribute attribute = parseAttribute();
+            if (attribute != null)
+                attributes.put(attribute);
+        }
+        Tag tag = Tag.valueOf(tagName);
+        Element child = new Element(tag, baseUri, attributes);
+        boolean isEmptyElement = tag.isEmpty(); 
+        if (tq.matchChomp("/>")) { 
+            isEmptyElement = true;
+        } else {
+            tq.matchChomp(">");
+        }
+        addChildToParent(child, isEmptyElement);
+        if (tag.isData()) {
+            String data = tq.chompTo("</" + tagName);
+            tq.chompTo(">");
+<FILL_ME>
+            Node dataNode;
+            if (tag.equals(titleTag) || tag.equals(textareaTag)) 
+                dataNode = TextNode.createFromEncoded(data, baseUri);
+            else
+                dataNode = new DataNode(data, baseUri); 
+            child.appendChild(dataNode);   
+        }
+        if (child.tagName().equals("base")) {
+            String href = child.absUrl("href");
+            if (href.length() != 0) { 
+                baseUri = href;
+                doc.setBaseUri(href); 
+            }
+        }
+    }

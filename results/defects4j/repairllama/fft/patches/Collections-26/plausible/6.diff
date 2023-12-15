@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,4 +1,9 @@
+-    private Object readResolve() {
++// buggy code
++//    private Object readResolve() {
++   public Object readResolve() {
++        if (keys == null) {
++            return this;
++        }
+         calculateHashCode(keys);
+         return this;
+     }

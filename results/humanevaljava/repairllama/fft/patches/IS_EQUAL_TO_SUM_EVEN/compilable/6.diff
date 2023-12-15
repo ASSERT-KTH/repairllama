@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,3 +1,6 @@
+     public static boolean is_equal_to_sum_even(int n) {
+-        return ((n * 2 == 1) ^ (n < 8));
++// buggy code
++//        return ((n * 2 == 1) ^ (n < 8));
++       return (((n * 2) == 1) ^ (n < 8));
++
+     }

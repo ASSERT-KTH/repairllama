@@ -1,0 +1,6 @@
+// buggy code
+//    private Object readResolve() {
+<FILL_ME>
+        calculateHashCode(keys);
+        return this;
+    }

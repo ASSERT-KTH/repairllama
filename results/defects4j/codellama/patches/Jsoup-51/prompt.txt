@@ -1,0 +1,6 @@
+    boolean matchesLetter() {
+        if (isEmpty())
+            return false;
+        char c = input[pos];
+<FILL_ME>
+    }

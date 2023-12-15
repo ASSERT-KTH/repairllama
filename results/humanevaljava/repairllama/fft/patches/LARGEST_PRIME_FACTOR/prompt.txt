@@ -1,0 +1,11 @@
+    public static int largest_prime_factor(int n) {
+        int largest = 1;
+        for (int j = 2; j < n; j += 1) {
+// buggy code
+//            if (is_prime(j)){
+//                largest = n % j;
+<FILL_ME>
+            }
+        }
+        return largest;
+    }

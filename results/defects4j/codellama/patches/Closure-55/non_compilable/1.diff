@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -1,3 +1,13 @@
+   private static boolean isReduceableFunctionExpression(Node n) {
+-    return NodeUtil.isFunctionExpression(n);
++   if (n.getType() != Token.GETPROP) {
++      return false;
++    }
++    Node parent = n.getParent();
++    if (parent == null || parent.getType() != Token.CALL) {
++      return false;
++    }
++    Node grandparent = parent.getParent();
++    if (grandparent == null || grandparent.getType() != Token.ASSIGN) {
++      return false;
++    }
+   }

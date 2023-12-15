@@ -1,0 +1,5 @@
+    public static int add(int x, int y) {
+// buggy code
+//        return x | y;
+<FILL_ME>
+    }

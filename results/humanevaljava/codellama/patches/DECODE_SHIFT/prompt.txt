@@ -1,0 +1,8 @@
+    public static String decode_shift(String string) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : string.toCharArray()) {
+<FILL_ME>
+            sb.append(c);
+        }
+        return sb.toString();
+    }

@@ -1,0 +1,9 @@
+    public void describeTo(Description description) {
+        description.appendText("same(");
+        appendQuoting(description);
+// buggy code
+//        description.appendText(wanted.toString());
+<FILL_ME>
+        appendQuoting(description);
+        description.appendText(")");
+    }

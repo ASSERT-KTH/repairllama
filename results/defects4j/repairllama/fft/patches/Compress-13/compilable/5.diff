@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,3 +1,8 @@
+     protected void setName(String name) {
++// buggy code
++       if (name == null) {
++            throw new IllegalArgumentException("Name cannot be null");
++        }
++// end buggy code
+         this.name = name;
+     }

@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -1,11 +1,12 @@
+     public boolean equals(Object obj) {
+-
+         if (obj == this) {
+             return true;
+         }
+         if (!(obj instanceof ShapeList)) {
+             return false;
+         }
+-        return super.equals(obj);
++// buggy code
++//        return super.equals(obj);
++       return super.equals((ShapeList) obj);
+ 
+     }

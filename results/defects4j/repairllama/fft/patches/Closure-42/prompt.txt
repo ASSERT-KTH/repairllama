@@ -1,0 +1,9 @@
+    Node processForInLoop(ForInLoop loopNode) {
+// buggy code
+<FILL_ME>
+      return newNode(
+          Token.FOR,
+          transform(loopNode.getIterator()),
+          transform(loopNode.getIteratedObject()),
+          transformBlock(loopNode.getBody()));
+    }

@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,9 +1,12 @@
+     public void captureArgumentsFrom(Invocation i) {
+         int k = 0;
+         for (Matcher m : matchers) {
+-            if (m instanceof CapturesArguments) {
++// buggy code
++//            if (m instanceof CapturesArguments) {
++           if (m.getClass().equals(CapturesArguments.class)) {
++
+                 ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
+             }
+             k++;
+         }
+     }

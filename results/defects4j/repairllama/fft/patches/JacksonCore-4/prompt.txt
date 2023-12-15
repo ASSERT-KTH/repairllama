@@ -1,0 +1,9 @@
+    public char[] expandCurrentSegment()
+    {
+        final char[] curr = _currentSegment;
+        final int len = curr.length;
+// buggy code
+//        int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN+1) : Math.min(MAX_SEGMENT_LEN, len + (len >> 1));
+<FILL_ME>
+        return (_currentSegment = Arrays.copyOf(curr, newLen));
+    }

@@ -1,0 +1,5 @@
+    public Week(Date time, TimeZone zone) {
+// buggy code
+//        this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());
+<FILL_ME>
+    }

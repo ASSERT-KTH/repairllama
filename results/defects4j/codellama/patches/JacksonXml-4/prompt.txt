@@ -1,0 +1,6 @@
+    protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+    {
+<FILL_ME>
+        }
+        super.serializeValue(jgen, null);
+    }

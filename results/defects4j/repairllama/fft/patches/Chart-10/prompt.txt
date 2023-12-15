@@ -1,0 +1,6 @@
+    public String generateToolTipFragment(String toolTipText) {
+// buggy code
+//        return " title=\"" + toolTipText
+<FILL_ME>
+            + "\" alt=\"\"";
+    }

@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,4 +1,8 @@
+     public Week(Date time, TimeZone zone) {
+-        // defer argument checking...
+-        this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());
++// buggy code
++//        this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());
++//        this.time = time;
++//        this.zone = zone;
++//        this.locale = Locale.getDefault();
++
+     }

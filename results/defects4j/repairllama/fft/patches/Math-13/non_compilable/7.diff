@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,4 +1,8 @@
+     private RealMatrix squareRoot(RealMatrix m) {
+-            final EigenDecomposition dec = new EigenDecomposition(m);
+-            return dec.getSquareRoot();
++// buggy code
++//            final EigenDecomposition dec = new EigenDecomposition(m);
++//            return dec.getSquareRoot();
++           final SingularValueDecomposition dec = new SingularValueDecomposition(m);
++            return dec.getS();
++
+     }

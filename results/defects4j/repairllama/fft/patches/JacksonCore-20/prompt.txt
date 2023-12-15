@@ -1,0 +1,6 @@
+    public void writeEmbeddedObject(Object object) throws IOException {
+// buggy code
+//        throw new JsonGenerationException("No native support for writing embedded objects",
+<FILL_ME>
+                this);
+    }

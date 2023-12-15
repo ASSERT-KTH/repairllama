@@ -1,0 +1,5 @@
+    public void addValue(Object v) {
+// buggy code
+//            addValue((Comparable<?>) v);            
+<FILL_ME>
+    }

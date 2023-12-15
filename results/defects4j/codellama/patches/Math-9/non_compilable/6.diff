@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,4 +1,7 @@
+     public Line revert() {
+-        final Line reverted = new Line(zero, zero.subtract(direction));
++       Line reverted = new Line();
++        reverted.p1 = p2;
++        reverted.p2 = p1;
++        reverted.color = color;
+         return reverted;
+     }

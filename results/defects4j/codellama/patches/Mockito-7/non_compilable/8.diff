@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,6 +1,16 @@
+         private void readTypeVariables() {
+             for (Type type : typeVariable.getBounds()) {
+                 registerTypeVariablesOn(type);
+             }
++       }
++
++        private void registerTypeVariablesOn(Type type) {
++            if (type instanceof ParameterizedType) {
++                ParameterizedType parameterizedType = (ParameterizedType) type;
++                registerTypeVariablesOn(parameterizedType.getRawType());
++                for (Type typeArgument : parameterizedType.getActualTypeArguments()) {
++                    registerTypeVariablesOn(typeArgument);
++                }
++            } else if (type instanceof TypeVariable) {
+             registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));
+         }

@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,5 +1,8 @@
+     public String html() {
+         StringBuilder accum = new StringBuilder();
+         html(accum);
+-        return accum.toString().trim();
++// buggy code
++//        return accum.toString().trim();
++       return accum.toString().trim();
++
+     }

@@ -1,0 +1,5 @@
+    public static List<Integer> derivative(List<Integer> xs) {
+        List<Integer> result = new ArrayList<Integer>();
+<FILL_ME>
+        return result;
+    }

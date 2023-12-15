@@ -1,0 +1,27 @@
+    private final Object _deserialize(JsonParser p, DeserializationContext ctxt) throws IOException
+    {
+        if (p.canReadTypeId()) {
+            Object typeId = p.getTypeId();
+            if (typeId != null) {
+                return _deserializeWithNativeTypeId(p, ctxt, typeId);
+            }
+        }
+<FILL_ME>
+        final String typeId = p.getText();
+        JsonDeserializer<Object> deser = _findDeserializer(ctxt, typeId);
+        p.nextToken();
+        if (_typeIdVisible && p.getCurrentToken() == JsonToken.START_OBJECT) {
+            TokenBuffer tb = new TokenBuffer(null, false);
+            tb.writeStartObject(); 
+            tb.writeFieldName(_typePropertyName);
+            tb.writeString(typeId);
+            p = JsonParserSequence.createFlattened(tb.asParser(p), p);
+            p.nextToken();
+        }
+        Object value = deser.deserialize(p, ctxt);
+        if (p.nextToken() != JsonToken.END_OBJECT) {
+            throw ctxt.wrongTokenException(p, JsonToken.END_OBJECT,
+                    "expected closing END_OBJECT after type information and deserialized value");
+        }
+        return value;
+    }

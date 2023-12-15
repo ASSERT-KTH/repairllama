@@ -1,0 +1,34 @@
+--- 
++++ 
+@@ -1,15 +1,28 @@
+     public static List<Integer> remove_duplicates(List<Integer> numbers) {
+         List<Integer> result = new ArrayList<Integer>();
+         HashMap<Integer, Integer> count = new HashMap<Integer, Integer>();
+-        
+         for (Integer n : numbers){
++// buggy code
++           if (count.containsKey(n))
++                count.put(n, count.get(n) + 1);
++            else
++                count.put(n, 1);
++// end buggy code
++        }
++        for (Integer n : numbers){
++            if (count.containsKey(n))
++                count.put(n, count.get(n) + 1);
++            else
++                count.put(n, 1);
++        }
++        return result;
++    }
++
+             count.put(n, count.get(n) + 1);
+         }
+-
+         for (Integer n : numbers){
+             if (count.get(n) == 1)
+                 result.add(n);
+         }
+-
+         return result;
+     }

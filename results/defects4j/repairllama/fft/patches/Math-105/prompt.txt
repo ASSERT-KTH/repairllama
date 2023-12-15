@@ -1,0 +1,5 @@
+    public double getSumSquaredErrors() {
+// buggy code
+//        return sumYY - sumXY * sumXY / sumXX;
+<FILL_ME>
+    }

@@ -1,0 +1,6 @@
+        public double[] repairAndDecode(final double[] x) {
+// buggy code
+//            return
+<FILL_ME>
+                decode(x);
+        }

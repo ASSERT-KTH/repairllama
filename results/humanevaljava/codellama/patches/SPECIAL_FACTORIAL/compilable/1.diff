@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,8 +1,8 @@
+     public static long special_factorial(long n) {
+         long fact_i = 1, special_fact = 1;
+-        for(long i = n; i >= 1; i--) {
+-            fact_i *= i * fact_i;
+-            special_fact += i * fact_i;
++       while (fact_i <= n) {
++            special_fact *= fact_i;
++            fact_i += 2;
+         }
+         return special_fact;
+     }

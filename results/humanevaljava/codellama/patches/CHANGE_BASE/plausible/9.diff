@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,9 +1,13 @@
+     public static String change_base(int x, int base) {
+         String result = "";
+-
+         while (x > 0) {
+-            result = result + x % base;
+-            x = x - x / base;
++           int digit = x % base;
++            if (digit < 10) {
++                result = digit + result;
++            } else {
++                result = (char) ('A' + digit - 10) + result;
++            }
++            x /= base;
+         }
+         return result;
+     }

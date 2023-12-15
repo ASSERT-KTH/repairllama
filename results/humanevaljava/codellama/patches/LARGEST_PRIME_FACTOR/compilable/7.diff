@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -1,9 +1,9 @@
+     public static int largest_prime_factor(int n) {
+         int largest = 1;
+         for (int j = 2; j < n; j += 1) {
+-            if (is_prime(j)){
+-                largest = n % j;
++           if (n % j == 0) {
++                largest = Math.max(largest, j);
+             }
+         }
+         return largest;
+     }

@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,7 +1,13 @@
+     public static boolean is_simple_power(int x, int n) {
++// buggy code
++       if (n == 0) return false;
++        if (n == 1) return true;
++        if (x == 0) return false;
++        if (x == 1) return true;
++
+         int power = 1;
+         while (power < x) {
+             power *= n;
+         }
+         return power == x;
+     }

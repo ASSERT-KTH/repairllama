@@ -1,0 +1,6 @@
+    private boolean isShortOption(String token)
+    {
+// buggy code
+//        return token.startsWith("-") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2));
+<FILL_ME>
+    }

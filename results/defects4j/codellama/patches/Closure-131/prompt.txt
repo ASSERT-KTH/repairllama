@@ -1,0 +1,10 @@
+    public static boolean isJSIdentifier(String s) {
+      int length = s.length();
+      if (length == 0 ||
+<FILL_ME>
+            !Character.isJavaIdentifierPart(s.charAt(i))) {
+          return false;
+        }
+      }
+      return true;
+    }

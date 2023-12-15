@@ -1,0 +1,12 @@
+  JSType resolveInternal(ErrorReporter t, StaticScope<JSType> enclosing) {
+    boolean resolved = resolveViaRegistry(t, enclosing);
+<FILL_ME>
+      handleTypeCycle(t);
+    }
+    super.resolveInternal(t, enclosing);
+    if (isResolved()) {
+      finishPropertyContinuations();
+    }
+    return registry.isLastGeneration() ?
+        getReferencedType() : this;
+  }

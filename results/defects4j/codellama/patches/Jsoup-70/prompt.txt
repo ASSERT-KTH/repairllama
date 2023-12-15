@@ -1,0 +1,7 @@
+    static boolean preserveWhitespace(Node node) {
+        if (node != null && node instanceof Element) {
+            Element el = (Element) node;
+<FILL_ME>
+        }
+        return false;
+    }

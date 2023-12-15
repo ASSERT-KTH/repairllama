@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,14 +1,15 @@
+     public static String longest(List<String> strings){
+         int maxlen = 0;
+         for (String string : strings){
+-            if (strings.size() > string.length()){
+-                maxlen = strings.size();
++           if (string.length() > maxlen){
++                maxlen = string.length();
++                strings.clear();
+             }
+         }
+         for (String string : strings){
+             if (string.length() == maxlen){
+                 return string;
+             }
+         }
+         return null;
+     }

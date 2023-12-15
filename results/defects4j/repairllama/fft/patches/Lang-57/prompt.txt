@@ -1,0 +1,5 @@
+    public static boolean isAvailableLocale(Locale locale) {
+// buggy code
+//        return cAvailableLocaleSet.contains(locale);
+<FILL_ME>
+    }

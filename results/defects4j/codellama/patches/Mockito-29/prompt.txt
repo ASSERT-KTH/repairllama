@@ -1,0 +1,7 @@
+    public void describeTo(Description description) {
+        description.appendText("same(");
+        appendQuoting(description);
+<FILL_ME>
+        appendQuoting(description);
+        description.appendText(")");
+    }

@@ -1,0 +1,10 @@
+    public static List<Integer> unique(List<Integer> l) {
+        List<Integer> result = new ArrayList<Integer>();
+        for (Integer n : l){
+// buggy code
+<FILL_ME>
+            result.add(n);
+        }
+        Collections.sort(result);
+        return result;
+    }

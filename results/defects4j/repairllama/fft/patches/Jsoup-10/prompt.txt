@@ -1,0 +1,23 @@
+    public String absUrl(String attributeKey) {
+        Validate.notEmpty(attributeKey);
+        String relUrl = attr(attributeKey);
+        if (!hasAttr(attributeKey)) {
+            return ""; 
+        } else {
+            URL base;
+            try {
+                try {
+                    base = new URL(baseUri);
+                } catch (MalformedURLException e) {
+                    URL abs = new URL(relUrl);
+                    return abs.toExternalForm();
+                }
+// buggy code
+<FILL_ME>
+                URL abs = new URL(base, relUrl);
+                return abs.toExternalForm();
+            } catch (MalformedURLException e) {
+                return "";
+            }
+        }
+    }

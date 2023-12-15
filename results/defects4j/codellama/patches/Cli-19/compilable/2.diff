@@ -1,0 +1,26 @@
+--- 
++++ 
+@@ -1,13 +1,18 @@
+     private void processOptionToken(String token, boolean stopAtNonOption)
+     {
+         if (options.hasOption(token))
+         {
+             currentOption = options.getOption(token);
+-            tokens.add(token);
+-        }
+-        else if (stopAtNonOption)
++       }
++        else
+         {
+-            eatTheRest = true;
+-            tokens.add(token);
++            if (stopAtNonOption)
++            {
++                stopAtNonOption = false;
++            }
++            else
++            {
++                currentOption = null;
++            }
+         }
+     }

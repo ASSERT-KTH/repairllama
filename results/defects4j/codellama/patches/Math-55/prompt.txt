@@ -1,0 +1,3 @@
+  public static Vector3D crossProduct(final Vector3D v1, final Vector3D v2) {
+<FILL_ME>
+  }

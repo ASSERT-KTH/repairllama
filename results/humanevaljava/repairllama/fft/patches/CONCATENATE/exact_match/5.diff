@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,6 +1,9 @@
+     public static String concatenate(String[] strings) {
+-        String result = null;
++// buggy code
++//        String result = null;
++       String result = "";
++// end buggy code
+         for (String string : strings)
+             result += string;
+         return result;
+     }

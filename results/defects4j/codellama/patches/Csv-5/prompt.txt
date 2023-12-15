@@ -1,0 +1,5 @@
+    public void println() throws IOException {
+        final String recordSeparator = format.getRecordSeparator();
+<FILL_ME>
+        newRecord = true;
+    }

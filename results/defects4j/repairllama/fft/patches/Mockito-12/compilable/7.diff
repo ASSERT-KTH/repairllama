@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -1,10 +1,16 @@
+     public Class getGenericType(Field field) {        
+         Type generic = field.getGenericType();
+         if (generic != null && generic instanceof ParameterizedType) {
+             Type actual = ((ParameterizedType) generic).getActualTypeArguments()[0];
++// buggy code
++//                return (Class) actual;
++           if (actual instanceof Class) {
+                 return (Class) actual;
+-                //in case of nested generics we don't go deep
++            }
+         }
+-        
++        if (generic != null && generic instanceof Class) {
++            return (Class) generic;
++
++        }
+         return Object.class;
+     }

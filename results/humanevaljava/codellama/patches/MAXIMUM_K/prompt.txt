@@ -1,0 +1,8 @@
+    public static ArrayList<Integer> maximum_k(ArrayList<Integer> arr, int k) {
+        Collections.sort(arr);
+        ArrayList<Integer> result = new ArrayList<>();
+<FILL_ME>
+            result.add(arr.get(i));
+        }
+        return result;
+    }

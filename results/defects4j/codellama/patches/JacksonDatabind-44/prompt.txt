@@ -1,0 +1,7 @@
+    protected JavaType _narrow(Class<?> subclass)
+    {
+        if (_class == subclass) {
+            return this;
+        }
+<FILL_ME>
+    }

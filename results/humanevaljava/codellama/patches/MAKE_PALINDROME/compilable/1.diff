@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -1,13 +1,13 @@
+     public static String make_palindrome(String str){
+         if (str.length() == 0)
+             return "";
+-
+         int beginning_of_suffix = 0;
+         while (! is_palindrome(str.substring(beginning_of_suffix))){
+             beginning_of_suffix += 1;
+         }
+-        
+         String result = str;
+-        result += str.substring(0, beginning_of_suffix);
++       for (int i = str.length() - 1; i >= beginning_of_suffix; i--){
++            result += str.charAt(i);
++        }
+         return result;
+     }

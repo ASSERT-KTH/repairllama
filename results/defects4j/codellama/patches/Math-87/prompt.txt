@@ -1,0 +1,8 @@
+    private Integer getBasicRow(final int col) {
+        Integer row = null;
+        for (int i = getNumObjectiveFunctions(); i < getHeight(); i++) {
+<FILL_ME>
+            }
+        }
+        return row;
+    }

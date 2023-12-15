@@ -1,0 +1,6 @@
+        public int parseInto(DateTimeParserBucket bucket, String text, int position) {
+            String str = text.substring(position);
+<FILL_ME>
+            }
+            return ~position;
+        }

@@ -1,0 +1,9 @@
+    public static List<Integer> rolling_max(List<Integer> numbers) {
+        List<Integer> result = new ArrayList<Integer>();
+        Integer running_max = null;
+        for (Integer n : numbers){
+<FILL_ME>
+            result.add(running_max);
+        }
+        return result;
+    }

@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,7 +1,11 @@
+     public static boolean any_int(double x, double y, double z) {
+-        if ((int)x == x && (int)y == y) {
+-            if (x + y == z || x + z == y)
++       if (x == (int) x) {
++            if (y == (int) y) {
++                if (z == (int) z) {
++                    return true;
++                }
++            }
+                 return true;
+         }
+         return false;
+     }

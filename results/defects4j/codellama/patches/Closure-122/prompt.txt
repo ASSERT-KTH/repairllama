@@ -1,0 +1,8 @@
+  private void handleBlockComment(Comment comment) {
+<FILL_ME>
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+  }

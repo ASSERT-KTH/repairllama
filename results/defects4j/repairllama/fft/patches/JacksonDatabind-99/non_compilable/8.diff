@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,8 +1,12 @@
+     protected String buildCanonicalName()
+     {
+         StringBuilder sb = new StringBuilder();
+         sb.append(_class.getName());
+         sb.append('<');
+         sb.append(_referencedType.toCanonical());
++// buggy code
++       sb.append(',');
++        sb.append(_genericType.toCanonical());
++
+         return sb.toString();
+     }

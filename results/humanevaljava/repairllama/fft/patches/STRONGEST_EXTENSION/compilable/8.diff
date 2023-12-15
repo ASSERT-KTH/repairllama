@@ -1,0 +1,37 @@
+--- 
++++ 
+@@ -1,16 +1,29 @@
+     public static String strongest_extension(String class_name, String[] extensions) {
+         String strong = null;
+         int val = Integer.MIN_VALUE;
+-
+         for (String s : extensions) {
+             int CAP = 0;
+             int SM = 0;
+             for (char c : s.toCharArray()) {
+-                if (Character.toUpperCase(c) == c) SM += 1;
+-                if (Character.toLowerCase(c) == c) CAP += 1;
++// buggy code
++//                if (Character.toUpperCase(c) == c) SM += 1;
++//                if (Character.toLowerCase(c) == c) CAP += 1;
++//            }
++//            val = CAP - SM;
++//            strong = s;
++               if (Character.toLowerCase(c) == c) SM += 1;
++                if (Character.toUpperCase(c) == c) CAP += 1;
+             }
+-            val = CAP - SM;
+-            strong = s;
++            if (CAP - SM > val) {
++                val = CAP - SM;
++                strong = s;
++            }
++        }
++        if (strong == null) {
++            strong = class_name;
++        } else {
++            strong = strong.toLowerCase();
++
+         }
+         return class_name + "." + strong;
+     }

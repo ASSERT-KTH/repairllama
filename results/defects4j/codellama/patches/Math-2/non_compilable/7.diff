@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1,3 +1,7 @@
+     public double getNumericalMean() {
+-        return (double) (getSampleSize() * getNumberOfSuccesses()) / (double) getPopulationSize();
++       double sum = 0.0;
++        for (int i = 0; i < data.size(); i++) {
++            sum += data.get(i);
++        }
++        return sum / data.size();
+     }

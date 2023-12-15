@@ -1,0 +1,8 @@
+    boolean matchesLetter() {
+        if (isEmpty())
+            return false;
+        char c = input[pos];
+// buggy code
+//        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+<FILL_ME>
+    }

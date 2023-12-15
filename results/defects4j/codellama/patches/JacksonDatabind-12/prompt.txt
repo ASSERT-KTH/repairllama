@@ -1,0 +1,4 @@
+    public boolean isCachable() {
+<FILL_ME>
+                && (_ignorableProperties == null);
+    }

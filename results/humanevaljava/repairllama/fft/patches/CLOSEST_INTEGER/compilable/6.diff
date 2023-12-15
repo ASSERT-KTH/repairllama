@@ -1,0 +1,27 @@
+--- 
++++ 
+@@ -1,16 +1,21 @@
+     public static int closest_integer(String value) {
+         if (value.indexOf('.') >= 0) {
+             while (value.charAt(value.length() - 1) == '0')
+                 value = value.substring(0, value.length() - 1);
+         }
+-
+         double num = Double.parseDouble(value);
+         int result = 0;
+-        if (value.substring(value.length() - 2).equals(".5")) {
++// buggy code
++//        if (value.substring(value.length() - 2).equals(".5")) {
++//            result = num > 0 ? (int)Math.floor(num) : (int)Math.ceil(num);
++//        } else if (value.length() > 0){
++//            result = (int)Math.round(num);
++//        }
++        if (value.substring(value.length() - 2).equals(".50")) {
+             result = num > 0 ? (int)Math.floor(num) : (int)Math.ceil(num);
++
+         } else if (value.length() > 0){
+             result = (int)Math.round(num);
+         }
+-
+         return result;
+     }

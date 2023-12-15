@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,3 +1,8 @@
+   private Node parseContextTypeExpression(JsDocToken token) {
+-          return parseTypeName(token);
++   if (token == null) {
++      return null;
++    }
++    if (token.type != JsDocTokenType.CONTEXT_TYPE) {
++      return null;
++    }
+   }

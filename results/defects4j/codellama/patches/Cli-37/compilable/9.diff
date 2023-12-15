@@ -1,0 +1,18 @@
+--- 
++++ 
+@@ -1,7 +1,11 @@
+     private boolean isShortOption(String token)
+     {
+-        // short options (-S, -SV, -S=V, -SV1=V2, -S1S2)
+-        return token.startsWith("-") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2));
+-
+-        // remove leading "-" and "=value"
++       if (token.startsWith("-"))
++        {
++            if (token.length() == 2)
++            {
++                return true;
++            }
++        }
++        return false;
+     }

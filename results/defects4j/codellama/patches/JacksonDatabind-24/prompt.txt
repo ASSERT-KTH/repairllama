@@ -1,0 +1,6 @@
+    public BaseSettings withDateFormat(DateFormat df) {
+        if (_dateFormat == df) {
+            return this;
+        }
+<FILL_ME>
+    }

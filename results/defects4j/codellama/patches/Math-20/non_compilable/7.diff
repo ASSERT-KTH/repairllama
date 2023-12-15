@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,4 +1,6 @@
+         public double[] repairAndDecode(final double[] x) {
+-            return
++               repair(x);
++                decode(x);
++                repair(x);
+                 decode(x);
+         }

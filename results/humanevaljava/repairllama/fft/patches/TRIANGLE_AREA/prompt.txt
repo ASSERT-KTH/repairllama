@@ -1,0 +1,5 @@
+    public static double triangle_area(double a, double h) {
+// buggy code
+//        return a * h;
+<FILL_ME>
+    }

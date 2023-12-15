@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,5 +1,8 @@
+     public String format(Date date) {
+-        Calendar c = new GregorianCalendar(mTimeZone);
++// buggy code
++//        Calendar c = new GregorianCalendar(mTimeZone);
++       Calendar c = GregorianCalendar.getInstance(mTimeZone);
++
+         c.setTime(date);
+         return applyRules(c, new StringBuffer(mMaxLengthEstimate)).toString();
+     }

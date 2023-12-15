@@ -1,0 +1,5 @@
+    public static int can_arrange(int[] arr) {
+<FILL_ME>
+        }
+        return ind;
+    }

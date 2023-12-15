@@ -1,0 +1,7 @@
+    public static int[] even_odd_count(int num) {
+        int even_count = 0;
+        int odd_count = 0;
+<FILL_ME>
+        }
+        return new int[] {even_count, odd_count};
+    }

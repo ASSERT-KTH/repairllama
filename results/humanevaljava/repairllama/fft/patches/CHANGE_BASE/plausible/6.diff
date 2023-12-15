@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,9 +1,14 @@
+     public static String change_base(int x, int base) {
+         String result = "";
+-
+         while (x > 0) {
+-            result = result + x % base;
+-            x = x - x / base;
++// buggy code
++//            result = result + x % base;
++//            x = x - x / base;
++           result = (x % base) + result;
++            x = x / base;
++        }
++        if (result.equals("")) {
++            result = "0";
+         }
+         return result;
+     }

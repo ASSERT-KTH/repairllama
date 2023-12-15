@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,4 +1,12 @@
+     public static String decimal_to_binary(int decimal) {
+-        String result = Integer.toHexString(decimal);
++       String result = "";
++        while (decimal != 0) {
++            if (decimal % 2 == 1) {
++                result = "1" + result;
++            } else {
++                result = "0" + result;
++            }
++            decimal /= 2;
++        }
+         return "db" + result + "db";
+     }

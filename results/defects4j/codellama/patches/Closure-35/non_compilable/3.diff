@@ -1,0 +1,57 @@
+--- 
++++ 
+@@ -1,25 +1,39 @@
+   private void inferPropertyTypesToMatchConstraint(
+       JSType type, JSType constraint) {
+     if (type == null || constraint == null) {
+       return;
+     }
+-
+     ObjectType constraintObj =
+         ObjectType.cast(constraint.restrictByNotNullOrUndefined());
+-    if (constraintObj != null && constraintObj.isRecordType()) {
+-      ObjectType objType = ObjectType.cast(type.restrictByNotNullOrUndefined());
+-      if (objType != null) {
+-        for (String prop : constraintObj.getOwnPropertyNames()) {
+-          JSType propType = constraintObj.getPropertyType(prop);
+-          if (!objType.isPropertyTypeDeclared(prop)) {
+-            JSType typeToInfer = propType;
+-            if (!objType.hasProperty(prop)) {
+-              typeToInfer =
+-                  getNativeType(VOID_TYPE).getLeastSupertype(propType);
+-            }
+-            objType.defineInferredProperty(prop, typeToInfer, null);
+-          }
+-        }
++   if (constraintObj == null) {
++      return;
++    }
++    ObjectType typeObj = ObjectType.cast(type.restrictByNotNullOrUndefined());
++    if (typeObj == null) {
++      return;
++    }
++    for (String pname : constraintObj.getOwnPropertyNames()) {
++      Property p = constraintObj.getOwnProperty(pname);
++      if (p == null) {
++        continue;
+       }
++      JSType ptype = p.getType();
++      if (ptype == null) {
++        continue;
++      }
++      ptype = ptype.restrictByNotNullOrUndefined();
++      if (ptype == null) {
++        continue;
++      }
++      Property prop = typeObj.getOwnProperty(pname);
++      if (prop == null) {
++        continue;
++      }
++      JSType propType = prop.getType();
++      if (propType == null) {
++        continue;
++      }
++      propType = propType.restrictByNotNullOrUndefined();
++      if (propType !=
+     }
+   }

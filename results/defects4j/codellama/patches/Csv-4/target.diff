@@ -1,0 +1,7 @@
+--- 
++++ 
+@@ -1,3 +1,3 @@
+     public Map<String, Integer> getHeaderMap() {
+-        return new LinkedHashMap<String, Integer>(this.headerMap);
++        return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);
+     }

@@ -1,0 +1,9 @@
+    public DocumentType(String name, String publicId, String systemId, String baseUri) {
+        super(baseUri);
+// buggy code
+//        Validate.notEmpty(name);
+<FILL_ME>
+        attr("name", name);
+        attr("publicId", publicId);
+        attr("systemId", systemId);
+    }

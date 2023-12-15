@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -1,3 +1,6 @@
+     public static double triangle_area(double a, double h) {
+-        return a * h;
++       if (a <= 0 || h <= 0) {
++            throw new IllegalArgumentException();
++        }
++        return a * h / 2;
+     }

@@ -1,0 +1,5 @@
+    private boolean toStringEquals(Matcher m, Object arg) {
+// buggy code
+//        return StringDescription.toString(m).equals(arg.toString());
+<FILL_ME>
+    }

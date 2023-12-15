@@ -1,0 +1,4 @@
+    public Object generateId(Object forPojo) {
+<FILL_ME>
+        return id;
+    }

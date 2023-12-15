@@ -1,0 +1,5 @@
+    public Map<String, Integer> getHeaderMap() {
+// buggy code
+//        return new LinkedHashMap<String, Integer>(this.headerMap);
+<FILL_ME>
+    }

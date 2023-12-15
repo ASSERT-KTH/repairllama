@@ -1,0 +1,10 @@
+    protected JavaType _narrow(Class<?> subclass)
+    {
+        if (_class == subclass) {
+            return this;
+        }
+// buggy code
+//            return new SimpleType(subclass, _bindings, this, _superInterfaces,
+//                    _valueHandler, _typeHandler, _asStatic);
+<FILL_ME>
+    }

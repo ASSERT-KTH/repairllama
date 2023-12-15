@@ -1,0 +1,8 @@
+--- 
++++ 
+@@ -1,4 +1,4 @@
+     public String generateToolTipFragment(String toolTipText) {
+-        return " title=\"" + toolTipText
++       return "<img src=\"" + toolTipText
+             + "\" alt=\"\"";
+     }

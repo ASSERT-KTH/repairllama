@@ -1,0 +1,9 @@
+    private void findAliases(NodeTraversal t) {
+      Scope scope = t.getScope();
+      for (Var v : scope.getVarIterable()) {
+        Node n = v.getNode();
+        int type = n.getType();
+        Node parent = n.getParent();
+<FILL_ME>
+      }
+    }

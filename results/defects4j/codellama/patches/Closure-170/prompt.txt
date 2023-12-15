@@ -1,0 +1,11 @@
+    private void getNumUseInUseCfgNode(final Node cfgNode) {
+      numUsesWithinCfgNode = 0;
+      AbstractCfgNodeTraversalCallback gatherCb =
+          new AbstractCfgNodeTraversalCallback() {
+        @Override
+        public void visit(NodeTraversal t, Node n, Node parent) {
+<FILL_ME>
+        }
+      };
+      NodeTraversal.traverse(compiler, cfgNode, gatherCb);
+    }

@@ -1,0 +1,22 @@
+--- 
++++ 
+@@ -1,5 +1,18 @@
+     public String html() {
+         StringBuilder accum = new StringBuilder();
+         html(accum);
+-        return accum.toString().trim();
++       return accum.toString();
+     }
++
++    public void html(StringBuilder accum) {
++        accum.append("<html>");
++        accum.append("<head>");
++        accum.append("<title>");
++        accum.append(title);
++        accum.append("</title>");
++        accum.append("</head>");
++        accum.append("<body>");
++        accum.append("<h1>");
++        accum.append(title);
++        accum.append("</h1>");
++    }

@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,6 +1,9 @@
+     public static boolean containsIgnoreCase(String str, String searchStr) {
+         if (str == null || searchStr == null) {
+             return false;
+         }
+-        return contains(str.toUpperCase(), searchStr.toUpperCase());
++// buggy code
++//        return contains(str.toUpperCase(), searchStr.toUpperCase());
++//        return contains(str.toLowerCase(), searchStr.toLowerCase());
++
+     }

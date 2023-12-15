@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -1,9 +1,18 @@
+     public static int fruit_distribution(String s, int n) {
+         int result = n;
++        for (String str : s.split(" ")) {
++// buggy code
++//            int cnt = Integer.parseInt(str);
++//            result -= cnt;
++//            if (result < 0) {
++//                return 0;
++//            }
++            int cnt = Integer.parseInt(str);
++            if (cnt > result) {
++                return 0;
++            }
++            result -= cnt;
+ 
+-        for (String str : s.split(" ")) {
+-            int cnt = Integer.parseInt(str);
+-            result -= cnt;
+         }
+         return result;
+     }

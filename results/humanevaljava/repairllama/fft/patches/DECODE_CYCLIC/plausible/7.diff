@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,19 +1,18 @@
+             String encode_cyclic(String s) {
+                 ArrayList<String> groups = new ArrayList<String>();
++// buggy code
++//                for (int i = 0; i < s.length(); i += 3){
++               for (int i = 0; i <= s.length() - 3; i += 3){
+ 
+-                for (int i = 0; i < s.length(); i += 3){
+                     groups.add(s.substring(i, Math.min(s.length(), i + 3)));
+                 }
+                 int remain = s.length() % 3;
+-                
+                 String result = "";
+                 for (String group : groups){
+                     result += group.substring(1) + group.substring(0, 1);
+                 }
+-
+                 if (remain > 0){
+                     result += s.substring(s.length() - remain);
+                 }
+-
+                 return result;
+             }

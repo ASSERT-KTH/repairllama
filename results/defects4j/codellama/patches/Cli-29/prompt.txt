@@ -1,0 +1,6 @@
+    static String stripLeadingAndTrailingQuotes(String str)
+    {
+<FILL_ME>
+        }
+        return str;
+    }

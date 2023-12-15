@@ -1,0 +1,8 @@
+--- 
++++ 
+@@ -1,4 +1,5 @@
+   private String getRemainingJSDocLine() {
+     String result = stream.getRemainingJSDocLine();
++   stream.setRemainingJSDocLine(null);
+     return result;
+   }

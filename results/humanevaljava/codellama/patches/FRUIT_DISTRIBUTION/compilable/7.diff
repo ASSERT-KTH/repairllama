@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,9 +1,9 @@
+     public static int fruit_distribution(String s, int n) {
+         int result = n;
+-
+         for (String str : s.split(" ")) {
+-            int cnt = Integer.parseInt(str);
+-            result -= cnt;
++           if (str.charAt(0) == str.charAt(1)) {
++                result--;
++            }
+         }
+         return result;
+     }

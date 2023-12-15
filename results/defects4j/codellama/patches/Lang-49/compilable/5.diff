@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,7 +1,10 @@
+     public Fraction reduce() {
++       if (denominator == 0) {
++            throw new ArithmeticException("Division by zero");
++        }
+         int gcd = greatestCommonDivisor(Math.abs(numerator), denominator);
+         if (gcd == 1) {
+             return this;
+         }
+         return Fraction.getFraction(numerator / gcd, denominator / gcd);
+     }

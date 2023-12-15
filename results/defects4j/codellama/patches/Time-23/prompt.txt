@@ -1,0 +1,16 @@
+    private static synchronized String getConvertedId(String id) {
+        Map<String, String> map = cZoneIdConversion;
+        if (map == null) {
+            map = new HashMap<String, String>();
+            map.put("GMT", "UTC");
+<FILL_ME>
+            map.put("CTT", "Asia/Shanghai");
+            map.put("JST", "Asia/Tokyo");
+            map.put("ACT", "Australia/Darwin");
+            map.put("AET", "Australia/Sydney");
+            map.put("SST", "Pacific/Guadalcanal");
+            map.put("NST", "Pacific/Auckland");
+            cZoneIdConversion = map;
+        }
+        return map.get(id);
+    }

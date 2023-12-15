@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,8 +1,17 @@
+     public int read() throws IOException {
+         int current = super.read();
++// buggy code
++//        if (current == '\n') {
++//            lineCounter++;
++//        }
++        if (lastChar == '\n') {
++            lastChar = current;
++            return lastChar;
++        }
+         if (current == '\n') {
++
+             lineCounter++;
+         }
+         lastChar = current;
+         return lastChar;
+     }

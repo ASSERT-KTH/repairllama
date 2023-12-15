@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -1,12 +1,14 @@
+     public static boolean same_chars(String s0, String s1) {
+-        ArrayList<Character> set0 = new ArrayList<Character>();
+-        ArrayList<Character> set1 = new ArrayList<Character>();
+-
++       if (s0.length() != s1.length()) {
++            return false;
++        }
++        Set set0 = new HashSet();
++        Set set1 = new HashSet();
+         for (char c0 : s0.toCharArray()) {
+             set0.add(c0);
+         }
+         for (char c1 : s1.toCharArray()) {
+             set1.add(c1);
+         }
+         return set0.equals(set1);
+     }

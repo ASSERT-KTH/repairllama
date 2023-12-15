@@ -1,0 +1,5 @@
+  private String getRemainingJSDocLine() {
+    String result = stream.getRemainingJSDocLine();
+<FILL_ME>
+    return result;
+  }

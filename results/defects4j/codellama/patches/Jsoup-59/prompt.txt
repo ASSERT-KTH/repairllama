@@ -1,0 +1,13 @@
+        final void newAttribute() {
+            if (attributes == null)
+                attributes = new Attributes();
+            if (pendingAttributeName != null) {
+                pendingAttributeName = pendingAttributeName.trim();
+<FILL_ME>
+            }
+            pendingAttributeName = null;
+            hasEmptyAttributeValue = false;
+            hasPendingAttributeValue = false;
+            reset(pendingAttributeValue);
+            pendingAttributeValueS = null;
+        }

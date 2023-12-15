@@ -1,0 +1,4 @@
+    public static String decimal_to_binary(int decimal) {
+<FILL_ME>
+        return "db" + result + "db";
+    }

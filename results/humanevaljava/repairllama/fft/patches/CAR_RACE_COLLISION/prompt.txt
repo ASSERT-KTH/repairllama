@@ -1,0 +1,5 @@
+    public static int car_race_collision(int n) {
+// buggy code
+//        return n;
+<FILL_ME>
+    }

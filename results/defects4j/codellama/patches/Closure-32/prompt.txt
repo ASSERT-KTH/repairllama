@@ -1,0 +1,29 @@
+  private ExtractionInfo extractMultilineTextualBlock(JsDocToken token,
+                                                      WhitespaceOption option) {
+    if (token == JsDocToken.EOC || token == JsDocToken.EOL ||
+        token == JsDocToken.EOF) {
+      return new ExtractionInfo("", token);
+    }
+    stream.update();
+    int startLineno = stream.getLineno();
+    int startCharno = stream.getCharno() + 1;
+    String line = stream.getRemainingJSDocLine();
+    if (option != WhitespaceOption.PRESERVE) {
+      line = line.trim();
+    }
+    StringBuilder builder = new StringBuilder();
+    builder.append(line);
+    state = State.SEARCHING_ANNOTATION;
+    token = next();
+    boolean ignoreStar = false;
+<FILL_ME>
+          builder.append(toString(token));
+          line = stream.getRemainingJSDocLine();
+          if (option != WhitespaceOption.PRESERVE) {
+            line = trimEnd(line);
+          }
+          builder.append(line);
+          token = next();
+      }
+    } while (true);
+  }

@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -1,8 +1,13 @@
+   private void handleBlockComment(Comment comment) {
+-    if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") != -1) {
++   if (comment.getType() == Token.BLOCK_COMMENT) {
++      errorReporter.warning(
++          BLOCK_COMMENT_ERROR,
++          sourceName,
++          comment.getLineno(), "", 0);
++    } else {
+       errorReporter.warning(
+           SUSPICIOUS_COMMENT_WARNING,
+           sourceName,
+           comment.getLineno(), "", 0);
+     }
+   }

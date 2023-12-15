@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,9 +1,12 @@
+     public static boolean is_happy(String s) {
+         if (s.length() < 3)
+             return false;
+         for (int i = 0; i < s.length() - 2; i += 1) {
+-            if (s.charAt(i) == s.charAt(i + 1) || s.charAt(i + 1) == s.charAt(i + 2))
++// buggy code
++//            if (s.charAt(i) == s.charAt(i + 1) || s.charAt(i + 1) == s.charAt(i + 2))
++           if (s.charAt(i) == s.charAt(i + 1) && s.charAt(i + 1) == s.charAt(i + 2))
++
+                 return false;
+         }
+         return true;
+     }

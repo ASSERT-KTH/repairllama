@@ -1,0 +1,3 @@
+    public static int strlen(String string){
+<FILL_ME>
+    }

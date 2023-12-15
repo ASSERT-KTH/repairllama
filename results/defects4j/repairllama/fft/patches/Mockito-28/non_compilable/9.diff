@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -1,5 +1,9 @@
+     private void injectMockCandidate(Class<?> awaitingInjectionClazz, Set<Object> mocks, Object fieldInstance) {
+         for(Field field : orderedInstanceFieldsFrom(awaitingInjectionClazz)) {
+-            mockCandidateFilter.filterCandidate(mocks, field, fieldInstance).thenInject();
++// buggy code
++//            mockCandidateFilter.filterCandidate(mocks, field, fieldInstance).thenInject();
++           if(mockCandidateFilter.filterCandidate(mocks, field, fieldInstance).thenInject())
++                break;
++
+         }
+     }

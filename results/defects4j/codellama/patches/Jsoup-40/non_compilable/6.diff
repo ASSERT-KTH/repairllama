@@ -1,0 +1,12 @@
+--- 
++++ 
+@@ -1,8 +1,7 @@
+     public DocumentType(String name, String publicId, String systemId, String baseUri) {
+         super(baseUri);
+-
+-        Validate.notEmpty(name);
++       tagName = "!DOCTYPE";
+         attr("name", name);
+         attr("publicId", publicId);
+         attr("systemId", systemId);
+     }

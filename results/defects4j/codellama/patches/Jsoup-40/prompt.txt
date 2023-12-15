@@ -1,0 +1,7 @@
+    public DocumentType(String name, String publicId, String systemId, String baseUri) {
+        super(baseUri);
+<FILL_ME>
+        attr("name", name);
+        attr("publicId", publicId);
+        attr("systemId", systemId);
+    }

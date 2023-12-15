@@ -1,0 +1,56 @@
+--- 
++++ 
+@@ -1,29 +1,28 @@
+   private FlowScope traverseNew(Node n, FlowScope scope) {
++   Node parent = n.getParent();
++    if (parent == null) {
++      return scope;
++    }
++    switch (parent.getType()) {
++      case Token.ASSIGN:
++      case Token.ASSIGN_ADD:
++      case Token.ASSIGN_BITAND:
++      case Token.ASSIGN_BITOR:
++      case Token.ASSIGN_BITXOR:
++      case Token.ASSIGN_DIV:
++      case Token.ASSIGN_LSH:
++      case Token.ASSIGN_MOD:
++      case Token.ASSIGN_MUL:
++      case Token.ASSIGN_RSH:
++      case Token.ASSIGN_SUB:
++      case Token.ASSIGN_URSH:
++      case Token.ASSIGN_ADD_EQ:
++      case Token.ASSIGN_BITAND_EQ:
++      case Token.ASSIGN_BITOR_EQ:
++      case Token.ASSIGN_BITXOR_EQ:
++      case Token.ASSIGN_DIV_EQ:
++      case Token.ASSIGN_LSH_EQ:
++      case Token.ASSIGN_MUL_EQ:
+ 
+-    Node constructor = n.getFirstChild();
+-    scope = traverse(constructor, scope);
+-    JSType constructorType = constructor.getJSType();
+-    JSType type = null;
+-    if (constructorType != null) {
+-      constructorType = constructorType.restrictByNotNullOrUndefined();
+-      if (constructorType.isUnknownType()) {
+-        type = getNativeType(UNKNOWN_TYPE);
+-      } else {
+-        FunctionType ct = constructorType.toMaybeFunctionType();
+-        if (ct == null && constructorType instanceof FunctionType) {
+-          // If constructorType is a NoObjectType, then toMaybeFunctionType will
+-          // return null. But NoObjectType implements the FunctionType
+-          // interface, precisely because it can validly construct objects.
+-          ct = (FunctionType) constructorType;
+-        }
+-        if (ct != null && ct.isConstructor()) {
+-          type = ct.getInstanceType();
+-        }
+-      }
+-    }
+-    n.setJSType(type);
+-    for (Node arg = constructor.getNext(); arg != null; arg = arg.getNext()) {
+-      scope = traverse(arg, scope);
+-    }
+     return scope;
+   }

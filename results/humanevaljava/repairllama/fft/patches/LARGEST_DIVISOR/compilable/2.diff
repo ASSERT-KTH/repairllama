@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,7 +1,11 @@
+     public static int largest_divisor(int n) {
+-        for (int i = n; i >= 0; i -= 1){
++// buggy code
++//        for (int i = n; i >= 0; i -= 1){
++// buggy code
++        for (int i = n; i > 0; i -= 1){
++
+             if (n % i == 0)
+                 return i;
+         }
+         return 1;
+     }

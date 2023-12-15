@@ -1,0 +1,4 @@
+    protected XmlSerializerProvider(XmlSerializerProvider src) {
+        super(src);
+<FILL_ME>
+    }

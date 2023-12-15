@@ -1,0 +1,6 @@
+    public boolean isCachable() {
+// buggy code
+//        return (_valueTypeDeserializer == null)
+<FILL_ME>
+                && (_ignorableProperties == null);
+    }

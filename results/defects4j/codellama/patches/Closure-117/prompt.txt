@@ -1,0 +1,11 @@
+  String getReadableJSTypeName(Node n, boolean dereference) {
+<FILL_ME>
+    String qualifiedName = n.getQualifiedName();
+    if (qualifiedName != null) {
+      return qualifiedName;
+    } else if (type.isFunctionType()) {
+      return "function";
+    } else {
+      return type.toString();
+    }
+  }

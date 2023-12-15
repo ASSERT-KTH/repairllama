@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -1,10 +1,9 @@
+     public static ArrayList<Integer> generate_integers(int a, int b) {
+-        int lower = Math.max(2, a);
+-        int upper = Math.min(8, b);
+-
++       int lower = (a < b) ? a : b;
++        int upper = (a > b) ? a : b;
+         ArrayList<Integer> result = new ArrayList<Integer>();
+         for (int i = lower; i <= upper; i += 1) {
+             if (i % 2 == 0) result.add(i);
+         }
+         return result;
+     }

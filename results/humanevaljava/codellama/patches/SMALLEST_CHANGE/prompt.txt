@@ -1,0 +1,7 @@
+    public static int smallest_change(int[] arr) {
+        int result = 0;
+<FILL_ME>
+                result += 1;
+        }
+        return result;
+    }

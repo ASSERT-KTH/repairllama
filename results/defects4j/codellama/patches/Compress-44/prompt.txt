@@ -1,0 +1,5 @@
+    public ChecksumCalculatingInputStream(final Checksum checksum, final InputStream in) {
+<FILL_ME>
+        this.checksum = checksum;
+        this.in = in;
+    }
