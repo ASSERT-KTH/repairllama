@@ -23,9 +23,7 @@ def compute_diff(
         )
     ))
 
-bugs = []
-
-with open("andre_human_check.json") as f:
+with open("sen_human_check.json") as f:
     for line in f.readlines():
         bug = json.loads(line)
         manual_results = []
@@ -35,9 +33,10 @@ with open("andre_human_check.json") as f:
             print("PLAUSIBLE PATCH:")
             print(compute_diff(bug["buggy_code"], patch))
             print("RESULT (0 -> different, 1 -> doubt, 2 -> equivalent)")
-            manual_results.append(int(input()))
-            os.system('cls' if os.name == 'nt' else 'clear')
-        bug["manual_results"] = manual_results
-        bugs.append(bug)
-        with open("andre_human_check_result.json", "a+") as f:
+            result = int(input())
+            if result == 2:
+                bug["test_results"][i] = "Semantical match"
+                break
+        os.system('cls' if os.name == 'nt' else 'clear')
+        with open("andre_human_check_result_total.json", "a+") as f:
             f.write(json.dumps(bug) + "\n")
