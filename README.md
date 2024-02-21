@@ -6,7 +6,7 @@ It is structured as follows:
 - [repair-lora](repair-lora) contains the RepairLLaMA low-rank adaptation of CodeLLaMA-7B, called "repair adapter"
 - [results](results) contains all generated patches for Defects4J and HumanEval-Java by all models (incl. full fine-tuning, lora, and code representations)
 - [src](src) contains the training and inference scripts
-- [tool](tool) contains a dockerize version of RepairLLaMA for easy deployment (this version uses flacoco for fault localization, and at the moment only targets single-line bugs)
+- [tool](tool) contains a dockerize version of RepairLLaMA for easy deployment (this **outdated** version uses flacoco for fault localization, and at the moment only targets single-line bugs)
 
 The processed fine-tuning datasets, as well as all models, are made available on HuggingFace.
 
