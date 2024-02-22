@@ -1,5 +1,17 @@
 # RepairLLaMA: Efficient Representations and Fine-Tuned Adapters for Program Repair
 
+If you use RepairLLaMA in academic research, please cite "[RepairLLaMA: Efficient Representations and Fine-Tuned Adapters for Program Repair](http://arxiv.org/abs/2312.15698)", Technical report, arXiv 2312.15698, 2023. 
+
+```bibtex
+@techreport{repairllama2023,
+  title={RepairLLaMA: Efficient Representations and Fine-Tuned Adapters for Program Repair},
+  author={Silva, Andr{\'e} and Fang, Sen and Monperrus, Martin},
+  url = {http://arxiv.org/abs/2312.15698},
+  number = {2312.15698},
+  institution = {arXiv},
+}
+```
+
 This repository contains the code, model, and results to replicate the paper "RepairLLaMA: Efficient Representations and Fine-Tuned Adapters for Program Repair"
 
 It is structured as follows:
