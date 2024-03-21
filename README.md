@@ -18,6 +18,7 @@ It is structured as follows:
 - [repair-lora](repair-lora) contains the RepairLLaMA low-rank adaptation of CodeLLaMA-7B, called "repair adapter"
 - [results](results) contains all generated patches for Defects4J and HumanEval-Java by all models (incl. full fine-tuning, lora, and code representations)
 - [src](src) contains the training and inference scripts
+- [example](example) contains an example notebook explaining how to load and prompt the RepairLLaMA model
 
 The processed fine-tuning datasets, as well as all models, are made available on HuggingFace.
 
