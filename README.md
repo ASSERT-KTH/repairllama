@@ -26,10 +26,10 @@ All fine-tuned models will soon be made available on HuggingFace
 
 ## Datasets
 
-The processed fine-tuning datasets are made available on HuggingFace at huggingface.co/datasets/ASSERT-KTH/repairllama-datasets
+The processed fine-tuning datasets are made available on HuggingFace at [https://huggingface.co/datasets/ASSERT-KTH/repairllama-datasets](https://huggingface.co/datasets/ASSERT-KTH/repairllama-datasets).
 It contains the datasets used for training the RepairLLaMA models, one subset per input/output representation pair.
 To get the 30k..50k datasets we did further filtering based on the token length of input + output pairs being less than 1024 tokens.
 
 If it interests you, you can also find these on our HuggingFace org:
-  - Megadiff (original dataset, in HF format): huggingface.co/datasets/ASSERT-KTH/megadiff
-  - Megadiff Single-Function (single-function diffs only, with buggy and fixed functions extracted from it): huggingface.co/datasets/ASSERT-KTH/megadiff-single-function
+  - Megadiff (original dataset, in HF format): [https://huggingface.co/datasets/ASSERT-KTH/megadiff](https://huggingface.co/datasets/ASSERT-KTH/megadiff)
+  - Megadiff Single-Function (single-function diffs only, with buggy and fixed functions extracted from it): [https://huggingface.co/datasets/ASSERT-KTH/megadiff-single-function](https://huggingface.co/datasets/ASSERT-KTH/megadiff-single-function)
