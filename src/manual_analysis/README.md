@@ -9,4 +9,7 @@ pip install -r requirements.txt
 
 # Example for analysing IR1xOR1 results
 python manual_patch_analysis.py ../../results/defects4j/repairllama/lora/RepairLLaMA_defects4j_f2f_bugs_results_ir1_or1.jsonl d4j_iror1_andre.jsonl
+
+# Example for analysing baseline results
+python manual_patch_analysis_baseline.py ../../results/defects4j/repairllama/fft/evaluation_defects4j_zero-shot-cloze_model-best-llr.jsonl.gz evaluation_defects4j_zero-shot-cloze_model-best-llr_andre.jsonl
 ```
