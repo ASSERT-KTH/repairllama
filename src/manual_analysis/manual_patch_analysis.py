@@ -1,5 +1,6 @@
 import json
 import difflib
+import tqdm
 import fire
 import os
 import re
@@ -24,8 +25,7 @@ def compute_diff(
         difflib.unified_diff(
             buggy_code.splitlines(keepends=True),
             fixed_code.splitlines(keepends=True),
-            n=context_len,
-        )
+            n=context_len,)
     ))
 
 def remove_java_comments(source: str) -> str:
@@ -131,7 +131,7 @@ def manual_analysis(input_file: str, output_file: str):
             bugs.append(bug)
 
     # Perform manual analysis
-    for bug in bugs:
+    for bug in tqdm.tqdm(bugs):
         try:
             # Skip if the bug does not have any plausible patch
             if "Plausible" not in bug["test_results"]:
