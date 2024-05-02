@@ -11,6 +11,7 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
 
+
 def compute_diff(
     buggy_code: str, fixed_code: str, context_len: Optional[int] = None
 ) -> List[str]:
@@ -22,12 +23,16 @@ def compute_diff(
         if context_len is not None
         else max(len(buggy_code), len(fixed_code))
     )
-    return "".join(list(
-        difflib.unified_diff(
-            buggy_code.splitlines(keepends=True),
-            fixed_code.splitlines(keepends=True),
-            n=context_len,)
-    ))
+    return "".join(
+        list(
+            difflib.unified_diff(
+                buggy_code.splitlines(keepends=True),
+                fixed_code.splitlines(keepends=True),
+                n=context_len,
+            )
+        )
+    )
+
 
 def remove_java_comments(source: str) -> str:
     # Define states
@@ -99,9 +104,11 @@ def remove_java_comments(source: str) -> str:
 
     return "".join(result)
 
+
 def remove_empty_lines(source):
     """Remove all empty lines from Java source code."""
     return re.sub(r"^\s*$\n", "", source, flags=re.MULTILINE)
+
 
 def stream_jsonl(filename: str):
     """
@@ -118,6 +125,7 @@ def stream_jsonl(filename: str):
             for line in fp:
                 if any(not x.isspace() for x in line):
                     yield json.loads(line)
+
 
 def manual_analysis(input_file: str, output_file: str):
     """
@@ -166,13 +174,31 @@ def manual_analysis(input_file: str, output_file: str):
                     continue
 
                 # Print ground truth and plausible patch side-by-side in the terminal
-                ground_truth = compute_diff(remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())), remove_empty_lines(remove_java_comments(fixed_functions[bug["identifier"]].strip())))
-                plausible_patch = compute_diff(remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())), remove_empty_lines(remove_java_comments(evaluation["generation"].strip())))
+                ground_truth = compute_diff(
+                    remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
+                    remove_empty_lines(
+                        remove_java_comments(fixed_functions[bug["identifier"]].strip())
+                    ),
+                )
+                plausible_patch = compute_diff(
+                    remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
+                    remove_empty_lines(
+                        remove_java_comments(evaluation["generation"].strip())
+                    ),
+                )
 
                 print("Ground truth:")
-                print(highlight(ground_truth, get_lexer_by_name("diff"), TerminalFormatter()))
+                print(
+                    highlight(
+                        ground_truth, get_lexer_by_name("diff"), TerminalFormatter()
+                    )
+                )
                 print("Plausible patch:")
-                print(highlight(plausible_patch, get_lexer_by_name("diff"), TerminalFormatter()))
+                print(
+                    highlight(
+                        plausible_patch, get_lexer_by_name("diff"), TerminalFormatter()
+                    )
+                )
 
                 # Ask the user for the result
                 print("0 -> different, 1 -> equivalent")
@@ -183,11 +209,12 @@ def manual_analysis(input_file: str, output_file: str):
                     evaluation["semantical_match"] = False
 
                 # Clear the terminal
-                os.system('cls' if os.name == 'nt' else 'clear')
+                os.system("cls" if os.name == "nt" else "clear")
         finally:
             # Write the bug to the output file
             with open(output_file, "a+") as f:
                 f.write(json.dumps(bug) + "\n")
+
 
 if __name__ == "__main__":
     fire.Fire(manual_analysis)
