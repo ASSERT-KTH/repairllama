@@ -50,7 +50,7 @@ LORA_TARGET_MODULES = [
 
 @dataclass
 class ModelArguments:
-    model_name_or_path: Optional[str] = field(default="elinas/llama-7b-hf-transformers-4.29")
+    model_name_or_path: Optional[str] = field(default="TheBloke/CodeLlama-7B-fp16")
 
 
 @dataclass
