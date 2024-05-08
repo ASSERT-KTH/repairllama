@@ -38,7 +38,12 @@ def merge_analysis(andre_file: str, sen_file: str, output_file: str):
     for andre_bug, sen_bug in tqdm.tqdm(zip(andre_bugs, sen_bugs)):
         bug = copy.deepcopy(andre_bug)
         # Skip if the bug has any AST or exact matched patch
-        if "AST match" in bug["test_results"] or "Line match" in bug["test_results"]:
+        if (
+            "AST match" in bug["test_results"]
+            or "AST Match" in bug["test_results"]
+            or "Line match" in bug["test_results"]
+            or "Line Match" in bug["test_results"]
+        ):
             bugs.append(bug)
             continue
 
