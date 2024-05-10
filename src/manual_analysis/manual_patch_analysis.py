@@ -147,6 +147,8 @@ def manual_analysis(input_file: str, output_file: str):
             if (
                 "AST match" in bug["test_results"]
                 or "Line match" in bug["test_results"]
+                or "AST Match" in bug["test_results"]
+                or "Line Match" in bug["test_results"]
             ):
                 continue
 
