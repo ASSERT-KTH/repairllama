@@ -10,6 +10,7 @@ To run the scripts, you should:
 
 ```bash
 # Setup environment
+cd ./src/manual_analysis_martin/
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -17,7 +18,7 @@ pip install -r requirements.txt
 # Example for analysing IR1xOR1 results
 # The first argument is that file to analyse
 # The second argument is the path to the output file (typically the same name but replace merged with martin)
-python manual_patch_analysis.py defects4j/RepairLLaMA_defects4j_f2f_bugs_results_ir1_or1_merged.jsonl defects4j/RepairLLaMA_defects4j_f2f_bugs_results_ir1_or1_martin.jsonl
+python manual_patch_analysis_martin.py defects4j/RepairLLaMA_defects4j_f2f_bugs_results_ir1_or1_merged.jsonl defects4j/RepairLLaMA_defects4j_f2f_bugs_results_ir1_or1_martin.jsonl
 
 # Example for analysing files starting with evaluation_XXX
 python manual_patch_analysis_baseline.py defects4j/evaluation_defects4j_zero-shot-cloze_model-best-llr_merged.jsonl defects4j/evaluation_defects4j_zero-shot-cloze_model-best-llr_martin.jsonl
