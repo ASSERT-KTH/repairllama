@@ -18,8 +18,8 @@ from tqdm import tqdm
 
 @dataclass
 class ModelArguments:
-    base_model_path: Optional[str] = field(default="elinas/llama-7b-hf-transformers-4.29")
-    lora_path: Optional[str] = field(default="elinas/llama-7b-hf-transformers-4.29")
+    base_model_path: Optional[str] = field(default="TheBloke/CodeLlama-7B-fp16")
+    lora_path: Optional[str] = field(default="../repairllama-lora")
     max_length: int = field(default=512, metadata={"help": "Maximum length of the input sequence."})
 
 
