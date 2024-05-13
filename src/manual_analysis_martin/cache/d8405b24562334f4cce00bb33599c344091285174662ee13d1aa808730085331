@@ -1,0 +1,1 @@
+{"bug_id": "MAX_ELEMENT", "patch": "public static int max_element(List<Integer> l) {\n    int m = Integer.MIN_VALUE;\n    for (Integer e : l) {\n        if (e > m){\n            m = e;\n        }\n    }\n    return m;\n}", "result": 1}
