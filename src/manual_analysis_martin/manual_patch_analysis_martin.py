@@ -117,10 +117,11 @@ def manual_analysis(input_file: str):
     - input_file: str: The path to the input file containing the bugs.
     - output_file: str: The path to the output file to write the results.
     """
-    # Load fixed functions
-    
+    # Compute output file and clean it
     output_file = "results/" + os.path.basename(input_file.replace(".jsonl", "_martin.jsonl"))
-    
+    if os.path.exists(output_file):
+        os.remove(output_file)
+
     fixed_functions = {}
     with open("defects4j-fixed_code.jsonl") as f:
         # one bug per line
@@ -139,42 +140,43 @@ def manual_analysis(input_file: str):
         for line in f.readlines():
             bug = json.loads(line)
             bugs.append(bug)
+
     total_to_analyze = 0
     # Perform manual analysis
     for bug in tqdm.tqdm(bugs, "Number of bugs processed: "):
         try:
-            if "bug_id" not in bug:
-                with open("problems.log","a") as f: f.write("a bug has no bug_id in "+input_file+"\n")
+            # Sanity check
+            if "identifier" not in bug:
+                with open("problems.log","a") as f: f.write("a bug has no identifier in "+input_file+"\n")
                 continue
-            if "test_results" not in bug:
-                with open("problems.log","a") as f: f.write(bug["bug_id"]+" has no test_results\n")
-                continue
-            # Skip if the bug does not have any plausible patch
-            if "Disagree" not in bug["test_results"]:
-                continue
-            # Skip if the bug has any AST or exact matched patch
-            if (
-                "AST match" in bug["test_results"]
-                or "Line match" in bug["test_results"]
-                or "AST Match" in bug["test_results"]
-                or "Line Match" in bug["test_results"]
-                or "Semantical match" in bug["test_results"]
-            ):
+            if "evaluation" not in bug:
+                with open("problems.log","a") as f: f.write(bug["identifier"]+" has no evaluation\n")
                 continue
 
-            for i, patch in enumerate(bug["patches"]):
-                print(bug["bug_id"], bug["test_results"][i])
+            # Skip bugs not evaluated
+            if bug["evaluation"] == None:
+                continue
 
+            # Skip bugs that are already semantical matches
+            if any(x["exact_match"] or x["ast_match"] or ("semantical_match" in x and x["semantical_match"] == True) for x in bug["evaluation"]):
+                continue
+
+            # Skip bugs that do not have plausible patches
+            if not any(x["test"] for x in bug["evaluation"]):
+                continue
+
+            for evaluation in bug["evaluation"]:
                 # Skip if the patch is not plausible
-                if bug["test_results"][i] != "Disagree":
-                    
+                if not evaluation["test"]:
                     continue
                 
-                total_to_analyze += 1
-                # continue
-
-                cachename = "cache/" + hashlib.sha256(patch.encode()).hexdigest()
+                # Skip if semantical match is not disagree
+                if evaluation["semantical_match"] != "Disagree":
+                    continue
                 
+                patch = evaluation["generation"]
+                cachename = "cache/" + hashlib.sha256(patch.encode()).hexdigest()
+             
                 result = 0
                 # If we have already analyzed this patch, we load the result
                 if os.path.exists(cachename):
@@ -182,11 +184,16 @@ def manual_analysis(input_file: str):
                         result = int(json.loads(f.read())["result"])
                 # Otherwise we ask the user
                 else:
+                    total_to_analyze += 1
+                    # continue
+
+                    print("\033[1mYou are looking at:", bug["identifier"], "\033[0m")
+
                     # Print ground truth and plausible patch side-by-side in the terminal
                     ground_truth = compute_diff(
                         remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
                         remove_empty_lines(
-                            remove_java_comments(fixed_functions[bug["bug_id"]].strip())
+                            remove_java_comments(fixed_functions[bug["identifier"]].strip())
                         ),
                     )
                     plausible_patch = compute_diff(
@@ -213,12 +220,11 @@ def manual_analysis(input_file: str):
 
                     # We store the result in the cache
                     with open(cachename,"w") as f:
-                        f.write(json.dumps({"bug_id":bug["bug_id"],"patch":patch,"result":result}))
-
+                        f.write(json.dumps({"identifier":bug["identifier"],"patch":patch,"result":result}))
                 # Update the bug with the result
                 # Skip remainder of the patches if the user found a semantical match
                 if result == 1:
-                    bug["test_results"][i] = "Semantical match"
+                    evaluation["semantical_match"] = True
                     break
 
                 # Clear the terminal
@@ -232,6 +238,6 @@ def manual_analysis(input_file: str):
     print("total_to_analyze",total_to_analyze)
 
 if __name__ == "__main__":
-    for i in glob.glob("defects4j/*")+glob.glob("humanevaljava/*"):
+    for i in glob.glob("defects4j/*.jsonl")+glob.glob("humanevaljava/*.jsonl"):
         manual_analysis(i)
     # fire.Fire(manual_analysis)
