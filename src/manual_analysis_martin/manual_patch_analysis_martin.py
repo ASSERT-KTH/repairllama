@@ -30,18 +30,7 @@ def compute_diff(
     # we want to ignore whitespace changes with -w which does not exist in difflib.unified_diff
     # with git diff, we even the name of the changed function in the diff, which helps a lot
     cmd = ["git","diff","--patience","-U10", "-w","/tmp/buggy.java","/tmp/fixed_code.java"]
-    # print(" ".join(cmd))
-    # print(dir(subprocess.run(cmd)))
     return subprocess.run(cmd, capture_output=True).stdout
-    # return "".join(
-    #     list(
-    #         difflib.unified_diff(
-    #             buggy_code.splitlines(keepends=True),
-    #             fixed_code.splitlines(keepends=True),
-    #             n=context_len,
-    #         )
-    #     )
-    # )
 
 
 def remove_java_comments(source: str) -> str:
@@ -130,7 +119,7 @@ def manual_analysis(input_file: str):
     """
     # Load fixed functions
     
-    output_file = "martin/"+os.path.basename(input_file.replace(".jsonl", "_martin.jsonl"))
+    output_file = "results/" + os.path.basename(input_file.replace(".jsonl", "_martin.jsonl"))
     
     fixed_functions = {}
     with open("defects4j-fixed_code.jsonl") as f:
@@ -184,47 +173,53 @@ def manual_analysis(input_file: str):
                 total_to_analyze += 1
                 # continue
 
-                cachename = "martin/"+hashlib.sha256(patch.encode()).hexdigest()
-                if os.path.exists(cachename):
-                    continue
+                cachename = "cache/" + hashlib.sha256(patch.encode()).hexdigest()
                 
-
-                # Print ground truth and plausible patch side-by-side in the terminal
-                ground_truth = compute_diff(
-                    remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
-                    remove_empty_lines(
-                        remove_java_comments(fixed_functions[bug["bug_id"]].strip())
-                    ),
-                )
-                plausible_patch = compute_diff(
-                    remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
-                    remove_empty_lines(remove_java_comments(patch.strip())),
-                )
-
-                print("Ground truth:")
-                print(
-                    highlight(
-                        ground_truth, get_lexer_by_name("diff"), TerminalFormatter()
+                result = 0
+                # If we have already analyzed this patch, we load the result
+                if os.path.exists(cachename):
+                    with open(cachename) as f:
+                        result = int(json.loads(f.read())["result"])
+                # Otherwise we ask the user
+                else:
+                    # Print ground truth and plausible patch side-by-side in the terminal
+                    ground_truth = compute_diff(
+                        remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
+                        remove_empty_lines(
+                            remove_java_comments(fixed_functions[bug["bug_id"]].strip())
+                        ),
                     )
-                )
-                print("Plausible patch:")
-                print(
-                    highlight(
-                        plausible_patch, get_lexer_by_name("diff"), TerminalFormatter()
+                    plausible_patch = compute_diff(
+                        remove_empty_lines(remove_java_comments(bug["buggy_code"].strip())),
+                        remove_empty_lines(remove_java_comments(patch.strip())),
                     )
-                )
 
-                # Ask the user for the result
-                print("0 -> different, 1 -> equivalent")
-                result = int(input("Option: "))
-                # If we find a semantic match we break the loop
-                with open(cachename,"w") as f:
-                    f.write(json.dumps({"bug_id":bug["bug_id"],"patch":patch,"result":result}))
+                    print("Ground truth:")
+                    print(
+                        highlight(
+                            ground_truth, get_lexer_by_name("diff"), TerminalFormatter()
+                        )
+                    )
+                    print("Plausible patch:")
+                    print(
+                        highlight(
+                            plausible_patch, get_lexer_by_name("diff"), TerminalFormatter()
+                        )
+                    )
+
+                    # Ask the user for the result
+                    print("0 -> different, 1 -> equivalent")
+                    result = int(input("Option: "))
+
+                    # We store the result in the cache
+                    with open(cachename,"w") as f:
+                        f.write(json.dumps({"bug_id":bug["bug_id"],"patch":patch,"result":result}))
+
+                # Update the bug with the result
+                # Skip remainder of the patches if the user found a semantical match
                 if result == 1:
                     bug["test_results"][i] = "Semantical match"
                     break
-
-                
 
                 # Clear the terminal
                 os.system("cls" if os.name == "nt" else "clear")
@@ -232,9 +227,9 @@ def manual_analysis(input_file: str):
             # Write the bug to the output file
             with open(output_file, "a+") as f:
                 f.write(json.dumps(bug) + "\n")
+
     # python manual_patch_analysis_martin.py  | grep total_to_analyze | awk '{ total += $2 } END { print total }' 
     print("total_to_analyze",total_to_analyze)
-
 
 if __name__ == "__main__":
     for i in glob.glob("defects4j/*")+glob.glob("humanevaljava/*"):
