@@ -1,3 +1,0 @@
-    public long adjustOffset(long instant, boolean earlierOrLater) {
-<FILL_ME>
-    }

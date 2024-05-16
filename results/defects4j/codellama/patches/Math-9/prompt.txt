@@ -1,4 +1,0 @@
-    public Line revert() {
-<FILL_ME>
-        return reverted;
-    }

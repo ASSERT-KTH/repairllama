@@ -1,5 +1,0 @@
-    protected BasePeriod(long duration) {
-// buggy code
-//        this(duration, null, null);
-<FILL_ME>
-    }

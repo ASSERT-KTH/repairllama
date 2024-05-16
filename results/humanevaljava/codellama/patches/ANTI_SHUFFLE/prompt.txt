@@ -1,7 +1,0 @@
-    public static String anti_shuffle(String s) {
-        String result = "";
-        for (String str : s.split(" ")) {
-            char[] chars = str.toCharArray();
-            Arrays.sort(chars);
-<FILL_ME>
-    }

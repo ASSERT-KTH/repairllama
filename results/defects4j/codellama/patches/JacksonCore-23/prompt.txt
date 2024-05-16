@@ -1,4 +1,0 @@
-    public DefaultPrettyPrinter createInstance() {
-<FILL_ME>
-        return new DefaultPrettyPrinter(this);
-    }

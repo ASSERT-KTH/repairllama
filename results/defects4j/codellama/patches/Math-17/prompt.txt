@@ -1,3 +1,0 @@
-    public Dfp multiply(final int x) {
-<FILL_ME>
-    }

@@ -1,5 +1,0 @@
-    public double percentageValue() {
-// buggy code
-//        return multiply(100).doubleValue();
-<FILL_ME>
-    }

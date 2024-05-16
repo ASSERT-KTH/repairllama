@@ -1,4 +1,0 @@
-<FILL_ME>
-        calculateHashCode(keys);
-        return this;
-    }

@@ -1,5 +1,0 @@
-    public boolean hasAttr(String attributeKey) {
-        Validate.notNull(attributeKey);
-<FILL_ME>
-        return attributes.hasKey(attributeKey);
-    }

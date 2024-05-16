@@ -1,7 +1,0 @@
-    public JSType caseObjectType(ObjectType type) {
-      if (value.equals("function")) {
-        JSType ctorType = getNativeType(U2U_CONSTRUCTOR_TYPE);
-<FILL_ME>
-      }
-      return matchesExpectation("object") ? type : null;
-    }

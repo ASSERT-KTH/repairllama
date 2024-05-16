@@ -1,7 +1,0 @@
-    public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException
-    {
-// buggy code
-//            p.skipChildren();
-<FILL_ME>
-        return null;
-    }

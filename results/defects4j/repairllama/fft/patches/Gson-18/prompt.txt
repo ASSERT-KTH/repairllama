@@ -1,7 +1,0 @@
-  static Type getSupertype(Type context, Class<?> contextRawType, Class<?> supertype) {
-// buggy code
-<FILL_ME>
-    checkArgument(supertype.isAssignableFrom(contextRawType));
-    return resolve(context, contextRawType,
-        $Gson$Types.getGenericSupertype(context, contextRawType, supertype));
-  }

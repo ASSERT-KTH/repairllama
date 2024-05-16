@@ -1,3 +1,0 @@
-    public Base64() {
-<FILL_ME>
-    }

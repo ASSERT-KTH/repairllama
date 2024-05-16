@@ -1,4 +1,0 @@
-    public Object clone() throws CloneNotSupportedException {
-<FILL_ME>
-        return clone;
-    }

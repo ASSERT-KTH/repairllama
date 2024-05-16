@@ -1,5 +1,0 @@
-  public final boolean isEmptyType() {
-// buggy code
-//    return isNoType() || isNoObjectType() || isNoResolvedType();
-<FILL_ME>
-  }

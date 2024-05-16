@@ -1,8 +1,0 @@
-    public void serialize(Object value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
-        String str;
-<FILL_ME>
-        } else {
-            str = value.toString();
-        }
-        jgen.writeFieldName(str);
-    }

@@ -1,9 +1,0 @@
-    private char getMappingCode(final String str, final int index) {
-        final char mappedChar = this.map(str.charAt(index));
-        if (index > 1 && mappedChar != '0') {
-<FILL_ME>
-                }
-            }
-        }
-        return mappedChar;
-    }

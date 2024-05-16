@@ -1,9 +1,0 @@
---- 
-+++ 
-@@ -1,5 +1,5 @@
-     public void println() throws IOException {
-         final String recordSeparator = format.getRecordSeparator();
--            out.append(recordSeparator);
-+       out.write(recordSeparator.getBytes());
-         newRecord = true;
-     }

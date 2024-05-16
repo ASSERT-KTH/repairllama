@@ -1,9 +1,0 @@
---- 
-+++ 
-@@ -1,3 +1,5 @@
-     public double getNumericalMean() {
--        return (double) (getSampleSize() * getNumberOfSuccesses()) / (double) getPopulationSize();
-+// buggy code
-+//        return (double) (getSampleSize() * getNumberOfSuccesses()) / (double) getPopulationSize();
-+
-     }

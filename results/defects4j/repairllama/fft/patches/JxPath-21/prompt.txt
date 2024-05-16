@@ -1,5 +1,0 @@
-    public int getLength() {
-// buggy code
-//        return ValueUtils.getLength(getBaseValue());
-<FILL_ME>
-    }

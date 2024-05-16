@@ -1,4 +1,0 @@
-        public double[] repairAndDecode(final double[] x) {
-<FILL_ME>
-                decode(x);
-        }

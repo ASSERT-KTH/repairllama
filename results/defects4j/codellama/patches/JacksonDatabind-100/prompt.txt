@@ -1,9 +1,0 @@
-    public byte[] getBinaryValue(Base64Variant b64variant)
-        throws IOException, JsonParseException
-    {
-        JsonNode n = currentNode();
-        if (n != null) {
-<FILL_ME>
-        }
-        return null;
-    }

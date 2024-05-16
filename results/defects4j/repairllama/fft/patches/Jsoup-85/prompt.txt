@@ -1,9 +1,0 @@
-    public Attribute(String key, String val, Attributes parent) {
-        Validate.notNull(key);
-// buggy code
-//        this.key = key.trim();
-//        Validate.notEmpty(key); 
-<FILL_ME>
-        this.val = val;
-        this.parent = parent;
-    }

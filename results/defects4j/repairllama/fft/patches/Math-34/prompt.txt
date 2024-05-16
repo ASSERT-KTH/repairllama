@@ -1,5 +1,0 @@
-    public Iterator<Chromosome> iterator() {
-// buggy code
-//        return chromosomes.iterator();
-<FILL_ME>
-    }

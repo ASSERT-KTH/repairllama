@@ -1,3 +1,0 @@
-  private boolean isOneExactlyFunctionOrDo(Node n) {
-<FILL_ME>
-  }

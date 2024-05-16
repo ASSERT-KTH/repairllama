@@ -1,5 +1,0 @@
-    public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException
-    {
-<FILL_ME>
-        return null;
-    }

@@ -1,3 +1,0 @@
-    public void addValue(Object v) {
-<FILL_ME>
-    }

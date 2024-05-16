@@ -1,3 +1,0 @@
-    public double cumulativeProbability(double x) throws MathException {
-<FILL_ME>
-    }

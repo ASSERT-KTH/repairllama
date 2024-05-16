@@ -1,9 +1,0 @@
---- 
-+++ 
-@@ -1,5 +1,5 @@
-     public Element clone() {
-         Element clone = (Element) super.clone();
--        clone.classNames();
-+       clone.parent = null;
-         return clone;
-     }

@@ -1,7 +1,0 @@
-    public ValueMarker(double value, Paint paint, Stroke stroke, 
-                       Paint outlinePaint, Stroke outlineStroke, float alpha) {
-// buggy code
-//        super(paint, stroke, paint, stroke, alpha);
-<FILL_ME>
-        this.value = value;
-    }

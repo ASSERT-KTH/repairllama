@@ -1,7 +1,0 @@
-    public static int largest_divisor(int n) {
-<FILL_ME>
-            if (n % i == 0)
-                return i;
-        }
-        return 1;
-    }

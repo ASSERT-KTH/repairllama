@@ -1,3 +1,0 @@
-    public static int sum_to_n(int n) {
-<FILL_ME>
-    }

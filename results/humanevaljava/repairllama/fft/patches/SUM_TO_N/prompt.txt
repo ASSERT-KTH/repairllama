@@ -1,5 +1,0 @@
-    public static int sum_to_n(int n) {
-// buggy code
-//        return (n + 1) * (n / 2);
-<FILL_ME>
-    }

@@ -1,3 +1,0 @@
-    public Iterator<Chromosome> iterator() {
-<FILL_ME>
-    }

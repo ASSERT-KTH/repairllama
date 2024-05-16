@@ -1,9 +1,0 @@
-    public static ArrayList<Tuple> get_row(ArrayList<ArrayList<Integer>> lst, int x) {
-        ArrayList<Tuple> result = new ArrayList<Tuple>();
-        for (int i = 0; i < lst.size(); i += 1) {
-<FILL_ME>
-                }
-            }
-        }
-        return result;
-    }

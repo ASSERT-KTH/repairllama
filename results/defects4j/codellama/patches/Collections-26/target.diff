@@ -1,8 +1,0 @@
---- 
-+++ 
-@@ -1,4 +1,4 @@
--    private Object readResolve() {
-+    protected Object readResolve() {
-         calculateHashCode(keys);
-         return this;
-     }

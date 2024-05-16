@@ -1,5 +1,0 @@
-    public Base64() {
-// buggy code
-//        this(false);
-<FILL_ME>
-    }

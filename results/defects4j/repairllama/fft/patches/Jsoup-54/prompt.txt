@@ -1,8 +1,0 @@
-        private void copyAttributes(org.jsoup.nodes.Node source, Element el) {
-            for (Attribute attribute : source.attributes()) {
-                String key = attribute.getKey().replaceAll("[^-a-zA-Z0-9_:.]", "");
-// buggy code
-<FILL_ME>
-                    el.setAttribute(key, attribute.getValue());
-            }
-        }

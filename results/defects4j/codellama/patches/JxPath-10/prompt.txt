@@ -1,4 +1,0 @@
-    public final Object computeValue(EvalContext context) {
-<FILL_ME>
-                ? Boolean.TRUE : Boolean.FALSE;
-    }

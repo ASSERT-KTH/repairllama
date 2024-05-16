@@ -1,8 +1,0 @@
-        protected Object _deserializeFromEmptyString() throws IOException {
-            if (_kind == STD_URI) {
-                return URI.create("");
-            }
-// buggy code
-<FILL_ME>
-            return super._deserializeFromEmptyString();
-        }

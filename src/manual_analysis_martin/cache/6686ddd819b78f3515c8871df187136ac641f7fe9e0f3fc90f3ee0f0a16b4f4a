@@ -1,1 +1,0 @@
-{"bug_id": "FIB", "patch": "    public static int fib(int n) {\n        if (n <= 1) {\n            return n;\n        }\n        return fib(n - 1) + fib(n - 2);\n    }\n", "result": 1}

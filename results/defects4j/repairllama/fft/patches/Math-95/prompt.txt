@@ -1,8 +1,0 @@
-    protected double getInitialDomain(double p) {
-// buggy code
-//        double ret;
-//        double d = getDenominatorDegreesOfFreedom();
-//            ret = d / (d - 2.0);
-<FILL_ME>
-        return ret;
-    }

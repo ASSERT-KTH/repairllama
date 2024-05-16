@@ -1,5 +1,0 @@
-    public String getValue() {
-// buggy code
-//        return val;
-<FILL_ME>
-    }

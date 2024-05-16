@@ -1,5 +1,0 @@
-    public static int[] eat(int number, int need, int remaining) {
-// buggy code
-//        return new int[] {number + need,  remaining - need};
-<FILL_ME>
-    }

@@ -1,5 +1,0 @@
-    protected void setName(String name) {
-// buggy code
-<FILL_ME>
-        this.name = name;
-    }

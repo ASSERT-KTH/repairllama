@@ -1,7 +1,0 @@
-  static boolean mayBeString(Node n, boolean recurse) {
-    if (recurse) {
-<FILL_ME>
-    } else {
-      return mayBeStringHelper(n);
-    }
-  }

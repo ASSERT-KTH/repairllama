@@ -1,3 +1,0 @@
-    public static double truncate_number(double number) {
-<FILL_ME>
-    }

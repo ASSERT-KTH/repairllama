@@ -1,7 +1,0 @@
-    public char[] expandCurrentSegment()
-    {
-        final char[] curr = _currentSegment;
-        final int len = curr.length;
-<FILL_ME>
-        return (_currentSegment = Arrays.copyOf(curr, newLen));
-    }

@@ -1,5 +1,0 @@
-// buggy code
-//    static float toJavaVersionInt(String version) {
-<FILL_ME>
-        return toVersionInt(toJavaVersionIntArray(version, JAVA_VERSION_TRIM_SIZE));
-    }

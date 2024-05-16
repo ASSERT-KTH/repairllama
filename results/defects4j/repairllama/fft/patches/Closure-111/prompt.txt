@@ -1,5 +1,0 @@
-        protected JSType caseTopType(JSType topType) {
-// buggy code
-//          return topType;
-<FILL_ME>
-        }

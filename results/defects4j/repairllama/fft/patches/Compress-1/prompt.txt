@@ -1,8 +1,0 @@
-    public void close() throws IOException {
-        if (!this.closed) {
-// buggy code
-<FILL_ME>
-            super.close();
-            this.closed = true;
-        }
-    }

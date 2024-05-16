@@ -1,5 +1,0 @@
-    public double getNumericalMean() {
-// buggy code
-//        return (double) (getSampleSize() * getNumberOfSuccesses()) / (double) getPopulationSize();
-<FILL_ME>
-    }

@@ -1,5 +1,0 @@
-    public TokenBuffer deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException
-    {
-<FILL_ME>
-        return this;
-    }

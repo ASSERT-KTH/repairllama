@@ -1,9 +1,0 @@
-    public static boolean is_simple_power(int x, int n) {
-// buggy code
-<FILL_ME>
-        int power = 1;
-        while (power < x) {
-            power *= n;
-        }
-        return power == x;
-    }

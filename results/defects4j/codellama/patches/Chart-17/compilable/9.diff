@@ -1,9 +1,0 @@
---- 
-+++ 
-@@ -1,4 +1,5 @@
-     public Object clone() throws CloneNotSupportedException {
--        Object clone = createCopy(0, getItemCount() - 1);
-+       Object clone;
-+        clone = super.clone();
-         return clone;
-     }

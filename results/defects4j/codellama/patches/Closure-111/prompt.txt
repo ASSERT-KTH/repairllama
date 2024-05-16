@@ -1,3 +1,0 @@
-        protected JSType caseTopType(JSType topType) {
-<FILL_ME>
-        }

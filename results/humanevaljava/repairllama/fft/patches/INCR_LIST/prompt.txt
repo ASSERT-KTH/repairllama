@@ -1,9 +1,0 @@
-    public static List<Integer> incr_list(List<Integer> l) {
-        List<Integer> result = new ArrayList<Integer>();
-        for (Integer n : l) {
-// buggy code
-//            result.add(n - 1);
-<FILL_ME>
-        }
-        return result;
-    }

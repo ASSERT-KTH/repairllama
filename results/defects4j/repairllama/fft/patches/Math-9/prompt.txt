@@ -1,6 +1,0 @@
-    public Line revert() {
-// buggy code
-//        final Line reverted = new Line(zero, zero.subtract(direction));
-<FILL_ME>
-        return reverted;
-    }

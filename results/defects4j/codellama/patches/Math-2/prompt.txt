@@ -1,3 +1,0 @@
-    public double getNumericalMean() {
-<FILL_ME>
-    }

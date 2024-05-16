@@ -1,8 +1,0 @@
---- 
-+++ 
-@@ -1,4 +1,4 @@
-     public String generateToolTipFragment(String toolTipText) {
--        return " title=\"" + toolTipText
-+        return " title=\"" + ImageMapUtilities.htmlEscape(toolTipText) 
-             + "\" alt=\"\"";
-     }

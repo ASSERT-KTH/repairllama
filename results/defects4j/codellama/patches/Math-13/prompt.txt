@@ -1,3 +1,0 @@
-    private RealMatrix squareRoot(RealMatrix m) {
-<FILL_ME>
-    }

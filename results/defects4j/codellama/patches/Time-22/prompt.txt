@@ -1,3 +1,0 @@
-    protected BasePeriod(long duration) {
-<FILL_ME>
-    }

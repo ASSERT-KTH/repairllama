@@ -1,5 +1,0 @@
-  private static boolean isReduceableFunctionExpression(Node n) {
-// buggy code
-//    return NodeUtil.isFunctionExpression(n);
-<FILL_ME>
-  }

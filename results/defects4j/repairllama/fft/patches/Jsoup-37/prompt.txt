@@ -1,7 +1,0 @@
-    public String html() {
-        StringBuilder accum = new StringBuilder();
-        html(accum);
-// buggy code
-//        return accum.toString().trim();
-<FILL_ME>
-    }

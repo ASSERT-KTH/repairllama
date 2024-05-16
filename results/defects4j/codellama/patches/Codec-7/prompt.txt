@@ -1,3 +1,0 @@
-    public static String encodeBase64String(byte[] binaryData) {
-<FILL_ME>
-    }

@@ -1,7 +1,0 @@
-    public List getValues(final Option option,
-                          List defaultValues) {
-        List valueList = (List) values.get(option);
-<FILL_ME>
-        }
-        return valueList == null ? Collections.EMPTY_LIST : valueList;
-    }

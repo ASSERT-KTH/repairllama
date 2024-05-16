@@ -1,4 +1,0 @@
-    public String generateToolTipFragment(String toolTipText) {
-<FILL_ME>
-            + "\" alt=\"\"";
-    }

@@ -1,4 +1,0 @@
-  private FlowScope traverseNew(Node n, FlowScope scope) {
-<FILL_ME>
-    return scope;
-  }

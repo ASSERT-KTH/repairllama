@@ -1,8 +1,0 @@
---- 
-+++ 
-@@ -1,4 +1,4 @@
-     public Line revert() {
--        final Line reverted = new Line(zero, zero.subtract(direction));
-+       Line reverted = new Line(end, start);
-         return reverted;
-     }

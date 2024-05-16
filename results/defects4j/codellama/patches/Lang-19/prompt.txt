@@ -1,6 +1,0 @@
-    public int translate(CharSequence input, int index, Writer out) throws IOException {
-        int seqEnd = input.length();
-<FILL_ME>
-        }
-        return 0;
-    }

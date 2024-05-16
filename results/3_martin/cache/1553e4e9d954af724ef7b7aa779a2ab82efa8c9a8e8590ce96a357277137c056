@@ -1,0 +1,1 @@
+{"bug_id": "Math-59", "patch": "    public static float max(final float a, final float b) {\n        if (Float.isNaN(a) || Float.isNaN(b)) {\n            return Float.NaN;\n        } else if (a <= b) {\n            return b;\n        } else {\n            return a;\n        }\n    }", "result": 0}

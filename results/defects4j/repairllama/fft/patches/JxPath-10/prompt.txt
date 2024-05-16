@@ -1,6 +1,0 @@
-    public final Object computeValue(EvalContext context) {
-// buggy code
-//        return compute(args[0].computeValue(context), args[1].computeValue(context))
-<FILL_ME>
-                ? Boolean.TRUE : Boolean.FALSE;
-    }

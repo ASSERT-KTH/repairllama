@@ -1,5 +1,0 @@
-    public static int starts_one_ends(int n) {
-        if (n == 1)
-            return 1;
-<FILL_ME>
-    }

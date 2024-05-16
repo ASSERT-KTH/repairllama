@@ -1,9 +1,0 @@
-    public static int solution(ArrayList<Integer> lst) {
-        int result = 0;
-        for(int i = 0; i < lst.size(); i++) {
-<FILL_ME>
-                result += lst.get(i);
-            }
-        }
-        return result;
-    }

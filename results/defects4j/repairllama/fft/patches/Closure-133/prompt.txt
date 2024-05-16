@@ -1,6 +1,0 @@
-  private String getRemainingJSDocLine() {
-    String result = stream.getRemainingJSDocLine();
-// buggy code
-<FILL_ME>
-    return result;
-  }

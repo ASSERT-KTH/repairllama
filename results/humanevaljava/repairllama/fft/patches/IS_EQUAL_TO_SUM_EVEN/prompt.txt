@@ -1,5 +1,0 @@
-    public static boolean is_equal_to_sum_even(int n) {
-// buggy code
-//        return ((n * 2 == 1) ^ (n < 8));
-<FILL_ME>
-    }

@@ -1,9 +1,0 @@
-  static boolean mayBeString(Node n, boolean recurse) {
-    if (recurse) {
-// buggy code
-//      return allResultsMatch(n, MAY_BE_STRING_PREDICATE);
-<FILL_ME>
-    } else {
-      return mayBeStringHelper(n);
-    }
-  }

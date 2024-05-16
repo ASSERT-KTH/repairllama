@@ -1,4 +1,0 @@
-    public void writeEmbeddedObject(Object object) throws IOException {
-<FILL_ME>
-                this);
-    }

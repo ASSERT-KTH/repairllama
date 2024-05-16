@@ -1,3 +1,0 @@
-    public double getPct(Object v) {
-<FILL_ME>
-    }

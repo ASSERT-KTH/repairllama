@@ -1,1 +1,0 @@
-{"bug_id": "IS_EQUAL_TO_SUM_EVEN", "patch": "public static boolean is_equal_to_sum_even(int n) {\n// corrected code\n    return ((n % 2 == 0) ^ (n < 8));\n}", "result": 0}

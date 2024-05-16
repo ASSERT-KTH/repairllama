@@ -1,8 +1,0 @@
-    private static void handleRawtext(Token.StartTag startTag, HtmlTreeBuilder tb) {
-// buggy code
-//        tb.insert(startTag);
-//        tb.tokeniser.transition(TokeniserState.Rawtext);
-//        tb.markInsertionMode();
-//        tb.transition(Text);
-<FILL_ME>
-    }

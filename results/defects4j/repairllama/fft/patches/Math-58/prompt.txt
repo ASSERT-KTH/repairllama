@@ -1,6 +1,0 @@
-    public double[] fit() {
-        final double[] guess = (new ParameterGuesser(getObservations())).guess();
-// buggy code
-//        return fit(new Gaussian.Parametric(), guess);
-<FILL_ME>
-    }

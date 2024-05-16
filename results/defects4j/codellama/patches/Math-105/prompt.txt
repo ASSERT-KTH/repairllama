@@ -1,3 +1,0 @@
-    public double getSumSquaredErrors() {
-<FILL_ME>
-    }

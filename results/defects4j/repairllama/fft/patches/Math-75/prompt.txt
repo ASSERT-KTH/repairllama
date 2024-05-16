@@ -1,5 +1,0 @@
-    public double getPct(Object v) {
-// buggy code
-//        return getCumPct((Comparable<?>) v);
-<FILL_ME>
-    }

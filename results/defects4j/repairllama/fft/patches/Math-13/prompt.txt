@@ -1,6 +1,0 @@
-    private RealMatrix squareRoot(RealMatrix m) {
-// buggy code
-//            final EigenDecomposition dec = new EigenDecomposition(m);
-//            return dec.getSquareRoot();
-<FILL_ME>
-    }

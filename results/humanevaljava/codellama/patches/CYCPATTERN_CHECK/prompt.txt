@@ -1,8 +1,0 @@
-    public static boolean cycpattern_check(String a, String b) {
-        int l = b.length();
-<FILL_ME>
-                if (a.substring(i, i + l).equals(pat.substring(j, j + l))) return true;
-            }
-        }
-        return false;
-    }

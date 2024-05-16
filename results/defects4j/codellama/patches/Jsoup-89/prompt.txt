@@ -1,9 +1,0 @@
-    public String setValue(String val) {
-<FILL_ME>
-            int i = parent.indexOfKey(this.key);
-            if (i != Attributes.NotFound)
-                parent.vals[i] = val;
-        }
-        this.val = val;
-        return Attributes.checkNotNull(oldVal);
-    }

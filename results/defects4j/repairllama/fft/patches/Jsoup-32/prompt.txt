@@ -1,7 +1,0 @@
-    public Element clone() {
-        Element clone = (Element) super.clone();
-// buggy code
-//        clone.classNames();
-<FILL_ME>
-        return clone;
-    }

@@ -1,3 +1,0 @@
-    public int getLength() {
-<FILL_ME>
-    }

@@ -1,5 +1,0 @@
-    public Element clone() {
-        Element clone = (Element) super.clone();
-<FILL_ME>
-        return clone;
-    }

@@ -1,6 +1,0 @@
-    public static double distance(int[] p1, int[] p2) {
-<FILL_ME>
-          sum += dp * dp;
-      }
-      return Math.sqrt(sum);
-    }

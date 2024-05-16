@@ -1,5 +1,0 @@
-    public static String encodeBase64String(byte[] binaryData) {
-// buggy code
-//        return StringUtils.newStringUtf8(encodeBase64(binaryData, true));
-<FILL_ME>
-    }
