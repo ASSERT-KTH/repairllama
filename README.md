@@ -33,3 +33,13 @@ To get the 30k..50k datasets we did further filtering based on the token length 
 If it interests you, you can also find these on our HuggingFace org:
   - Megadiff (original dataset, in HF format): [https://huggingface.co/datasets/ASSERT-KTH/megadiff](https://huggingface.co/datasets/ASSERT-KTH/megadiff)
   - Megadiff Single-Function (single-function diffs only, with buggy and fixed functions extracted from it): [https://huggingface.co/datasets/ASSERT-KTH/megadiff-single-function](https://huggingface.co/datasets/ASSERT-KTH/megadiff-single-function)
+
+## Benchmarks
+
+The evaluation benchmarks are [Defects4J v2](https://github.com/rjust/defects4j) and [HumanEval-Java](https://github.com/ASSERT-KTH/human-eval-java).
+
+We focus on single-function bugs (i.e. bugs whose developer patch exclusively changes one function):
+  - Defects4J contains 488 single-function bugs: [defects4j_sf.txt](results/benchmarks/defects4j_sf.txt)
+  - HumanEval-Java contains 162 single-function bugs: [humaneval_java.txt](results/benchmarks/humanevaljava_sf.txt)
+
+Note that the original HumanEval-Java contains a [duplicate bug](https://github.com/lin-tan/clm/issues/2).
