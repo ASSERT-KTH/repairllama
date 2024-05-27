@@ -1,0 +1,1 @@
+{"identifier": "DECODE_SHIFT", "patch": "    public static String decode_shift(String string) {\n        StringBuilder sb = new StringBuilder();\n        for (char c : string.toCharArray()) {\n           c = (char)((((int) c - 5 - (int)('a')) + 26) % 26 + (int)('a'));\n            sb.append(c);\n        }\n        return sb.toString();\n    }\n", "result": true}

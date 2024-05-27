@@ -1,0 +1,1 @@
+{"identifier": "Math-91", "patch": "    public int compareTo(Fraction object) {\n       int nOd = numerator * object.denominator;\n        int dOn = object.numerator * denominator;\n\n        return (nOd < dOn) ? -1 : ((nOd > dOn) ? +1 : 0);\n    }\n", "result": false}

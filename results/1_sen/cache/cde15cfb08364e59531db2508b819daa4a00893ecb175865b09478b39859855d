@@ -1,0 +1,1 @@
+{"identifier": "SOLVE", "patch": "    public static String solve(int N) {\n        int sum = 0;\n        for (int i = 0; i < (N + \"\").length(); i += 1){\n           sum += Character.getNumericValue((N + \"\").charAt(i));\n        }\n        return Integer.toBinaryString(sum);\n    }\n", "result": true}

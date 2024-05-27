@@ -1,0 +1,1 @@
+{"identifier": "MAX_ELEMENT", "patch": "    public static int max_element(List<Integer> l) {\n        int m = 0;\n        for (Integer e : l) {\n            if (e > m || m == 0){\n                m = e;\n            }\n        }\n        return m;\n    }\n", "result": false}

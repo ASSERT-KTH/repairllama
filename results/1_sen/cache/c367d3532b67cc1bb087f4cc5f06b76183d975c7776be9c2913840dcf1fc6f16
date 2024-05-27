@@ -1,0 +1,1 @@
+{"identifier": "CHOOSE_NUM", "patch": "    public static int choose_num(int x, int y) {\n// buggy code\n//        if(x < y) return -1;\n       if(y < x) return -1;\n\n        if((y % 2) == 0) return y;\n        if(x == y) return -1;\n        return y - 1;\n    }\n", "result": true}

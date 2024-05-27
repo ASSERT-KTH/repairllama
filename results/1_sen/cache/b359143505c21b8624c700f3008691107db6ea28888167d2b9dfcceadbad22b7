@@ -1,0 +1,1 @@
+{"identifier": "CONCATENATE", "patch": "   public static String concatenate(String[] strings) {\n        StringBuilder result = new StringBuilder();\n        for (String string : strings)\n            result.append(string);\n        return result.toString();\n    }\n", "result": true}

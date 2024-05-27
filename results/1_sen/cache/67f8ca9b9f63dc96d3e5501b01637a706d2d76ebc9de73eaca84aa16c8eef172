@@ -1,0 +1,1 @@
+{"identifier": "X_OR_Y", "patch": "public static int x_or_y(int n, int x, int y) {\n    if (n == 1) return y;\n    for (int i = 2; i <= Math.sqrt(n); i += 1) {\n        if (n % i == 0) return y;\n    }\n    return x;\n}", "result": true}

@@ -1,0 +1,1 @@
+{"identifier": "Math-53", "patch": "    public Complex add(Complex rhs)\n        throws NullArgumentException {\n        MathUtils.checkNotNull(rhs);\n       if (rhs.isNaN()) {\n            return NaN;\n        }\n        return createComplex(real + rhs.getReal(),\n            imaginary + rhs.getImaginary());\n    }\n", "result": false}

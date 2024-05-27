@@ -1,0 +1,1 @@
+{"identifier": "CONCATENATE", "patch": "    public static String concatenate(String[] strings) {\n       if (strings == null)\n            return null;\n        String result = \"\";\n        for (String string : strings)\n            result += string;\n        return result;\n    }\n", "result": false}

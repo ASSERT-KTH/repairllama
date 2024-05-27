@@ -1,0 +1,1 @@
+{"identifier": "Math-105", "patch": "   public double getSumSquaredErrors() {\n        return Math.abs(sumYY - sumXY * sumXY / sumXX);\n    }\n", "result": false}
