@@ -1,0 +1,1 @@
+{"identifier": "Jsoup-51", "patch": "    boolean matchesLetter() {\n        if (isEmpty())\n            return false;\n        char c = input[pos];\n       return Character.isLetter(c);\n    }\n", "result": 1}

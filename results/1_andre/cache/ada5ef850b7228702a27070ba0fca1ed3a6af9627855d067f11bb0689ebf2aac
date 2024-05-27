@@ -1,0 +1,1 @@
+{"identifier": "Compress-38", "patch": "    public boolean isDirectory() {\n        if (file != null) {\n            return file.isDirectory();\n        }\n        return linkFlag == LF_DIR;\n    }\n", "result": false}

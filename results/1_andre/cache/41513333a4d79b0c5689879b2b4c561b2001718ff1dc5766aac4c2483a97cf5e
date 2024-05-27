@@ -1,0 +1,1 @@
+{"identifier": "Math-70", "patch": "    public double solve(final UnivariateRealFunction f, double min, double max, double initial)\n        throws MaxIterationsExceededException, FunctionEvaluationException {\n       return new BrentSolver().solve(f, min, max, initial);\n    }\n", "result": false}

@@ -1,0 +1,1 @@
+{"identifier": "SUM_TO_N", "patch": "public static int sum_to_n(int n) {\n    if (n % 2 == 0) {\n        return (n + 1) * (n / 2);\n    } else {\n        return (n + 1) * (n / 2) + (n / 2) + 1;\n    }\n}", "result": true}

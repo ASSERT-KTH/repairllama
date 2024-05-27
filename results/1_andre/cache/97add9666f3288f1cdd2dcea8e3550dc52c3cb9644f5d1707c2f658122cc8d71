@@ -1,0 +1,1 @@
+{"identifier": "Cli-37", "patch": "    private boolean isShortOption(String token)\n    {\n// buggy code\n//        return token.startsWith(\"-\") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2));\n       return token.startsWith(\"-\") && options.hasShortOption(token.substring(1));\n    }\n", "result": 0}

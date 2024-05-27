@@ -1,0 +1,1 @@
+{"identifier": "Math-27", "patch": "    public double percentageValue() {\n// buggy code\n//        return multiply(100).doubleValue();\n       return 100.0 * doubleValue();\n    }\n", "result": 1}

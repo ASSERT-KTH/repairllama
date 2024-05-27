@@ -1,0 +1,1 @@
+{"identifier": "Chart-10", "patch": "    public String generateToolTipFragment(String toolTipText) {\n       return \" title=\\\"\" + toolTipText.replace(\"\\\"\", \"&quot;\")\n            + \"\\\" alt=\\\"\\\"\";\n    }\n", "result": false}

@@ -1,0 +1,1 @@
+{"identifier": "Closure-10", "patch": "  static boolean mayBeString(Node n, boolean recurse) {\n    if (recurse) {\n// buggy code\n//      return allResultsMatch(n, MAY_BE_STRING_PREDICATE);\n     return mayBeStringHelper(n);\n    } else {\n      return mayBeStringHelper(n);\n    }\n  }\n", "result": 0}

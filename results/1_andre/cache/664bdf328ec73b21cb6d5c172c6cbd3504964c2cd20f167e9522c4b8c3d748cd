@@ -1,0 +1,1 @@
+{"identifier": "JacksonDatabind-57", "patch": "    public <T> MappingIterator<T> readValues(byte[] src, int offset, int length)\n        throws IOException, JsonProcessingException\n    {\n        return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src, offset, length), true));\n    }\n", "result": false}

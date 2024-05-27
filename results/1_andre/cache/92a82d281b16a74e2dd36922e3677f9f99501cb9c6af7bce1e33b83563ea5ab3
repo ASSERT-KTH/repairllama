@@ -1,0 +1,1 @@
+{"identifier": "JacksonDatabind-39", "patch": "public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException\n{\n    // corrected code\n    JsonNode node = p.readValueAsTree();\n    return null;\n}", "result": false}
