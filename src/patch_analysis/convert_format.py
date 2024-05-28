@@ -1,6 +1,7 @@
 import json
 import fire
 import re
+import gzip
 
 def convert_files(*input_files):
     """
@@ -49,12 +50,20 @@ def convert_format(input_file):
             bug = json.loads(line)
             fixed_functions[bug["identifier"]] = bug["fixed_code"]
 
+    # Get buggy code
+    buggy_functions = {}
+    with open("/home/andre/Repos/repairllama/results/0_original/evaluation_defects4j_zero-shot-cloze_repairllama-fft.jsonl.gz", "rb") as gzfp:
+        with gzip.open(gzfp, "rt") as fp:
+            for line in fp:
+                if any(not x.isspace() for x in line):
+                    buggy_functions[json.loads(line)["identifier"]] = json.loads(line)["buggy_code"]
 
     # Sort according to the bug id
     bugs = sorted(bugs, key=lambda x: x["bug_id"])
 
     # Step 1. Replace "bug_id" key with "identifier"
     for bug in bugs:
+        bug["buggy_code"] = buggy_functions[bug["bug_id"]]
         bug["identifier"] = bug.pop("bug_id")
 
     # Step 2. Keep "buggy_code" add "fixed_code"
@@ -77,40 +86,39 @@ def convert_format(input_file):
         test_results = bug.pop("test_results")
         for i, patch in enumerate(bug["generation"]):
             bug["evaluation"][i]["generation"] = patch
-            
             bug["evaluation"][i]["exact_match"] = False
             bug["evaluation"][i]["ast_match"] = False
             bug["evaluation"][i]["semantical_match"] = False
             bug["evaluation"][i]["compile"] = False
             bug["evaluation"][i]["test"] = False
 
-            if test_results[i] in ["Line Match", "Line match", "Match"]:
+            if test_results[i].strip().lower() in ["Line Match", "Line match", "Match", "line match", "match"]:
                 bug["evaluation"][i]["exact_match"] = True
                 bug["evaluation"][i]["ast_match"] = True
                 bug["evaluation"][i]["semantical_match"] = True
                 bug["evaluation"][i]["compile"] = True
                 bug["evaluation"][i]["test"] = True
-            elif test_results[i] in ["AST Match", "AST match"]:
+            elif test_results[i].strip().lower() in ["AST Match", "AST match", "ast match"]:
                 bug["evaluation"][i]["ast_match"] = True
                 bug["evaluation"][i]["semantical_match"] = True
                 bug["evaluation"][i]["compile"] = True
                 bug["evaluation"][i]["test"] = True
-            elif test_results[i] in ["Semantical Match", "Semantical match"]:
+            elif test_results[i].strip().lower() in ["Semantical Match", "Semantical match", "semantical match"]:
                 bug["evaluation"][i]["semantical_match"] = True
                 bug["evaluation"][i]["compile"] = True
                 bug["evaluation"][i]["test"] = True
-            elif test_results[i] in ["Disagree"]:
+            elif test_results[i].strip().lower() in ["Disagree", "disagree"]:
                 bug["evaluation"][i]["semantical_match"] = "Disagree"
                 bug["evaluation"][i]["compile"] = True
                 bug["evaluation"][i]["test"] = True
-            elif test_results[i] in ["Plausible", "plausible"]:
+            elif test_results[i].strip().lower() in ["Plausible", "plausible"]:
                 bug["evaluation"][i]["semantical_match"] = False
                 bug["evaluation"][i]["compile"] = True
                 bug["evaluation"][i]["test"] = True
-            elif test_results[i] in ["Test Fail", "Test fail"]:
+            elif test_results[i].strip().lower() in ["Test Fail", "Test fail", "test fail"]:
                 bug["evaluation"][i]["test"] = False
                 bug["evaluation"][i]["compile"] = True
-            elif test_results[i] in ["Compile Fail", "Compile fail"]:
+            elif test_results[i].strip().lower() in ["Compile Fail", "Compile fail", "compile fail"]:
                 bug["evaluation"][i]["compile"] = False
             else:
                 print("Unknown test result:", test_results[i])

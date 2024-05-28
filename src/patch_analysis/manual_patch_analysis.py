@@ -255,10 +255,9 @@ def manual_analysis(user: str):
 
     for input_file in Path(f"{script_dir}/../../results/0_original").glob("*.jsonl.gz"):
         output_file = Path(results_path, input_file.name.replace(".jsonl.gz", f"_{user}.jsonl"))
+        print(input_file)
+        print(output_file)
         manual_analysis_file(input_file, output_file, cache_path)
-
-    if os.path.exists(output_file):
-        os.remove(output_file)
 
 if __name__ == "__main__":
     fire.Fire(manual_analysis)
