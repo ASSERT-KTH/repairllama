@@ -2,9 +2,13 @@ import json
 import tqdm
 import fire
 import copy
+import os
 
+from pathlib import Path
 
-def merge_analysis(andre_file: str, sen_file: str, output_file: str):
+script_dir = os.path.dirname(__file__)
+
+def merge_analysis_file(andre_file: str, sen_file: str, output_file: str):
     # Read all bugs from André's file
     andre_bugs = []
     with open(andre_file) as f:
@@ -60,6 +64,16 @@ def merge_analysis(andre_file: str, sen_file: str, output_file: str):
         with open(output_file, "a+") as f:
             f.write(json.dumps(bug) + "\n")
 
+
+def merge_analysis():
+    andre_results_path = f"{script_dir}/../../results/1_andre"
+    sen_results_path = f"{script_dir}/../../results/1_sen"
+    results_path = f"{script_dir}/../../results/2_merged"
+
+    for input_file in Path(andre_results_path).glob("*.jsonl"):
+        sen_input_file = Path(sen_results_path, input_file.name.replace("_andre.jsonl", "_sen.jsonl"))
+        output_file = Path(results_path, input_file.name.replace("_andre.jsonl", f"_merged.jsonl"))
+        merge_analysis_file(input_file, sen_input_file, output_file)
 
 if __name__ == "__main__":
     fire.Fire(merge_analysis)
