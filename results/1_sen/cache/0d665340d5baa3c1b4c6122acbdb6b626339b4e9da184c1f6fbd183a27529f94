@@ -1,0 +1,1 @@
+{"identifier": "Collections-26", "patch": "// buggy code\n//    private Object readResolve() {\n//        calculateHashCode(keys);\n//        return this;\n//    }\n\npublic Object readResolve() {\n        calculateHashCode(keys);\n        return this;\n    }\n", "result": 0}
