@@ -12,7 +12,9 @@ from typing import Optional, List
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
+from pathlib import Path
 
+script_dir = os.path.dirname(__file__)
 
 def compute_diff(
     buggy_code: str, fixed_code: str, context_len: Optional[int] = None
@@ -109,26 +111,27 @@ def remove_empty_lines(source):
     return re.sub(r"^\s*$\n", "", source, flags=re.MULTILINE)
 
 
-def manual_analysis(input_file: str):
+def manual_analysis_file(input_file: str, output_file: str, cache_path: str):
     """
     Perform manual analysis on the bugs in the input file and write the results to the output file.
 
     Args:
     - input_file: str: The path to the input file containing the bugs.
     - output_file: str: The path to the output file to write the results.
+    - cache_path: str: The patch to the cache.
     """
     # Compute output file and clean it
-    output_file = "results/" + os.path.basename(input_file.replace("_merged.jsonl", "_martin.jsonl"))
     if os.path.exists(output_file):
         os.remove(output_file)
 
+    # Load fixed functions
     fixed_functions = {}
-    with open("defects4j-fixed_code.jsonl") as f:
+    with open(f"{script_dir}/defects4j-fixed_code.jsonl") as f:
         # one bug per line
         for line in f.readlines():
             bug = json.loads(line)
             fixed_functions[bug["identifier"]] = bug["fixed_code"]
-    with open("humanevaljava-fixed_code.jsonl") as f:
+    with open(f"{script_dir}/humanevaljava-fixed_code.jsonl") as f:
         # one bug per line
         for line in f.readlines():
             bug = json.loads(line)
@@ -175,18 +178,17 @@ def manual_analysis(input_file: str):
                     continue
                 
                 patch = evaluation["generation"]
-                cachename = "cache/" + hashlib.sha256(patch.encode()).hexdigest()
+                cachename = Path(cache_path, hashlib.sha256(patch.encode()).hexdigest())
              
                 result = 0
                 # If we have already analyzed this patch, we load the result
                 if os.path.exists(cachename):
                     with open(cachename) as f:
                         result = int(json.loads(f.read())["result"])
-                        total_to_analyze += 1
+                        # total_to_analyze += 1
                 # Otherwise we ask the user
                 else:
                     total_to_analyze += 1
-                    # continue
 
                     print("\033[1mYou are looking at:", bug["identifier"], "\033[0m")
 
@@ -217,7 +219,9 @@ def manual_analysis(input_file: str):
 
                     # Ask the user for the result
                     print("0 -> different, 1 -> equivalent")
-                    result = int(input("Option: "))
+                    while result != "0" and result != "1":
+                        result = input("Option: ")
+                    result = int(result)
 
                     # We store the result in the cache
                     with open(cachename,"w") as f:
@@ -236,13 +240,19 @@ def manual_analysis(input_file: str):
             # Write the bug to the output file
             with open(output_file, "a+") as f:
                 f.write(json.dumps(bug) + "\n")
-
-    # python manual_patch_analysis_martin.py  | grep total_to_analyze | awk '{ total += $2 } END { print total }' 
+    
     return total_to_analyze
 
-if __name__ == "__main__":
-    total_to_analyze = 0
-    for i in glob.glob("defects4j/*.jsonl")+glob.glob("humanevaljava/*.jsonl"):
-        total_to_analyze += manual_analysis(i)
+def manual_analysis():
+    results_path = f"{script_dir}/../../results/3_martin"
+    cache_path = f"{script_dir}/../../results/3_martin/cache"
+
+    for input_file in Path(f"{script_dir}/../../results/2_merged").glob("*.jsonl"):
+        output_file = Path(results_path, input_file.name.replace("_merged.jsonl", f"_martin.jsonl"))
+        total_to_analyze = manual_analysis_file(input_file, output_file, cache_path)
+
     print(total_to_analyze)
-    # fire.Fire(manual_analysis)
+
+
+if __name__ == "__main__":
+    fire.Fire(manual_analysis)
