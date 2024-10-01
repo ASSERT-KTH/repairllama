@@ -22,7 +22,13 @@ It is structured as follows:
 
 ## Models
 
-All fine-tuned models will soon be made available on HuggingFace
+All fine-tuned models will soon be made available on HuggingFace, here are specific links:
+
+- IR1xOR1: [https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR1](https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR1)
+- IR1xOR3: [https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR3](https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR3)
+- IR1xOR3: [https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR4](https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR1-OR4)
+- IR2xOR2: [https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR2-OR2](https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR2-OR2)
+- IR3xOR2: [https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR3-OR2](https://huggingface.co/ASSERT-KTH/RepairLLaMA-IR3-OR2)
 
 ## Datasets
 
