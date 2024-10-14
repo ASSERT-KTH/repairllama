@@ -76,10 +76,7 @@ def generate_input_repr_data(meta_data, input_representation):
 
         else:
             raise ValueError("Invalid input representation!")
-        # print(diff)
-        # print(input_data)
-        # if idx == 4:
-        #     breakpoint()
+
         inputs_data[sample['diff']] = input_data
 
     return inputs_data
@@ -110,10 +107,6 @@ def generate_output_repr_data(meta_data, input_representation, output_representa
         else:
             buggy_lines = norm_buggy_function.splitlines(keepends=True)
             fixed_lines = norm_fixed_function.splitlines(keepends=True)
-
-        # if idx == 216:
-        #     print(buggy_function)
-        #     breakpoint()
 
         if output_representation == "fl":
             
@@ -154,13 +147,6 @@ def generate_output_repr_data(meta_data, input_representation, output_representa
 
         else:
             raise ValueError("Invalid output representation!")
-
-        # print(_)
-        # print("------------------")
-        # print(output_data)
-        # print("-------New one--------")
-        # if idx == 9:
-        #     breakpoint()
         
         outputs_data[sample['diff']] = output_data
 
@@ -168,10 +154,6 @@ def generate_output_repr_data(meta_data, input_representation, output_representa
 
 
 def build_dataset_for_ior(meta_data, input_representation, output_representation, output_path):
-    
-    # Extract buggy function and fixed function and label
-    # data_list = [(sample['diff'], sample['buggy_function'], sample['fixed_function']) for sample in meta_data.iloc]
-    # print(len(data_list))
     
     input_data = generate_input_repr_data(meta_data, input_representation)
     output_data = generate_output_repr_data(meta_data, input_representation, output_representation)
@@ -226,22 +208,22 @@ def main():
     parser.add_argument("--output_path", '-o', type=str, required=True, help="Path to the output.")
     parser.add_argument("--input_representation", '-ir', type=str, required=True, choices=['pbf', 'pbfwfl', 'pbfwc', 'pbfwln', 'pbfwcp', 'pbfwcpblc', 'pbfwcpblcc'],
                         help="""
-                                Pure buggy function: pbf,
-                                Pure buggy function with fault location information: pbfwfl,
+                                Pure buggy function: pbf/IR1,
+                                Pure buggy function with fault location information: pbfwfl/IR2,
                                 Pure buggy function with comments: pbfwc,
                                 Pure buggy function with line number: pbfwln,
-                                Pure buggy function with cloze prompt: pbfwcp,
-                                Pure buggy function with cloze prompt and buggy lines comments: pbfwcpblc,
+                                Pure buggy function with cloze prompt: pbfwcp/IR3,
+                                Pure buggy function with cloze prompt and buggy lines comments: pbfwcpblc/IR4,
                                 Pure buggy function with cloze prompt and buggy lines comments and comments: pbfwcpblcc,
                             """
     )
     parser.add_argument("--output_representation", '-or', type=str, required=True, choices=['fl', 'ldw/oc', 'ldwolc', 'ldwtlc', 'ff'],
                         help="""
-                                Fixed lines: fl,
+                                Fixed lines: fl/OR2,
                                 Line diff without context: ldw/oc,
-                                Line diff with one line context: ldwolc,
-                                Line diff with three line context: ldwtlc,
-                                Full function: ff,
+                                Line diff with one line context: ldwolc/OR4,
+                                Line diff with three line context: ldwtlc/OR3,
+                                Full function: ff/OR1,
                             """
     )
     

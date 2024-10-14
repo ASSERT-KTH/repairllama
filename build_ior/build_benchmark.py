@@ -16,12 +16,12 @@ def main():
     parser.add_argument("--output_path", '-o', type=str, required=True, help="Path to the output.")
     parser.add_argument("--input_representation", '-ir', type=str, required=True, choices=['pbf', 'pbfwfl', 'pbfwc', 'pbfwln', 'pbfwcp', 'pbfwcpblc'],
                         help="""
-                                Pure buggy function: pbf,
-                                Pure buggy function with fault location information: pbfwfl,
+                                Pure buggy function: pbf/IR1,
+                                Pure buggy function with fault location information: pbfwfl/IR2,
                                 Pure buggy function with comments: pbfwc,
                                 Pure buggy function with line number: pbfwln,
-                                Pure buggy function with cloze prompt: pbfwcp,
-                                Pure buggy function with cloze prompt and buggy lines comments: pbfwcpblc,
+                                Pure buggy function with cloze prompt: pbfwcp/IR3,
+                                Pure buggy function with cloze prompt and buggy lines comments: pbfwcpblc/IR4,
                             """
     )
 
