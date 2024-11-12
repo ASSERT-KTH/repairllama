@@ -1,0 +1,1 @@
+{"identifier": "Math-2", "patch": "public double getNumericalMean() {\n    return ((double) getSampleSize() * getNumberOfSuccesses()) / getPopulationSize();\n}", "result": true}

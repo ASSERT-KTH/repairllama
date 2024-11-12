@@ -1,1 +1,0 @@
-{"identifier": "Mockito-38", "patch": "    private boolean toStringEquals(Matcher m, Object arg) {\n        if (arg == null || m == null)\n            return false;\n        return StringDescription.toString(m).equals(arg.toString());\n    }", "result": true}

@@ -1,1 +1,0 @@
-{"identifier": "ISCUBE", "patch": "public static boolean iscude(int a) {\n    int root = (int) Math.cbrt(a);\n    return (int) Math.pow(root, 3) == a;\n}", "result": false}

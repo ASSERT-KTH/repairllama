@@ -1,0 +1,1 @@
+{"bug_id": "Chart-24", "patch": "    public Paint getPaint(double value) {\n        double v = Math.max(value, this.lowerBound);\n        v = Math.min(v, this.upperBound);\n       int g = (int) Math.floor((v - this.lowerBound) / (this.upperBound\n                - this.lowerBound) * 255.0);\n        return new Color(g, g, g);\n    }\n", "result": 0}

@@ -1,0 +1,1 @@
+{"identifier": "Math-27", "patch": "    public double percentageValue() {\n       return doubleValue() * 100;\n    }\n", "result": true}

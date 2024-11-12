@@ -1,1 +1,0 @@
-{"identifier": "JacksonCore-20", "patch": "public void writeEmbeddedObject(Object object) throws IOException {\n    try {\n        this.writeObject(object);\n    } catch (Exception e) {\n        throw new JsonGenerationException(\"No native support for writing embedded objects\", e, this);\n    }\n}", "result": false}

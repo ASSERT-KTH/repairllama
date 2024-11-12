@@ -1,1 +1,0 @@
-{"identifier": "Lang-14", "patch": "    public static boolean equals(CharSequence cs1, CharSequence cs2) {\n        if (cs1 == cs2) {\n            return true;\n        }\n        if (cs1 == null || cs2 == null) {\n            return false;\n        }\n        return cs1.toString().equals(cs2.toString());\n    }", "result": false}

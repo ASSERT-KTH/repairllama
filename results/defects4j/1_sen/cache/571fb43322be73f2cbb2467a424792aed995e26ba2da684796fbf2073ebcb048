@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-85", "patch": "   public Attribute(String key, String val, Attributes parent) {\n        Validate.notNull(key);\n        this.key = key.trim();\n        Validate.notEmpty(this.key);\n        this.val = val;\n        this.parent = parent;\n    }\n", "result": true}

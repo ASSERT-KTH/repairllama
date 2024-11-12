@@ -1,0 +1,1 @@
+{"identifier": "Lang-29", "patch": "// buggy code\n//    static float toJavaVersionInt(String version) {\n   static int toJavaVersionInt(String version) {\n        if (version == null || version.length() == 0) {\n            return 0;\n        }\n\n        return toVersionInt(toJavaVersionIntArray(version, JAVA_VERSION_TRIM_SIZE));\n    }\n", "result": false}

@@ -1,0 +1,1 @@
+{"identifier": "Collections-26", "patch": "   public Object readResolve() {\n        calculateHashCode(keys);\n        return this;\n    }\n", "result": false}

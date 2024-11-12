@@ -1,0 +1,1 @@
+{"identifier": "Math-79", "patch": "    public static double distance(int[] p1, int[] p2) {\n     double sum = 0;\n      for (int i = 0; i < p1.length; ++i) {\n          double dp = p1[i] - p2[i];\n          sum += dp * dp;\n      }\n      return Math.sqrt(sum);\n    }\n", "result": true}

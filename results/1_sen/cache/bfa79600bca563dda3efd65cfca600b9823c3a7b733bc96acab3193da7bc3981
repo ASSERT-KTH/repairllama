@@ -1,0 +1,1 @@
+{"identifier": "UNIQUE", "patch": "public static List<Integer> unique(List<Integer> l) {\n    List<Integer> result = new ArrayList<Integer>();\n\n    for (Integer n : l){\n        if (!result.contains(n)){\n            result.add(n);\n        }\n    }\n    Collections.sort(result);\n\n    return result;\n}", "result": true}

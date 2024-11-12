@@ -1,1 +1,0 @@
-{"identifier": "TRIANGLE_AREA", "patch": "   public static double triangle_area(double a, double h) {\n        return .5 * a * h;\n    }\n", "result": true}

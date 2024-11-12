@@ -1,1 +1,0 @@
-{"identifier": "CHANGE_BASE", "patch": "    public static String change_base(int x, int base) {\n        String result = \"\";\n\n        while (x > 0) {\n           result = x % base + result;\n            x = x / base;\n        }\n        return result;\n    }\n", "result": true}

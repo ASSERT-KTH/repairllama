@@ -1,0 +1,1 @@
+{"identifier": "Math-63", "patch": "    public static boolean equals(double x, double y) {\n       return equals(x, y, EPSILON);\n    }\n", "result": false}

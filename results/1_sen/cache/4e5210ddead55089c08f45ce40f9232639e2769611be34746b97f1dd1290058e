@@ -1,0 +1,1 @@
+{"identifier": "Codec-7", "patch": "    public static String encodeBase64String(byte[] binaryData) {\n       if (binaryData == null) {\n            return null;\n        }\n        return new String(Base64.encodeBase64(binaryData));\n    }\n", "result": false}

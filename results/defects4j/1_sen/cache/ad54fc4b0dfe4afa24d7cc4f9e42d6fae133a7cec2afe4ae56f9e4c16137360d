@@ -1,1 +1,0 @@
-{"identifier": "EAT", "patch": "public static int[] eat(int number, int need, int remaining) {\n    if (need > remaining) {\n        need = remaining;\n    }\n    return new int[] {number + need,  remaining - need};\n}", "result": true}

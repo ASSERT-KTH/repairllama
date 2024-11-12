@@ -1,1 +1,0 @@
-{"identifier": "Math-95", "patch": "    protected double getInitialDomain(double p) {\n        double ret;\n        double d = getDenominatorDegreesOfFreedom();\n        if (d > 2) {\n            ret = d / (d - 2.0);\n        } else {\n            ret = 0; // or whatever default value you want to assign\n        }\n        return ret;\n    }", "result": false}

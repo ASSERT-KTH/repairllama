@@ -1,1 +1,0 @@
-{"identifier": "Math-63", "patch": "    public static boolean equals(double x, double y) {\n       if (x == y) {\n            return true;\n        }\n        if (Double.isNaN(x) || Double.isNaN(y)) {\n            return false;\n        }\n        return Math.abs(x - y) < EPSILON;\n    }\n", "result": false}

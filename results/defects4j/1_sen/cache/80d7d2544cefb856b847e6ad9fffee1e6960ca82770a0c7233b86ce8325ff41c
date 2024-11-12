@@ -1,1 +1,0 @@
-{"identifier": "Math-34", "patch": "    public Iterator<Chromosome> iterator() {\n// buggy code\n//         return chromosomes.iterator();\n       return Collections.unmodifiableCollection(chromosomes).iterator();\n    }\n", "result": false}

@@ -1,1 +1,0 @@
-{"identifier": "JacksonDatabind-99", "patch": "    protected String buildCanonicalName()\n    {\n        return _class.getName() + '<' + _referencedType.toCanonical() + '>';\n    }\n", "result": true}

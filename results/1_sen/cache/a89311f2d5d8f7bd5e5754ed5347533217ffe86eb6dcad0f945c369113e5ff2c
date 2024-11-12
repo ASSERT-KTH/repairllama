@@ -1,0 +1,1 @@
+{"identifier": "LARGEST_PRIME_FACTOR", "patch": "    public static int largest_prime_factor(int n) {\n        int largest = 1;\n        for (int j = 2; j < n; j += 1) {\n           if (is_prime(j) && (n % j == 0)){\n                largest = j;\n            }\n        }\n        return largest;\n    }\n", "result": true}

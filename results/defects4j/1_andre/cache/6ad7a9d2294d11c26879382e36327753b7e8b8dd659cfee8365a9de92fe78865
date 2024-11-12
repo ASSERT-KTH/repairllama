@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-1", "patch": "    private void normalise(Element element) {\n    }\n", "result": false}

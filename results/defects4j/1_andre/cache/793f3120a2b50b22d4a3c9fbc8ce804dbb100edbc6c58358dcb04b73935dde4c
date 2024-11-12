@@ -1,1 +1,0 @@
-{"identifier": "Math-59", "patch": "public static float max(final float a, final float b) {\n    if (Float.isNaN(a) || Float.isNaN(b)) {\n        return Float.NaN;\n    } else {\n        return Math.max(a, b);\n    }\n}", "result": false}

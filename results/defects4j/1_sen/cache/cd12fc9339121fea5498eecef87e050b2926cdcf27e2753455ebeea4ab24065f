@@ -1,1 +1,0 @@
-{"identifier": "JacksonCore-4", "patch": "    public char[] expandCurrentSegment()\n    {\n        final char[] curr = _currentSegment;\n        final int len = curr.length;\n       final int newLen = len << 1;\n        return (_currentSegment = Arrays.copyOf(curr, newLen));\n    }\n", "result": false}

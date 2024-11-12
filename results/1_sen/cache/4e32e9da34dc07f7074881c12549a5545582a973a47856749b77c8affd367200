@@ -1,0 +1,1 @@
+{"identifier": "Compress-46", "patch": "    private static ZipLong unixTimeToZipLong(long l) {\n       final long TWO_TO_31 = 0x7FFFFFFFL;\n        if (l > TWO_TO_31) {\n            throw new IllegalArgumentException(\"X5455 timestamps must fit in a signed 32 bit integer: \" + l);\n        }\n        return new ZipLong(l);\n    }\n", "result": false}

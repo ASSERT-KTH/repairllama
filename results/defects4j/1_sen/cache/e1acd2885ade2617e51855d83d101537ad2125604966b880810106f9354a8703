@@ -1,1 +1,0 @@
-{"identifier": "JacksonDatabind-46", "patch": "    public StringBuilder getGenericSignature(StringBuilder sb)\n    {\n        _classSignature(_class, sb, false);\n        sb.append('<');\n        sb = _referencedType.getGenericSignature(sb);\n// buggy code\n//        sb.append(';');\n       sb.append('>');\n        sb.append(';');\n\n        return sb;\n    }\n", "result": false}

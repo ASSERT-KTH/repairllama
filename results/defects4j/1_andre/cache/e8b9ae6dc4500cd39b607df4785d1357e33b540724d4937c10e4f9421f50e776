@@ -1,1 +1,0 @@
-{"identifier": "COUNT_UPPER", "patch": "    public static int count_upper(String s) {\n        int count = 0;\n        for (int i = 0; i < s.length(); i += 2) {\n            char c = s.charAt(i);\n           if (c == 'A' || c == 'E' || c == 'i' || c == 'O' || c == 'U')\n                count += 1;\n        }\n        return count;\n    }\n", "result": false}

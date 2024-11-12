@@ -1,1 +1,0 @@
-{"identifier": "Lang-57", "patch": "    public static boolean isAvailableLocale(Locale locale) {\n       return Arrays.asList(Locale.getAvailableLocales()).contains(locale);\n    }\n", "result": true}

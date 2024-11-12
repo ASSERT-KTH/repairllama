@@ -1,1 +1,0 @@
-{"identifier": "Mockito-29", "patch": "    public void describeTo(Description description) {\n        description.appendText(\"same(\");\n        appendQuoting(description);\n        description.appendText(String.valueOf(wanted));\n        appendQuoting(description);\n        description.appendText(\")\");\n    }", "result": true}

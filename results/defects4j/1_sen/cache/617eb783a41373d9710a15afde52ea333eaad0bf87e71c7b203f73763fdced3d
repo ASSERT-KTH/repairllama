@@ -1,1 +1,0 @@
-{"identifier": "Lang-29", "patch": "   public static int toJavaVersionInt(final String version) {\n        return toVersionInt(toJavaVersionIntArray(version, JAVA_VERSION_TRIM_SIZE));\n    }\n", "result": true}

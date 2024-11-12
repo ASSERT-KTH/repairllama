@@ -1,1 +1,0 @@
-{"identifier": "Math-59", "patch": "public static float max(final float a, final float b) {\n    return Math.max(a, b);\n}", "result": true}

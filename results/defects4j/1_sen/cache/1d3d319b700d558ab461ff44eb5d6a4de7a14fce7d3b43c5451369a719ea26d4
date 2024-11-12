@@ -1,1 +1,0 @@
-{"identifier": "GREATEST_COMMON_DIVISOR", "patch": "    public static int greatest_common_divisor(int a, int b){\n        while (b > 0) {\n// buggy code\n//             a = b;\n//             b = a % b;\n           int remainder = a % b;\n            a = b;\n            b = remainder;\n        }\n        return a;\n    }\n", "result": true}

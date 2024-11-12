@@ -1,0 +1,1 @@
+{"identifier": "SUM_TO_N", "patch": "    public static int sum_to_n(int n) {\n       int sum = 0;\n        for (int i = 1; i <= n; i++) {\n            sum = sum + i;\n        }\n        return sum;\n    }\n", "result": true}

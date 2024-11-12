@@ -1,0 +1,1 @@
+{"identifier": "Math-95", "patch": "    protected double getInitialDomain(double p) {\n       double ret;\n        if (p < 0.5) {\n            ret = 0;\n        } else {\n            ret = 1;\n        }\n        return ret;\n    }\n", "result": false}

@@ -1,1 +1,0 @@
-{"identifier": "Closure-128", "patch": "  static boolean isSimpleNumber(String s) {\n    int len = s.length();\n    if(len == 0 || (len > 1 && s.charAt(0) == '0'))\n        return false;\n    for (int index = 0; index < len; index++) {\n      char c = s.charAt(index);\n      if (c < '0' || c > '9') {\n        return false;\n      }\n    }\n    return true;\n  }", "result": false}

@@ -1,1 +1,0 @@
-{"identifier": "SUM_TO_N", "patch": "    public static int sum_to_n(int n) {\n   return (n*(n+1))/2;\n    }\n", "result": true}

@@ -1,1 +1,0 @@
-{"identifier": "JacksonDatabind-12", "patch": "public boolean isCachable() {\n    return !(_valueTypeDeserializer == null) && (_ignorableProperties == null);\n}", "result": false}

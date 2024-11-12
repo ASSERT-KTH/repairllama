@@ -1,1 +1,0 @@
-{"identifier": "SUM_PRODUCT", "patch": "    public static Integer[] sum_product(List<Integer> numbers) {\n        Integer[] result = new Integer[2];\n        result[0] = 0;\n        result[1] = 1;\n        for (Integer n : numbers){\n            result[0] += n;\n            result[1] *= n;\n        }\n        return result;\n    }\n", "result": true}

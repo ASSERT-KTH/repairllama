@@ -1,1 +1,0 @@
-{"identifier": "Math-89", "patch": "    public void addValue(Object v) {\n        if (v instanceof Comparable<?>) {\n            addValue((Comparable<?>) v); \n        } else {\n            throw new IllegalArgumentException(\"Object is not Comparable\");\n        }\n    }", "result": true}

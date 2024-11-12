@@ -1,0 +1,1 @@
+{"identifier": "MATCH_PARENS", "patch": "    public static boolean check(String s) {\n        int val = 0;\n        for(int i = 0; i < s.length(); i++) {\n           val += s.charAt(i) == '(' ? 1 : -1;\n            if(val < 0) return false;\n        }\n        return val == 0;\n    }\n", "result": true}

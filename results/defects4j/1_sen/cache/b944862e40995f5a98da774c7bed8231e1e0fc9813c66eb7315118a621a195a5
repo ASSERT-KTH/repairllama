@@ -1,1 +1,0 @@
-{"identifier": "Math-63", "patch": "    public static boolean equals(double x, double y) {\n// buggy code\n//        return (Double.isNaN(x) && Double.isNaN(y)) || x == y;\n       return x == y;\n\n    }\n", "result": false}

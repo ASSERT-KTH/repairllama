@@ -1,1 +1,0 @@
-{"identifier": "MAX_ELEMENT", "patch": "public static int max_element(List<Integer> l) {\n    if (l == null || l.isEmpty()) {\n        throw new IllegalArgumentException(\"List cannot be null or empty\");\n    }\n\n    int m = l.get(0);\n    for (Integer e : l) {\n        if (e > m){\n            m = e;\n        }\n    }\n    return m;\n}", "result": true}

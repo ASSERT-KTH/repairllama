@@ -1,0 +1,1 @@
+{"identifier": "SUM_TO_N", "patch": "public static int sum_to_n(int n) {\n    return (int)((n + 1) * (1.0 * n / 2));\n}", "result": true}

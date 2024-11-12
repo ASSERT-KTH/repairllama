@@ -1,0 +1,1 @@
+{"identifier": "DIGITS", "patch": "public static int digits(int n) {\n    int product = 1;\n    int odd_count = 0;\n\n    while(n > 0) {\n        int digit = n % 10;\n        if(digit % 2 != 0) {\n            product *= digit;\n            odd_count++;\n        }\n        n /= 10;\n    }\n    if(odd_count == 0) return 0;\n    return product;\n}", "result": true}

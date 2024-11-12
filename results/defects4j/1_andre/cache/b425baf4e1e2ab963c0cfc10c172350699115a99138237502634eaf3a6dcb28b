@@ -1,1 +1,0 @@
-{"identifier": "LARGEST_DIVISOR", "patch": "public static int largest_divisor(int n) {\n    for (int i = n/2; i > 0; i -= 1) {\n        if (n % i == 0)\n            return i;\n    }\n    return 1;\n}", "result": true}

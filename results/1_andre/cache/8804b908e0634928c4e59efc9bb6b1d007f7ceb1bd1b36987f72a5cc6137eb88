@@ -1,0 +1,1 @@
+{"identifier": "ISCUBE", "patch": "    public static boolean iscude(int a) {\n        double root = Math.cbrt(a);\n        BigDecimal bd = BigDecimal.valueOf(root);\n        int round_root = (int) bd.setScale(0, RoundingMode.HALF_UP).doubleValue();\n\n        return ((int) Math.pow(round_root, 3)) == a;\n    }", "result": false}

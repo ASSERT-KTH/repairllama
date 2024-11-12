@@ -1,0 +1,1 @@
+{"identifier": "DIGIT_SUM", "patch": "    public static int digit_sum(String s) {\n        int result = 0;\n        for (char c : s.toCharArray()) {\n           if ('0' <= c && c <= '9')\n                result += c - '0';\n            if ('A' <= c && c <= 'Z')\n                result += (int) c;\n        }\n        return result;\n    }\n", "result": false}

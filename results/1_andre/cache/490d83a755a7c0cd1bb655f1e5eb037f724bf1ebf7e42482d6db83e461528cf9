@@ -1,0 +1,1 @@
+{"identifier": "Compress-38", "patch": "public boolean isDirectory() {\n    if (file != null) {\n        return file.isDirectory();\n    }\n    if (linkFlag == LF_DIR) {\n        return true;\n    }\n    if (file != null && file.getName().endsWith(\"/\")) {\n        return true;\n    }\n    return false;\n}", "result": false}

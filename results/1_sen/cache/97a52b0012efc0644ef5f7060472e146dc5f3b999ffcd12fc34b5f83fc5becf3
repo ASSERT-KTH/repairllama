@@ -1,0 +1,1 @@
+{"identifier": "Closure-7", "patch": "   public JSType caseObjectType(ObjectType type) {\n      if (value.equals(\"function\") && resultEqualsValue) {\n        JSType ctorType = getNativeType(U2U_CONSTRUCTOR_TYPE);\n        return ctorType.isSubtype(type) ? ctorType : null;\n      }\n      return matchesExpectation(\"object\") ? type : null;\n    }\n", "result": false}

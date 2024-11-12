@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-26", "patch": "public Document clean(Document dirtyDocument) {\n    Validate.notNull(dirtyDocument);\n    Document clean = Document.createShell(dirtyDocument.baseUri());\n// fixed code\n// \n    if (dirtyDocument.body() != null) {\n        copySafeNodes(dirtyDocument.body(), clean.body());\n    }\n    return clean;\n}", "result": true}

@@ -1,0 +1,1 @@
+{"identifier": "CYCPATTERN_CHECK", "patch": "public static boolean cycpattern_check(String a, String b) {\n    int l = b.length();\n    String pat = b + b;\n    for (int i = 0; i < a.length() - l + 1; i++) {\n        if (pat.contains(a.substring(i, i + l))) return true;\n    }\n    return false;\n}", "result": true}

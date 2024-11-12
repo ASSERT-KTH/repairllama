@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-88", "patch": "    public String getValue() {\n// buggy code\n//         return val;\n       return val == null ? \"\" : val;\n    }\n", "result": false}

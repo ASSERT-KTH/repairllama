@@ -1,0 +1,1 @@
+{"identifier": "GREATEST_COMMON_DIVISOR", "patch": "public static int greatest_common_divisor(int a, int b){\n    while (b > 0) {\n        int temp = a;\n        a = b;\n        b = temp % b;\n    }\n    return a;\n}", "result": true}

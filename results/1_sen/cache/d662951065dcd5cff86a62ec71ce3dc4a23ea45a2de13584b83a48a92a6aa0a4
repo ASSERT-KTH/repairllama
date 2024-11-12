@@ -1,0 +1,1 @@
+{"identifier": "Lang-57", "patch": "    public static boolean isAvailableLocale(Locale locale) {\n       Locale[] locales = Locale.getAvailableLocales();\n        for (int i = 0; i < locales.length; i++) {\n            if (locales[i].equals(locale)) return true;\n        }\n        return false;\n    }\n", "result": false}

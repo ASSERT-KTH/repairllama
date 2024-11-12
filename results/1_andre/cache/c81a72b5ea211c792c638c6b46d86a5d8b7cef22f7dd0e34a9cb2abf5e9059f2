@@ -1,0 +1,1 @@
+{"identifier": "Csv-4", "patch": "    public Map<String, Integer> getHeaderMap() {\n// buggy code\n//        return new LinkedHashMap<String, Integer>(this.headerMap);\n       return this.headerMap;\n    }\n", "result": 0}

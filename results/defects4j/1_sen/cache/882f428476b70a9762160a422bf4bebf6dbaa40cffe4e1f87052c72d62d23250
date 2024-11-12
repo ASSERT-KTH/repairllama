@@ -1,1 +1,0 @@
-{"identifier": "RIGHT_ANGLE_TRIANGLE", "patch": "    public static boolean right_angle_triangle(int a, int b, int c) {\n       return (a * a + b * b == c * c) || (a * a + c * c == b * b) || (b * b + c * c == a * a);\n    }\n", "result": true}

@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-41", "patch": "   public boolean equals(Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass()) return false;\n        if (!super.equals(o)) return false;\n        return true;\n    }\n", "result": false}

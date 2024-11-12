@@ -1,1 +1,0 @@
-{"identifier": "JacksonCore-8", "patch": "    public char[] getTextBuffer()\n    {\n        if (_inputStart >= 0) return _inputBuffer;\n        if (_resultArray != null)  return _resultArray;\n        if (_resultString != null) {\n            return (_resultArray = _resultString.toCharArray());\n        }\n        return contentsAsArray();\n    }\n", "result": false}

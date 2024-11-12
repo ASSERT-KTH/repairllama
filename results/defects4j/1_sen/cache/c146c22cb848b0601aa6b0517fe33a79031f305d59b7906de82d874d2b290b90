@@ -1,1 +1,0 @@
-{"identifier": "ANTI_SHUFFLE", "patch": "public static String anti_shuffle(String s) {\n    StringBuilder result = new StringBuilder();\n    for (String str : s.split(\" \")) {\n        char[] chars = str.toCharArray();\n        Arrays.sort(chars);\n        result.append(new String(chars)).append(\" \");\n    }\n    return result.toString().trim();\n}", "result": true}

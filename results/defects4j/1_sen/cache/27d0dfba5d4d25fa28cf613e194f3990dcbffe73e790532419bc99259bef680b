@@ -1,1 +1,0 @@
-{"identifier": "Jsoup-51", "patch": "    boolean matchesLetter() {\n        if (isEmpty())\n            return false;\n        char c = input[pos];\n// buggy code\n//         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');\n       return Character.isLetter(c);\n    }\n", "result": true}

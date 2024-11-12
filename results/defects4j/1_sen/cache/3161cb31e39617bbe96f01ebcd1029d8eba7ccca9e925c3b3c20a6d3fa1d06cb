@@ -1,1 +1,0 @@
-{"identifier": "ANY_INT", "patch": "   public static boolean any_int(double x, double y, double z) {\n        if ((int)x == x && (int)y == y) {\n            if (x + y == z || x + z == y || y + z == x)\n                return true;\n        }\n        return false;\n    }\n", "result": false}
