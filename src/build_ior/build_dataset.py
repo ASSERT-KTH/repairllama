@@ -6,9 +6,7 @@ import argparse
 
 from pathlib import Path
 from difflib import unified_diff
-from transformers import AutoTokenizer # We may can deal with length in fine-tuning step
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from generate_input_repr_data import pure_buggy_function_with_fault_location, pure_buggy_function_with_cloze_prompt
+from generate_input_repr_data import pure_buggy_function_with_fault_location, pure_buggy_function_with_cloze_prompt, instruct_prompt
 from generate_output_repr_data import fixed_lines_output, fixed_diff_output, fixed_diff_output_with_line_number
 from tqdm import tqdm
 from utils import remove_java_comments_improved, remove_space_lines, extract_buggy_start_end_line

@@ -36,7 +36,7 @@ def pure_buggy_function_with_cloze_prompt(diff_lines, bug_start_line, bug_end_li
     """
 
     def get_beginning_spaces(s):
-        match = re.match(r'^[\s\t]+', s)
+        match = rhe.match(r'^[\s\t]+', s)
         return match.group(0) if match else None
 
     mask_token = "<FILL_ME>\n"
@@ -73,3 +73,11 @@ def pure_buggy_function_with_cloze_prompt(diff_lines, bug_start_line, bug_end_li
         input_data = diff_lines[3:bug_start_line] + [mask_token] + diff_lines[bug_end_line+1:]
 
     return "".join(input_data)
+
+def instruct_prompt(diff_lines, bug_start_line, bug_end_line):
+    return f"""There’s a bug in the Java program below. Try to fix it and return the complete fix for the code in the form of the markdown code block. Generate the code to replace the <FILL_ME> token.
+
+```java
+{pure_buggy_function_with_cloze_prompt(diff_lines, bug_start_line, bug_end_line, include_buggy_lines=True)}
+```
+"""
