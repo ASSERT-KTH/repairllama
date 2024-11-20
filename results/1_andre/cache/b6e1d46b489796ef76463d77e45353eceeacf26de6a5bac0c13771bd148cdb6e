@@ -1,0 +1,1 @@
+{"identifier": "jhy-jsoup-8e2b86839b27", "patch": "   private boolean isFormatAsBlock(Document.OutputSettings out) {\n        return tag.formatAsBlock() || (parent() != null && parent().tag().formatAsBlock()) || out.outline() || tag.isBlock();\n    }\n", "result": 0}

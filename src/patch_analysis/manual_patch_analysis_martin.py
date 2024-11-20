@@ -136,6 +136,11 @@ def manual_analysis_file(input_file: str, output_file: str, cache_path: str):
         for line in f.readlines():
             bug = json.loads(line)
             fixed_functions[bug["identifier"]] = bug["fixed_code"]
+    with open(f"{script_dir}/gitbugjava-fixed_code.jsonl") as f:
+        # one bug per line
+        for line in f.readlines():
+            bug = json.loads(line)
+            fixed_functions[bug["identifier"]] = bug["fixed_code"]
 
     # Read all bugs from the input_file
     bugs = []
@@ -161,11 +166,11 @@ def manual_analysis_file(input_file: str, output_file: str, cache_path: str):
                 continue
 
             # Skip bugs that are already semantical matches
-            if any(x["exact_match"] or x["ast_match"] or ("semantical_match" in x and x["semantical_match"] == True) for x in bug["evaluation"]):
+            if any(x["exact_match"] or x["ast_match"] or ("semantical_match" in x and x["semantical_match"] == True) for x in bug["evaluation"] if x is not None):
                 continue
 
             # Skip bugs that do not have plausible patches
-            if not any(x["test"] for x in bug["evaluation"]):
+            if not any(x["test"] for x in bug["evaluation"] if x is not None):
                 continue
 
             for evaluation in bug["evaluation"]:

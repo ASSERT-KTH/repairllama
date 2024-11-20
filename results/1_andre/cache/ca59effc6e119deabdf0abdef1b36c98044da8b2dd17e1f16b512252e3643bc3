@@ -1,0 +1,1 @@
+{"identifier": "cloudsimplus-cloudsimplus-61c8b942d1ec", "patch": "    public HostAbstract(final List<Pe> peList, final boolean activate) {\n        this(Long.MAX_VALUE, Long.MAX_VALUE, new HarddriveStorage(Long.MAX_VALUE), peList, activate);\n    }", "result": 0}
