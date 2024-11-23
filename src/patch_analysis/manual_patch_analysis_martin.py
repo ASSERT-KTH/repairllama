@@ -161,6 +161,10 @@ def manual_analysis_file(input_file: str, output_file: str, cache_path: str):
                 with open("problems.log","a") as f: f.write(bug["identifier"]+" has no evaluation\n")
                 continue
 
+            # Skip bugs that are not considered in our subset:
+            if bug["identifier"] not in fixed_functions or fixed_functions[bug["identifier"]] is None:
+                continue
+
             # Skip bugs not evaluated
             if bug["evaluation"] == None:
                 continue

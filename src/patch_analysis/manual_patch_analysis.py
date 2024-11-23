@@ -165,6 +165,10 @@ def manual_analysis_file(input_file: str, output_file: str, cache_path: str):
     # Perform manual analysis
     for bug in tqdm.tqdm(bugs):
         try:
+            # Skip bugs that are not considered in our subset:
+            if bug["identifier"] not in fixed_functions or fixed_functions[bug["identifier"]] is None:
+                continue
+
             # Skip bugs without prompt
             if bug["evaluation"] == None:
                 continue
