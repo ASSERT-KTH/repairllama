@@ -39,7 +39,7 @@ def merge_analysis_file(andre_file: str, sen_file: str, output_file: str):
         bug = copy.deepcopy(andre_bug)
         # Skip if the bug has any AST or exact matched patch
         if bug["evaluation"] is None or any(
-            x["exact_match"] or x["ast_match"] for x in bug["evaluation"]
+            x["exact_match"] or x["ast_match"] for x in bug["evaluation"] if x is not None
         ):
             bugs.append(bug)
             continue
@@ -47,7 +47,7 @@ def merge_analysis_file(andre_file: str, sen_file: str, output_file: str):
         # Merge results
         for i, evaluation in enumerate(bug["evaluation"]):
             # Check that test results are the same
-            if "semantical_match" in evaluation:
+            if evaluation is not None and "semantical_match" in evaluation:
                 if (
                     andre_bug["evaluation"][i]["semantical_match"]
                     != sen_bug["evaluation"][i]["semantical_match"]
