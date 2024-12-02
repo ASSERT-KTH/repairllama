@@ -73,6 +73,7 @@ def merge_analysis():
     for input_file in Path(andre_results_path).glob("*.jsonl"):
         sen_input_file = Path(sen_results_path, input_file.name.replace("_andre.jsonl", "_sen.jsonl"))
         output_file = Path(results_path, input_file.name.replace("_andre.jsonl", f"_merged.jsonl"))
+        os.remove(output_file) if os.path.exists(output_file) else None
         merge_analysis_file(input_file, sen_input_file, output_file)
 
 if __name__ == "__main__":
