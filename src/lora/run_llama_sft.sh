@@ -1,23 +1,3 @@
-accelerate launch llama_sft.py \
-    --model_name_or_path <> \
-    --data_path <> \
-    --train_file <> \
-    --eval_file <> \
-    --is_lora True \
-    --model_max_length 1024 \
-    --cache_path <> \
-    --do_train \
-    --do_eval False \
-    --fp16 True \
-    --output_dir <> \
-    --num_train_epochs 2 \
-    --per_device_train_batch_size 16 \
-    --per_device_eval_batch_size 1 \
-    --gradient_accumulation_steps 1 \
-    --evaluation_strategy "no" \
-    --eval_steps 10 \
-    --save_steps 150 \
-    --learning_rate 5e-4 \
-    --lr_scheduler_type "cosine" \
-    --logging_steps 10 \
-    --ddp_find_unused_parameters False \
+python /path/to/llama_sft.py \
+    --model_name_or_path /path/to/deepseek-coder-6.7b-base \
+    --output_dir /path/to/results/deepseek-6.7b-base-ir4-or2 \
