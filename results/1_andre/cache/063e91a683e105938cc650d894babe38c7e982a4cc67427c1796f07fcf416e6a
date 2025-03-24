@@ -1,0 +1,1 @@
+{"identifier": "MEDIAN", "patch": "    public static double median(int[] list) {\n        Arrays.sort(list);\n        if (list.length % 2 == 1) {\n            return list[(int) (list.length / 2)];\n        } else {\n            return (list[list.length / 2] + list[(list.length / 2) - 1]) / 2.0;\n        }\n    }\n", "result": 1}

@@ -1,0 +1,1 @@
+{"identifier": "jhy-jsoup-111919256590", "patch": "    private boolean isInlineable(Document.OutputSettings out) {\n        if (!tag.isInline())\n            return false;\n        return (parent() == null || parent().isBlock())\n            && !isEffectivelyFirst()\n            && isInlineable(out);\n    }\n", "result": 0}

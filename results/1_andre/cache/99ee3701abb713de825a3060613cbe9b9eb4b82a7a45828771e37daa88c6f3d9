@@ -1,0 +1,1 @@
+{"identifier": "STARTS_ONE_ENDS", "patch": "    public static int starts_one_ends(int n) {\n        if (n == 1)\n            return 1;\n// buggy code\n//        return (int) ((10 + 9) * Math.pow(10, n - 2));\n        return (int) ((9 + 9) * Math.pow(10, n - 2));\n\n    }\n", "result": 1}

@@ -1,0 +1,1 @@
+{"identifier": "REMOVE_VOWELS", "patch": "    public static String remove_vowels(String string) {\n        StringBuilder sb = new StringBuilder();\n        for (char c : string.toCharArray()) {\n            if (\"AEIOUaeiou\".indexOf(c) >= 0)\n                continue;\n            sb.append(c);\n        }\n        return sb.toString();\n    }\n", "result": 1}

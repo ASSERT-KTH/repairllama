@@ -1,0 +1,1 @@
+{"identifier": "DERIVATIVE", "patch": "    public static List<Integer> derivative(List<Integer> xs) {\n        List<Integer> result = new ArrayList<Integer>();\n        for(int i = 1; i < xs.size(); i++) {\n            result.add(xs.get(i) * i);\n        }\n        return result;\n    }\n", "result": 1}

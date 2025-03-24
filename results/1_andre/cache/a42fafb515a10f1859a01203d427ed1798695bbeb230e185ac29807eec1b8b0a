@@ -1,0 +1,1 @@
+{"identifier": "CAN_ARRANGE", "patch": "    public static int can_arrange(int[] arr) {\n        int ind = -1;\n        for (int i = 0; i < arr.length - 1; i++) {\n            if (arr[i] > arr[i + 1]) {\n                ind = i + 1;\n            }\n        }\n        return ind;\n    }\n", "result": 0}

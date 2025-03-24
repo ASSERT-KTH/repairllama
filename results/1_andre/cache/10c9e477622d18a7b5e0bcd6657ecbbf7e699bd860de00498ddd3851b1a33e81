@@ -1,0 +1,1 @@
+{"identifier": "vmzakharov-dataframe-ec-12af99192d24", "patch": "    @Override\n    public String asStringLiteral()\n    {\n        throw new UnsupportedOperationException();\n    }\n", "result": 0}

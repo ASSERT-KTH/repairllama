@@ -1,0 +1,1 @@
+{"identifier": "MAXIMUM_K", "patch": "    public static ArrayList<Integer> maximum_k(ArrayList<Integer> arr, int k) {\n        Collections.sort(arr);\n        ArrayList<Integer> result = new ArrayList<>();\n        for (int i = arr.size()-k; i < arr.size(); i++) {\n            result.add(arr.get(i));\n        }\n        return result;\n    }\n", "result": 1}

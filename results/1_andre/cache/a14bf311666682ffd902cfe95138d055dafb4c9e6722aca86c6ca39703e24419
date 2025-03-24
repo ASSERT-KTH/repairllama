@@ -1,0 +1,1 @@
+{"identifier": "FIB", "patch": "    public static int fib(int n) {\n// buggy code\n        if (n <= 1) return n;\n\n        return fib(n - 1) + fib(n - 2);\n    }\n", "result": 0}

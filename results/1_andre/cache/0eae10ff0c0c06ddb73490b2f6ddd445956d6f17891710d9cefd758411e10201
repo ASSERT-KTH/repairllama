@@ -1,0 +1,1 @@
+{"identifier": "SUM_TO_N", "patch": "    public static int sum_to_n(int n) {\n        if (n <= 0) {\n            return 0;\n        }\n        return n + sum_to_n(n - 1);\n    }\n", "result": 1}
