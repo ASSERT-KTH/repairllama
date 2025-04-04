@@ -1,0 +1,1 @@
+{"identifier": "COMPARE", "patch": "    public static int[] compare(int[] game, int[] guess) {\n        int[] result = new int[game.length];\n        for (int i = 0; i < game.length; i += 1) {\n// buggy code\n//            result[i] = Math.floorDiv(game[i], guess[i]);\n            result[i] = game[i] - guess[i];\n\n        }\n        return result;\n    }\n", "result": 0}

@@ -1,0 +1,1 @@
+{"identifier": "Closure-7", "patch": "    @Override\n    public JSType caseObjectType(ObjectType type) {\n      if (value.equals(\"function\")) {\n        JSType ctorType = getNativeType(U2U_CONSTRUCTOR_TYPE);\n        return matchesExpectation(\"function\") ? ctorType : type;\n      }\n      return matchesExpectation(\"object\") ? type : null;\n    }\n", "result": 0}
